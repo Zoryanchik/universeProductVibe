@@ -1,0 +1,9 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+
+import HomePage from "./HomePage.astro";
+
+const lang = Astro.props.lang || defaultLocale;
+---
+
+<HomePage lang={lang} />

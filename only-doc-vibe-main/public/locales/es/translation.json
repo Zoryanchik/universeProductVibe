@@ -1,0 +1,1017 @@
+{
+  "editor_page": {
+    "seo_title": "Editor de PDF | OnlyDoc",
+    "seo_description": "Edita tu PDF directamente en el navegador",
+    "header": {
+      "untitled_document": "Documento sin título",
+      "print": "Imprimir",
+      "done": "Listo",
+      "edit_file_name": "Editar nombre del archivo",
+      "back_to_site": "Volver al sitio"
+    },
+    "toolbar": {
+      "home": "Inicio",
+      "undo": "Deshacer",
+      "redo": "Rehacer",
+      "hand": "Mano",
+      "signature": "Firma",
+      "watermark": "Marca de agua",
+      "insert": "Insertar",
+      "delete": "Eliminar",
+      "zoom": "Zoom",
+      "material": "Material",
+      "text": "Texto",
+      "image": "Imagen",
+      "tool": "Herramienta",
+      "merge": "Combinar",
+      "split": "Dividir",
+      "export": "Exportar",
+      "load_pdf_hint": "Carga un PDF para habilitar la edición",
+      "text_title": "Título",
+      "text_subtitle": "Subtítulo",
+      "text_body": "Texto del cuerpo",
+      "text_hollow": "Hueco",
+      "insert_above": "Página en blanco arriba",
+      "insert_below": "Página en blanco abajo",
+      "zoom_in": "Acercar",
+      "zoom_out": "Alejar",
+      "fit_to_screen": "Ajustar a pantalla",
+      "zoom_reset": "100%",
+      "tool_qr": "Código QR",
+      "tool_barcode": "Código de barras"
+    },
+    "pages_sidebar": {
+      "title": "Páginas",
+      "rendering_thumbnails": "Generando miniaturas de página...",
+      "select_page_hint": "Selecciona una página para ver o editar.",
+      "page_label": "Página {{page}}",
+      "page_thumbnail_alt": "Miniatura de la página {{page}}",
+      "create_new_page": "Crear nueva página",
+      "delete_page": "Eliminar página",
+      "delete_shortcut": "Eliminar",
+      "enter_shortcut": "Intro",
+      "expand_panel": "Expandir panel de páginas",
+      "collapse_panel": "Contraer panel de páginas",
+      "thumbnails_aria": "Miniaturas de página"
+    },
+    "bottom_bar": {
+      "fit_to_screen": "Ajustar a pantalla",
+      "rotate_page": "Rotar página",
+      "previous_page": "Página anterior",
+      "next_page": "Página siguiente",
+      "zoom_out": "Alejar",
+      "zoom_in": "Acercar",
+      "open_pages": "Páginas",
+      "open_properties": "Propiedades",
+      "close_panel": "Cerrar"
+    },
+    "canvas": {
+      "loading_document": "Cargando documento…",
+      "load_failed": "No se pudo cargar el documento. Inténtalo de nuevo.",
+      "no_document": "No hay documento cargado",
+      "open_pdf": "Abre un PDF para empezar"
+    },
+    "download_modal": {
+      "title": "Descargar documento",
+      "close": "Cerrar",
+      "file_name": "Nombre del archivo",
+      "file_name_placeholder": "documento",
+      "format": "Formato",
+      "pages": "Páginas",
+      "all_pages": "Todas las páginas",
+      "current_page": "Página actual",
+      "image_quality": "Calidad de imagen",
+      "image_resolution": "Resolución de imagen",
+      "ignore_blank_edges": "Ignorar bordes en blanco",
+      "ignore_blank_edges_hint": "Oculta las guías de sangrado y recorta los márgenes del espacio de trabajo",
+      "cancel": "Cancelar",
+      "download": "Descargar",
+      "preparing": "Preparando…"
+    },
+    "merge_modal": {
+      "title": "Combinar PDFs",
+      "close": "Cerrar",
+      "current_document": "Documento actual",
+      "add_files": "Añadir archivos",
+      "merge": "Combinar",
+      "reorder_hint": "Arrastra los archivos para definir el orden de combinación.",
+      "empty": "Haz clic para añadir archivos PDF",
+      "seeding": "Preparando archivos…",
+      "page_count": "{{count}} páginas",
+      "page_count_one": "1 página",
+      "remove_file": "Eliminar",
+      "file_name": "Nombre del archivo de salida",
+      "file_name_placeholder": "merged",
+      "preparing": "Combinando…",
+      "min_files_hint": "Añade al menos 2 PDFs para combinar.",
+      "max_files_hint": "Puedes combinar hasta {{count}} archivos.",
+      "invalid_file": "{{filename}} no es un PDF válido y se omitió.",
+      "merge_failed": "No se pudieron combinar los archivos. Inténtalo de nuevo.",
+      "seed_failed": "No se pudieron preparar los archivos. Inténtalo de nuevo."
+    },
+    "split_modal": {
+      "title": "Dividir PDF",
+      "description": "Descarga una copia del documento que contiene solo el rango de páginas seleccionado.",
+      "close": "Cerrar",
+      "page_count": "El documento tiene {{count}} páginas.",
+      "page_count_one": "El documento tiene 1 página.",
+      "from_page": "Desde la página",
+      "to_page": "Hasta la página",
+      "file_name": "Nombre del archivo de salida",
+      "file_name_placeholder": "split",
+      "cancel": "Cancelar",
+      "split_and_download": "Dividir y descargar",
+      "preparing": "Preparando…",
+      "invalid_range": "El rango de páginas debe estar entre 1 y {{max}}."
+    },
+    "watermark_modal": {
+      "title": "Añadir marca de agua",
+      "preview": "Vista previa",
+      "watermark_content": "Contenido de la marca de agua",
+      "text_placeholder": "Texto",
+      "font_family": "Familia de fuente",
+      "size": "Tamaño",
+      "color": "Color",
+      "opacity": "Opacidad",
+      "rotation_angle": "Ángulo de rotación",
+      "clear": "Borrar",
+      "apply": "Aplicar"
+    },
+    "signature_modal": {
+      "title": "Añadir firma",
+      "type_signature": "Escribir firma",
+      "draw_signature": "Dibujar firma",
+      "signature_placeholder": "Firma",
+      "your_name_placeholder": "Tu nombre",
+      "style": "Estilo",
+      "color": "Color",
+      "width": "Grosor",
+      "clear": "Borrar",
+      "add_to_document": "Añadir al documento"
+    },
+    "material_panel": {
+      "title": "Material"
+    },
+    "right_rail": {
+      "document_settings": "Configuración del documento",
+      "page_size_hint": "El tamaño de página se actualiza al salir de un campo.",
+      "element_properties": "Propiedades del elemento",
+      "select_element_hint": "Selecciona un objeto en la página para editar sus propiedades.",
+      "no_element_selected": "Ningún elemento seleccionado"
+    },
+    "page_dimensions": {
+      "title": "DIMENSIONES DE PÁGINA",
+      "measurement_unit": "Unidad de medida",
+      "width": "Ancho",
+      "height": "Alto",
+      "lock_aspect_ratio": "Bloquear relación de aspecto",
+      "unlock_aspect_ratio": "Desbloquear relación de aspecto",
+      "page_background_title": "FONDO DE PÁGINA",
+      "page_background_color": "Color de fondo de página",
+      "background_hint": "Se aplica al terminar de editar un valor",
+      "apply_to_all_pages": "Aplicar dimensiones y fondo a todas las páginas"
+    },
+    "element_properties": {
+      "rotation": "Rotación",
+      "fill": "Relleno",
+      "stroke": "Trazo",
+      "stroke_width": "Grosor del trazo",
+      "shadow": "Sombra",
+      "horizontal_shadow": "Sombra horizontal",
+      "vertical_shadow": "Sombra vertical",
+      "fuzzy_distance": "Distancia difusa",
+      "opacity": "Opacidad",
+      "stroke_join_miter": "Inglete",
+      "stroke_join_round": "Redondo",
+      "stroke_join_bevel": "Bisel",
+      "arrange": "Organizar",
+      "h_center": "Centro H",
+      "v_center": "Centro V",
+      "front": "Delante",
+      "back": "Detrás",
+      "lock": "Bloquear",
+      "unlock": "Desbloquear",
+      "delete": "Eliminar"
+    },
+    "text_properties": {
+      "character": "CARÁCTER",
+      "paragraph": "PÁRRAFO",
+      "font_family": "Familia de fuente",
+      "font_size": "Tamaño de fuente",
+      "bold": "Negrita",
+      "italic": "Cursiva",
+      "underline": "Subrayado",
+      "strikethrough": "Tachado",
+      "decrease_font_size": "Reducir tamaño de fuente",
+      "increase_font_size": "Aumentar tamaño de fuente",
+      "text_color": "Color del texto",
+      "highlight": "Resaltado",
+      "align_left": "Alinear a la izquierda",
+      "align_center": "Centrar",
+      "align_right": "Alinear a la derecha",
+      "justify": "Justificar",
+      "line_height": "Altura de línea",
+      "letter_spacing": "Espaciado entre letras",
+      "curve_intensity": "Intensidad de curva",
+      "curved_text_path": "Ruta de texto curvo",
+      "remove_curved_path": "Quitar ruta curva"
+    },
+    "qr_properties": {
+      "rotation": "Rotación",
+      "qr_code_style": "Estilo de código QR",
+      "code_content": "Contenido del código",
+      "code_content_placeholder": "https://...",
+      "code_margin": "Margen del código",
+      "no_margin": "Sin margen",
+      "standard_margin": "Margen estándar",
+      "error_correction_rate": "Tasa de corrección de errores",
+      "border": "Borde",
+      "shadow": "Sombra"
+    },
+    "barcode_properties": {
+      "rotation": "Rotación",
+      "code": "Código",
+      "code_value": "Valor del código",
+      "code_value_placeholder": "123456789012",
+      "bar_width": "Ancho de barra",
+      "height": "Alto",
+      "colors": "Colores",
+      "background": "Fondo",
+      "code_color": "Color del código"
+    },
+    "context_menu": {
+      "cut": "Cortar",
+      "copy": "Copiar",
+      "paste": "Pegar",
+      "select_all": "Seleccionar todo",
+      "horizontal_center": "Centro horizontal",
+      "vertical_center": "Centro vertical",
+      "align_left": "Alinear a la izquierda",
+      "align_right": "Alinear a la derecha",
+      "align_top": "Alinear arriba",
+      "align_bottom": "Alinear abajo",
+      "bring_to_front": "Traer al frente",
+      "move_up_one_layer": "Subir una capa",
+      "send_to_back": "Enviar al fondo",
+      "move_down_one_layer": "Bajar una capa",
+      "lock": "Bloquear",
+      "unlock": "Desbloquear",
+      "delete": "Eliminar"
+    },
+    "errors": {
+      "editor_not_initialized": "El editor no está inicializado",
+      "export_failed": "Error al exportar",
+      "export_empty_file": "La exportación devolvió un archivo vacío"
+    }
+  },
+  "notifications": {
+    "file_is_password_protected": "Este archivo está protegido con contraseña y no se puede procesar"
+  },
+  "api_errors": {
+    "error": {
+      "login": {
+        "wrong-credentials": "Correo electrónico o contraseña no válidos"
+      },
+      "password": {
+        "min-length": "La contraseña debe tener al menos 8 caracteres",
+        "max-length": "La contraseña debe tener menos de 50 caracteres",
+        "dont-match": "Las contraseñas no coinciden",
+        "wrong-current": "La contraseña actual es incorrecta"
+      },
+      "email": {
+        "already-used": "Este correo electrónico ya está registrado",
+        "invalid": "Introduce una dirección de correo electrónico válida",
+        "token-invalid": "El enlace no es válido o ha caducado",
+        "token-expired": "El enlace ha caducado. Solicita uno nuevo."
+      },
+      "user": {
+        "already-registered": "Esta cuenta ya está registrada",
+        "not-found": "Usuario no encontrado"
+      },
+      "account": {
+        "blocked": "Esta cuenta ha sido bloqueada",
+        "deletion-in-progress": "Esta cuenta se está eliminando"
+      },
+      "file": {
+        "file-missing": "Falta el archivo o no se ha podido encontrar",
+        "max-size": "El tamaño del archivo supera el límite máximo permitido",
+        "wrong_format": "Formato de archivo no compatible",
+        "max-files-count": "Se ha superado el número máximo de archivos ({{count}} archivos permitidos)",
+        "deleted": "Este archivo se ha eliminado"
+      },
+      "payment": {
+        "required": "Se requiere el pago para continuar"
+      },
+      "processing": {
+        "merge-pdfs-failed": "No se pudieron combinar los archivos PDF. Inténtalo de nuevo.",
+        "merge-pdfs-min-files": "Selecciona al menos dos archivos PDF para combinar."
+      }
+    },
+    "unknown": "Se ha producido un error inesperado. Vuelve a intentarlo.",
+    "network_error": "Error de red. Comprueba tu conexión y vuelve a intentarlo."
+  },
+  "global": {
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "create_password": "Crear contraseña",
+    "back": "Volver",
+    "cancel": "Cancelar",
+    "download": "Descargar",
+    "loading": "Cargando..."
+  },
+  "login_page": {
+    "login": "Iniciar sesión",
+    "subtitle": "¡Bienvenido de nuevo! Nos alegra verte otra vez.",
+    "do_not_have_account": "¿No tienes una cuenta?",
+    "sign_up": "Regístrate ahora",
+    "forgot_password": "¿Olvidaste tu contraseña?",
+    "forgot_password_title": "Recupera tu contraseña",
+    "forgot_password_subtitle": {
+      "enter_email": "Introduce el correo electrónico ",
+      "suffix": "que utilizaste al registrarte para recuperar tu contraseña. Recibirás un enlace para restablecerla."
+    },
+    "forgot_password_button": "Restablecer contraseña"
+  },
+  "sign_up_page": {
+    "sign_up": "Registrarse",
+    "subtitle": {
+      "prefix": "Regístrate para desbloquear edición y conversión rápidas,",
+      "suffix": "y potentes herramientas para PDF."
+    },
+    "have_account": "¿Ya tienes una cuenta?",
+    "receive_email": "Recibirás un enlace para confirmar tu correo electrónico.",
+    "password_hint": "La contraseña debe tener al menos 8 caracteres",
+    "consent_sentence": {
+      "by_proceeding": "Al continuar, confirmas que",
+      "have_read": "has leído y",
+      "agree": "aceptas",
+      "to_our": "nuestros",
+      "terms_link": "Términos y Condiciones de Uso",
+      "and": "y",
+      "privacy_link": "Política de Privacidad"
+    },
+    "errors": {
+      "email_already_used": "Este correo electrónico ya está registrado. Inicia sesión o utiliza otro distinto.",
+      "user_already_registered": "Esta cuenta ya está registrada.",
+      "account_blocked": "Esta cuenta ha sido bloqueada. Ponte en contacto con el soporte."
+    }
+  },
+  "check_inbox": {
+    "open_with_gmail": "Abrir Gmail",
+    "forgot_password_title": "Revisa tu correo electrónico",
+    "forgot_password_subtitle": "Hemos enviado las instrucciones para restablecer la contraseña a:",
+    "sign_up_title": "Revisa tu bandeja de entrada",
+    "sign_up_subtitle": {
+      "we_sent_email": "Te hemos enviado un correo de autorización a {{useremail}}.",
+      "dont_forget": "No olvides revisar la carpeta de spam."
+    }
+  },
+  "reset_password": {
+    "seo_title": "Restablecer contraseña | OnlyDoc",
+    "seo_description": "Restablece la contraseña de tu cuenta en OnlyDoc.",
+    "title": "Crear una nueva contraseña",
+    "subtitle": "Utiliza una contraseña segura de al menos 8 caracteres.",
+    "password_placeholder": "Nueva contraseña",
+    "repeat_password_placeholder": "Repetir nueva contraseña",
+    "submit_button": "Actualizar contraseña",
+    "validating_title": "Validando tu enlace",
+    "validating_subtitle": "Por favor, espera mientras verificamos tu enlace de restablecimiento.",
+    "invalid_token_title": "Este enlace de restablecimiento no es válido",
+    "invalid_token_subtitle": "El enlace no es válido o ha expirado. Solicita un nuevo correo de restablecimiento.",
+    "success_title": "Contraseña actualizada",
+    "success_subtitle": "Tu contraseña ha sido restablecida exitosamente. Ahora puedes iniciar sesión con tu nueva contraseña.",
+    "go_to_login": "Ir a iniciar sesión"
+  },
+  "footer": {
+    "copyright": "ⓒ {{date}}, OnlyDoc. Todos los derechos reservados."
+  },
+  "legal": {
+    "email": "only-docaddress@gmail.com",
+    "address": "Archiepiskopou Makariou III, 95, Charitini Court, 1.ª planta, oficina 102, 1071 Nicosia, Chipre",
+    "phone": "+1(855)233-3368"
+  },
+  "input_email": {
+    "latin_character_error": "El correo electrónico solo debe contener caracteres latinos.",
+    "missing_symbol_error": "La dirección de correo electrónico no incluye el símbolo «@». Revisa lo que has introducido.",
+    "invalid_character_error": "Tu dirección de correo electrónico contiene caracteres no válidos. Elimina los espacios y evita usar: ()[]{}<>/\\|,;:\"",
+    "max_length_error": "El correo electrónico debe tener menos de 50 caracteres",
+    "validation_error": "Utiliza una dirección de correo electrónico válida",
+    "email_empty": "El correo electrónico no puede estar vacío"
+  },
+  "input_remember_me": {
+    "remember_me": "Recordarme"
+  },
+  "input_password": {
+    "password_too_short_error": "La contraseña debe contener al menos 8 caracteres",
+    "password_too_long_error": "La contraseña debe contener menos de 50 caracteres",
+    "password_empty": "La contraseña no puede estar vacía"
+  },
+  "hero": {
+    "title": {
+      "prefix": "Conversor de PDF",
+      "highlight": "gratuito",
+      "suffix": "para tus tareas diarias",
+      "referenceText": "Conversor de PDF"
+    },
+    "subtitle": "Una herramienta de PDF en línea para trabajar de forma más inteligente, no más dura.",
+    "uploadButton": "Sube o arrastra y suelta un archivo",
+    "disclaimer": "Al subir un archivo, aceptas nuestros [Términos de Uso](/terms-and-conditions) y reconoces nuestra [Política de Privacidad](/privacy-policy).",
+    "showMore": "Ver más",
+    "filters": {
+      "all": "Todos",
+      "editPdf": "Editar PDF",
+      "convertToPdf": "Convertir a PDF",
+      "convertFromPdf": "Convertir de PDF",
+      "other": "Otros"
+    },
+    "tools": {
+      "translatePdf": "Traducir PDF",
+      "compressPdf": "Comprimir PDF",
+      "pdfOcr": "OCR de PDF",
+      "removeWatermark": "Quitar marca de agua",
+      "pdfToWord": "PDF a WORD",
+      "pdfToExcel": "PDF a EXCEL",
+      "pdfToJpg": "PDF a JPG",
+      "pdfToPng": "PDF a PNG",
+      "pdfToPptx": "PDF a PPTX",
+      "wordToPdf": "WORD a PDF",
+      "excelToPdf": "EXCEL a PDF",
+      "jpgToPdf": "JPG a PDF",
+      "pngToPdf": "PNG a PDF",
+      "pptxToPdf": "PPTX a PDF"
+    }
+  },
+  "contact_us": {
+    "title": "Contáctanos",
+    "subtitle": "Nuestro equipo está disponible para ayudarte con preguntas, problemas o comentarios.",
+    "address": "Dirección",
+    "phone": "Teléfono",
+    "form_title": "¿En qué podemos ayudarte?",
+    "form_placeholders": {
+      "name": "Tu nombre",
+      "email": "Tu correo electrónico",
+      "message": "Tu mensaje",
+      "submit_button": "Enviar mensaje"
+    },
+    "submit_popup": "¡Mensaje enviado! Te responderemos lo antes posible.",
+    "required_field": "Este campo es obligatorio"
+  },
+  "achievements": {
+    "title": "Orgullosos de ayudar a más de 6 millones de usuarios en todo el mundo ",
+    "uploads": "subidas",
+    "edits": "ediciones",
+    "conversions": "conversiones"
+  },
+  "trustSection": {
+    "title": "Seguridad y cumplimiento al nivel del sector"
+  },
+  "benefitsSection": {
+    "title": "Por qué OnlyDoc es el mejor conversor de PDF",
+    "gridLabel": "Ventajas y funciones de OnlyDoc",
+    "cards": {
+      "convert": {
+        "title": "Convierte a PDF en segundos",
+        "description": "Crea PDFs de alta calidad a partir de tus archivos en segundos con un proceso rápido y seguro, diseñado para tus tareas digitales del día a día."
+      },
+      "compress": {
+        "title": "Comprime archivos con facilidad",
+        "description": "Simplifica el envío, ahorra espacio de almacenamiento y reduce el tamaño del archivo sin perder la calidad de tus documentos digitales."
+      },
+      "translate": {
+        "title": "Traduce tus PDFs",
+        "description": "Traduce el documento entero de forma rápida y precisa para entender, compartir y trabajar mejor en distintos idiomas."
+      },
+      "formats": {
+        "title": "Trabaja con varios formatos",
+        "description": "Usa un único conversor de archivos gratuito para gestionar Word, Excel, imágenes y mucho más, todo en una experiencia rápida y fluida."
+      },
+      "ocr": {
+        "title": "Convierte imágenes en texto",
+        "description": "Utiliza nuestra función de OCR integrada para hacer editable el texto de imágenes y fotos escaneadas, transformando archivos estáticos en contenido digital aprovechable."
+      },
+      "navigate": {
+        "title": "Navega de forma intuitiva",
+        "description": "Disfruta de una interfaz limpia y elegante que te ayuda a completar tareas más rápido, sin curva de aprendizaje ni pasos adicionales."
+      }
+    }
+  },
+  "ctaSection": {
+    "title": {
+      "prefix": "Convierte a PDF",
+      "highlight": "gratis"
+    },
+    "badges": {
+      "secure": "Seguro",
+      "easy": "Fácil",
+      "fast": "Rápido"
+    },
+    "button": "Sube tu documento"
+  },
+  "faqSectionMainPage": {
+    "title": {
+      "prefix": "Preguntas",
+      "highlight": "frecuentes"
+    },
+    "items": {
+      "1": {
+        "question": "¿Qué es OnlyDoc?",
+        "answer": "OnlyDoc es un conversor de PDF online gratuito que te permite convertir archivos hacia y desde el formato PDF. Admite formatos populares como Word, Excel, PowerPoint, JPG, PNG y EPUB. Más allá de la conversión básica, OnlyDoc incluye herramientas integradas para reducir el tamaño de los archivos, traducir a varios idiomas y convertir documentos escaneados e imágenes en texto editable."
+      },
+      "2": {
+        "question": "¿Es seguro usar OnlyDoc?",
+        "answer": "Sí, OnlyDoc es seguro. Tus archivos están protegidos con cifrado SSL durante la subida, lo que garantiza una transmisión de datos segura. La plataforma cumple con el RGPD y se rige por estrictas normativas de privacidad de datos. Todos los archivos almacenados en nuestros servidores se cifran para mayor seguridad. Damos prioridad a la seguridad y privacidad de tus documentos en cada paso del proceso."
+      },
+      "3": {
+        "question": "¿Qué funciones ofrece OnlyDoc?",
+        "answer": "OnlyDoc ofrece herramientas completas de conversión de PDF a múltiples formatos, funcionando como un conversor de archivos a PDF para Word, Excel, PowerPoint, JPG, PNG y EPUB. Otras funciones clave incluyen compresión de archivos integrada para reducir su tamaño, traducción multilingüe y tecnología OCR que convierte documentos escaneados e imágenes en texto utilizable."
+      },
+      "4": {
+        "question": "¿Qué formatos de archivo admite OnlyDoc?",
+        "answer": "OnlyDoc admite la conversión entre PDF y los siguientes formatos: Word (DOC/DOCX), Excel (XLS/XLSX), PowerPoint (PPTX/PPT), JPG, PNG y EPUB. Puedes convertir cualquiera de estos formatos a PDF, o convertir desde PDF a cualquiera de ellos, lo que te aporta flexibilidad en tu flujo de trabajo."
+      },
+      "5": {
+        "question": "¿Cómo se convierte un archivo a PDF?",
+        "answer": "Convertir archivos a PDF con OnlyDoc es muy sencillo:\n\n1. Sube tu archivo (Word, Excel, PowerPoint, JPG, PNG o EPUB)\n2. Selecciona PDF como formato de destino\n3. Haz clic en el botón Convertir\n4. Descarga tu archivo PDF convertido\n\nTodo el proceso requiere solo unos pocos clics."
+      },
+      "6": {
+        "question": "¿Cómo convierto un PDF a otros formatos?",
+        "answer": "1. Sube tu archivo PDF\n2. Elige el formato de salida deseado entre las opciones disponibles: Word, Excel, PowerPoint, JPG, PNG o EPUB\n3. Haz clic en convertir y espera a que termine el procesamiento\n4. Descarga tu archivo convertido en el nuevo formato\n\nDurante la conversión hacemos todo lo posible por conservar el diseño y el formato originales."
+      },
+      "7": {
+        "question": "¿Cuál es el tamaño máximo de archivo que puedo subir?",
+        "answer": "OnlyDoc admite la subida de archivos de hasta 100 MB. Este generoso límite cubre la mayoría de documentos, presentaciones, hojas de cálculo e imágenes. Si tu archivo supera ese tamaño, considera utilizar el compresor integrado de OnlyDoc para reducirlo antes de la conversión, o divide los documentos grandes en partes más pequeñas."
+      },
+      "8": {
+        "question": "¿Cuánto tarda la conversión?",
+        "answer": "El tiempo de conversión varía según el tamaño del archivo, su formato y su complejidad. Las conversiones sencillas suelen tardar segundos, mientras que los archivos más grandes o los documentos complejos con muchas imágenes pueden tardar hasta unos minutos."
+      },
+      "9": {
+        "question": "¿Funciona OnlyDoc en móviles y otros dispositivos?",
+        "answer": "Sí, OnlyDoc es una herramienta basada en la web que funciona en todos los dispositivos con una conexión a internet estable. Esto incluye ordenadores de sobremesa, portátiles, tabletas y smartphones. Tanto si usas Windows, Mac, iOS o Android, puedes acceder a todas las funciones de OnlyDoc sin descargar ni instalar software adicional."
+      }
+    }
+  },
+  "serviceHeroSection": {
+    "title": "PDF a Word",
+    "subtitle": "OnlyDoc admite formatos comunes como Word, Excel y muchos más.",
+    "buttonLabel": "Subir archivo",
+    "supportedFormats": "Admite PDF, DOCX, EXCEL, JPG, PNG",
+    "maxSize": "Tamaño de hasta 100 MB",
+    "dropText": "Suelta aquí tu archivo para empezar"
+  },
+  "bottomCtaSection": {
+    "title": "Convierte archivos PDF gratis",
+    "subtitle": "OnlyDoc admite formatos comunes como Word, Excel y muchos más.",
+    "button": "Empieza ahora"
+  },
+  "allToolsSection": {
+    "title": "Más formas de trabajar con archivos PDF"
+  },
+  "reviewsSection": {
+    "title": "Lo que dicen nuestros usuarios",
+    "reviews": {
+      "1": {
+        "title": "¡Sin estrés de principio a fin!",
+        "text": "¡Me encantó lo eficiente que fue! Hoy traduje un PDF largo para un cliente sin ningún problema. ¡Gracias!",
+        "author": "Sofia Romano",
+        "date": "28 feb 2025"
+      },
+      "2": {
+        "title": "¡Justo lo que necesitaba!",
+        "text": "¡Me encanta lo fácil que es convertir archivos a PDF para el trabajo en Windows con este servicio!",
+        "author": "Marcus Hill",
+        "date": "21 ene 2025"
+      },
+      "3": {
+        "title": "¡Me mantiene al día!",
+        "text": "¡OnlyDoc me ahorra muchísimo tiempo! Este conversor de PDF online ha gestionado mi carga de trabajo a la perfección.",
+        "author": "Daniel Brooks",
+        "date": "8 mar 2025"
+      },
+      "4": {
+        "title": "¡Cumplió cuando más importaba!",
+        "text": "¡Me encantó lo eficiente que fue! Hoy traduje un PDF largo para un cliente sin ningún problema. ¡Gracias!",
+        "author": "Emily Chen",
+        "date": "26 feb 2025"
+      },
+      "5": {
+        "title": "¡Súper rápido y fiable!",
+        "text": "Convertí docenas de documentos en minutos. ¡La calidad es excelente y es totalmente gratis!",
+        "author": "James Wilson",
+        "date": "15 mar 2025"
+      },
+      "6": {
+        "title": "¡La mejor herramienta de PDF que he usado!",
+        "text": "Interfaz sencilla, resultados rápidos. Perfecta para mi flujo de trabajo diario. ¡Muy recomendable!",
+        "author": "Anna Martinez",
+        "date": "10 mar 2025"
+      }
+    }
+  },
+  "modals": {
+    "upload_modal_default": {
+      "processing": "Procesando tu documento...",
+      "tip_title": "Consejo de productividad",
+      "tip_message": "Guardar los archivos convertidos en carpetas te ayuda a encontrar tus documentos más fácilmente después."
+    },
+    "export_modal_default": {
+      "file_name": "Nombre del archivo",
+      "title": "Tu archivo está listo",
+      "subtitle": "Selecciona un formato para descargar."
+    },
+    "compress_modal": {
+      "title": "Comprimir PDF",
+      "subtitle": "Elige el tipo de conversión.",
+      "submit_button": "Comprimir PDF",
+      "final_size": "Tamaño final",
+      "levels": {
+        "high": {
+          "title": "Alta",
+          "description": "Tamaño más pequeño, calidad estándar"
+        },
+        "medium": {
+          "title": "Media",
+          "description": "Tamaño medio, mejor calidad"
+        },
+        "low": {
+          "title": "Baja",
+          "description": "Tamaño mayor, máxima calidad"
+        }
+      }
+    },
+    "translate_modal": {
+      "title": "Elige los idiomas de traducción",
+      "source_label": "Idioma de origen:",
+      "target_label": "Idioma de destino:",
+      "auto_detected_hint": "Detectado automáticamente (cámbialo si es necesario)",
+      "auto_suggested_hint": "Sugerido automáticamente (cámbialo si es necesario)",
+      "select_source_placeholder": "Selecciona el idioma de origen",
+      "select_target_placeholder": "Selecciona el idioma de destino",
+      "submit_button": "Traducir documento"
+    },
+    "ocr_modal": {
+      "title": "¿En qué formato quieres descargar?",
+      "file_name_label": "Nombre del archivo",
+      "cancel_button": "Cancelar",
+      "download_button": "Descargar",
+      "formats": {
+        "word": {
+          "title": "Documento de Word",
+          "description": "Listo para editar y dar formato."
+        },
+        "searchable_pdf": {
+          "title": "PDF con búsqueda",
+          "description": "Busca y selecciona texto fácilmente en el archivo."
+        },
+        "plain_text": {
+          "title": "Texto sin formato",
+          "description": "Solo texto, sin formato."
+        }
+      }
+    },
+    "unlock_pdf": {
+      "heading": "Procesando tu documento...",
+      "estimated_time": "Tiempo estimado: <1m",
+      "password_placeholder": "Introduce la contraseña",
+      "show_password": "Mostrar contraseña",
+      "hide_password": "Ocultar contraseña",
+      "back": "Atrás",
+      "unlock": "Desbloquear",
+      "unlocking": "Desbloqueando...",
+      "know_password": "Espera, sé la contraseña",
+      "errors": {
+        "incorrect_password": "Contraseña incorrecta: inténtalo de nuevo.",
+        "decrypt_failed": "No pudimos descifrar este PDF. Inténtalo de nuevo o elige otro archivo.",
+        "could_not_unlock": "No pudimos desbloquear este archivo. Intenta introducir la contraseña.",
+        "save_failed": "No pudimos guardar el archivo desbloqueado. Inténtalo de nuevo.",
+        "unlock_failed": "Se ha producido un error. Inténtelo de nuevo.",
+        "timed_out": "Se agotó el tiempo de desbloqueo. Inténtalo de nuevo."
+      }
+    },
+    "remove_image_watermark_preview": {
+      "heading": "La IA ha detectado y eliminado todas las marcas de agua",
+      "tab_split": "Pantalla dividida",
+      "tab_slider": "Deslizador",
+      "original": "Original",
+      "watermark_removed": "Marca de agua eliminada",
+      "upload_cta_action": "Subir nuevo",
+      "upload_cta_hint": "o simplemente deja aquí",
+      "size_hint": "Tamaño hasta 50 MB. Admite archivos {{formats}}.",
+      "download": "Descargar",
+      "preview_mode_label": "Modo de vista previa",
+      "upload_new_label": "Subir nueva imagen",
+      "alt_original": "Original con marca de agua",
+      "alt_result": "Vista previa con marca de agua eliminada"
+    },
+    "enhance_image": {
+      "heading": "Mejora tu imagen",
+      "select_quality_level": "Selecciona el nivel de calidad",
+      "upload_new": "Subir nuevo",
+      "original_size": "Tamaño original:",
+      "dimensions": "{{width}} × {{height}}",
+      "level_option": "Mejora {{level}}X",
+      "before": "Antes",
+      "after": "Después",
+      "enhancing": "Mejorando...",
+      "no_watermark_badge": "Sin marca de agua tras la descarga",
+      "zoom_to_preview": "Haz zoom para previsualizar la calidad",
+      "upgrade_and_download": "Mejorar y descargar",
+      "alt_before": "Imagen original",
+      "alt_after": "Imagen mejorada"
+    }
+  },
+  "reveal_modal": {
+    "title": "Introduce tu correo electrónico",
+    "subtitle": "Introduce tu dirección de correo electrónico para descargar el archivo. Te enviaremos la contraseña a este correo.",
+    "button": "Descargar",
+    "terms_text": "Al continuar, aceptas nuestros Términos de Uso y nuestra Política de Privacidad.",
+    "errors": {
+      "email_empty": "Introduce tu dirección de correo electrónico",
+      "email_max_length": "El correo electrónico debe tener menos de 50 caracteres",
+      "email_invalid": "Introduce una dirección de correo electrónico válida",
+      "email_already_used": "Este correo electrónico ya está registrado. Inicia sesión o utiliza otro distinto."
+    }
+  },
+  "aboutUs": {
+    "mainSection": {
+      "title": "Sobre OnlyDoc",
+      "subtitle": "Tu socio de confianza para una gestión de documentos sin esfuerzo.",
+      "paragraphs": {
+        "1": "OnlyDoc se creó con un único objetivo en mente: hacer que trabajar con documentos digitales sea lo más sencillo posible. Tanto si necesitas convertir archivos, comprimir PDFs o transformar imágenes en documentos profesionales, nuestra plataforma se encarga de todo sin la molestia de descargas, registros ni costes ocultos.",
+        "2": "Creemos que las herramientas potentes para documentos deben estar al alcance de todos. Por eso OnlyDoc es totalmente gratuita, sin límites en la cantidad de archivos que puedes procesar. Desde estudiantes y autónomos hasta profesionales de empresas, nuestra plataforma da servicio a millones de usuarios que necesitan resultados fiables sin complicaciones."
+      }
+    },
+    "tools_section_title": {
+      "highlight": "Elige",
+      "suffix": "una herramienta para trabajar con documentos"
+    },
+    "benefitsSection": {
+      "title": "Diseñado para que tu trabajo no se detenga",
+      "text": "La gestión de documentos nunca debería frenarte. OnlyDoc se integra a la perfección en tu flujo de trabajo, ya estés preparando contratos, organizando investigaciones o compartiendo archivos con compañeros. Nuestra plataforma se ocupa de los detalles técnicos —conversiones, compresiones y formato— para que puedas centrarte en tus prioridades. Con compatibilidad con todos los tipos de archivo principales y procesamiento instantáneo en cualquier dispositivo, OnlyDoc se adapta a tus necesidades en lugar de obligarte a adaptarte a él. Sin curva de aprendizaje ni frustraciones: solo herramientas fiables que ofrecen resultados cuando más lo necesitas."
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "myFiles": "Mis archivos",
+      "tools": "Herramientas",
+      "forms": "Formularios",
+      "userMenu": "Menú de usuario",
+      "account": "Cuenta",
+      "myAccount": "Mi cuenta",
+      "blog": "Blog",
+      "help": "Ayuda",
+      "terms": "Términos y condiciones",
+      "logout": "Cerrar sesión",
+      "login": "Iniciar sesión",
+      "guest": "Invitado",
+      "homeAria": "Ir al inicio de OnlyDoc"
+    },
+    "myAccount": {
+      "title": "Mi cuenta",
+      "accountInformation": "Información de la cuenta",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "changePassword": "Cambiar contraseña",
+      "changePasswordDescription": "Te enviaremos un enlace seguro para restablecer tu contraseña.",
+      "sending": "Enviando…",
+      "passwordEmailSent": "Enlace enviado: revisa tu bandeja de entrada.",
+      "passwordEmailError": "Algo salió mal. Inténtalo de nuevo.",
+      "googleManaged": "Tu cuenta se gestiona mediante el inicio de sesión de Google.",
+      "language": "Idioma",
+      "languageDescription": "Elige el idioma de la interfaz."
+    },
+    "header": {
+      "myFiles": "Mis archivos",
+      "tools": "Herramientas",
+      "searchPlaceholder": "Buscar archivos",
+      "upload": "Subir archivos",
+      "uploading": "Subiendo..."
+    },
+    "table": {
+      "name": "Nombre",
+      "type": "Tipo",
+      "size": "Tamaño",
+      "created": "Creado",
+      "updated": "Actualizado"
+    },
+    "view": {
+      "list": "Lista",
+      "grid": "Cuadrícula"
+    },
+    "sort": {
+      "dateDesc": "Más recientes primero",
+      "dateAsc": "Más antiguos primero",
+      "nameAsc": "Nombre (A-Z)",
+      "nameDesc": "Nombre (Z-A)",
+      "sizeDesc": "Más grandes primero",
+      "sizeAsc": "Más pequeños primero"
+    },
+    "bulk": {
+      "selected": "{{count}} seleccionados",
+      "selectAll": "Seleccionar todos los archivos",
+      "toggleRow": "Seleccionar {{filename}}",
+      "clear": "Limpiar selección"
+    },
+    "actions": {
+      "preview": "Vista previa",
+      "download": "Descargar",
+      "duplicate": "Duplicar",
+      "print": "Imprimir",
+      "rename": "Renombrar",
+      "shareLink": "Compartir enlace",
+      "sendEmail": "Enviar por correo",
+      "delete": "Eliminar",
+      "more": "Más acciones",
+      "close": "Cerrar",
+      "cancel": "Cancelar"
+    },
+    "empty": {
+      "title": "¡Bienvenido!",
+      "subtitle": "Tus archivos aparecerán aquí",
+      "cta": "Subir archivo"
+    },
+    "drop": {
+      "title": "Suelta tus archivos aquí para empezar",
+      "subtitle": "Los subiremos a tu panel",
+      "sizeLimit": "Tamaño de hasta 100 MB",
+      "formats": "Formatos admitidos:",
+      "addFiles": "Añadir archivos",
+      "dropHere": "Suelta tus archivos aquí para empezar"
+    },
+    "rename": {
+      "title": "Renombrar",
+      "newNameLabel": "Nuevo nombre",
+      "placeholder": "Nombre del archivo",
+      "confirm": "Renombrar"
+    },
+    "delete": {
+      "title": "Eliminar archivo",
+      "titleMany": "¿Eliminar {{count}} archivos?",
+      "subtitle": "\"{{filename}}\" se eliminará permanentemente de tu panel.",
+      "subtitleMany": "Los archivos seleccionados se eliminarán permanentemente de tu panel.",
+      "bodyPrefix": "¿Seguro que quieres eliminar el archivo",
+      "bodySuffix": "?",
+      "confirm": "Eliminar"
+    },
+    "share": {
+      "title": "Compartir enlace",
+      "subtitle": "Cualquier persona con el enlace podrá descargar este archivo durante los próximos 7 días.",
+      "linkLabel": "Enlace",
+      "loading": "Generando enlace...",
+      "copyLink": "Copiar enlace",
+      "copied": "¡Copiado!"
+    },
+    "email": {
+      "title": "Enviar por correo",
+      "recipientLabel": "Correo del destinatario",
+      "recipientPlaceholder": "nombre@ejemplo.com",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "Añade un mensaje",
+      "send": "Enviar correo",
+      "sent": "Enviado",
+      "sentMessage": "Tu archivo \"{{filename}}\" se ha enviado a {{email}}",
+      "errorSubtitle": "No pudimos enviar \"{{filename}}\" a {{email}}. Inténtalo de nuevo más tarde."
+    },
+    "preview": {
+      "loading": "Cargando vista previa...",
+      "unsupported": "La vista previa no está disponible para este tipo de archivo",
+      "convert": "Convertir",
+      "translate": "Traducir",
+      "ocr": "OCR",
+      "createCopy": "Crear copia",
+      "panelAria": "Panel de vista previa del archivo"
+    },
+    "tools": {
+      "all": "Todo",
+      "pdf": "Herramientas PDF",
+      "image": "Herramientas de imagen",
+      "ai": "Herramientas de IA",
+      "convertTo": "Convertir a...",
+      "compress": "Comprimir",
+      "translate": "Traducir PDF",
+      "filterAria": "Filtro de categoría de herramientas"
+    },
+    "pagination": {
+      "previous": "Página anterior",
+      "next": "Página siguiente"
+    },
+    "errors": {
+      "loadFiles": "No se pudieron cargar los archivos"
+    },
+    "toast": {
+      "linkCopied": "Enlace copiado al portapapeles",
+      "fileDeleted": "Archivo eliminado",
+      "filesDeleted": "Archivos eliminados",
+      "emailSent": "Archivo enviado correctamente",
+      "emailFailed": "No se pudo enviar el archivo. Inténtalo de nuevo.",
+      "undo": "Deshacer",
+      "fileAdded": "Se ha añadido un nuevo archivo a tu panel",
+      "open": "Abrir",
+      "uploadError": "No se pudieron subir algunos archivos"
+    },
+    "upgrade": {
+      "title": "¡Prueba nuestras nuevas funciones!",
+      "subtitle": "Descubre herramientas increíbles disponibles en OnlyDoc.",
+      "dismiss": "Descartar"
+    },
+    "formatTabs": {
+      "all": "Todo",
+      "pdf": "PDF",
+      "image": "Imagen",
+      "word": "Word",
+      "spreadsheet": "Hoja de cálculo",
+      "presentation": "Presentación",
+      "ebook": "E-book",
+      "audio": "Audio",
+      "video": "Vídeo",
+      "text": "Texto",
+      "other": "Otro"
+    },
+    "toolDescriptions": {
+      "translatePdf": "Traduce documentos PDF a otros idiomas",
+      "compressPdf": "Reduce el tamaño del archivo manteniendo la calidad",
+      "pdfOcr": "Reconoce texto en PDFs escaneados e imágenes",
+      "pdfToWord": "Convierte PDFs en documentos Word editables",
+      "pdfToExcel": "Extrae tablas de PDFs a hojas de Excel",
+      "pdfToAzw3": "Convierte documentos PDF al formato Kindle AZW3",
+      "wordToPdf": "Convierte documentos Word en archivos PDF",
+      "excelToPdf": "Convierte hojas de Excel en archivos PDF",
+      "azw3ToPdf": "Convierte e-books AZW3 en archivos PDF",
+      "removeWatermark": "Elimina marcas de agua de tus archivos PDF",
+      "pdfToJpg": "Exporta cada página del PDF como imagen JPG",
+      "pdfToPng": "Exporta cada página del PDF como imagen PNG",
+      "pdfToTiff": "Exporta cada página del PDF como imagen TIFF",
+      "jpgToPdf": "Convierte imágenes JPG en un archivo PDF",
+      "pngToPdf": "Convierte imágenes PNG en un archivo PDF",
+      "tiffToPdf": "Convierte imágenes TIFF en un archivo PDF",
+      "svgToPdf": "Convierte archivos vectoriales SVG en un archivo PDF",
+      "enhanceImage": "Mejora la calidad de imagen con IA",
+      "pdfSummarizer": "Obtén un resumen generado por IA de cualquier PDF"
+    }
+  },
+  "seo": {
+    "blog": {
+      "breadcrumbs_home": "Inicio",
+      "breadcrumbs_blog": "Blog",
+      "all_articles": "Todos los artículos",
+      "categories_label": "Categorías",
+      "toc_label": "Tabla de contenidos",
+      "no_articles": "No se encontraron artículos.",
+      "by_author": "Por",
+      "read_time": "{{minutes}} min de lectura",
+      "views": "{{count}} visitas",
+      "published_on": "Publicado",
+      "last_updated": "Última actualización",
+      "key_takeaways": "Puntos clave",
+      "related_articles": "Artículos relacionados",
+      "author_articles": "Artículos de este autor",
+      "page_title_default": "Blog de OnlyDoc — guías e ideas",
+      "page_description_default": "Lee las guías, consejos e ideas de OnlyDoc sobre cómo trabajar con documentos.",
+      "category_title_template": "{{category}} — Blog de OnlyDoc",
+      "page_n_suffix": "Página {{page}}"
+    },
+    "templates": {
+      "nav_link": "Plantillas PDF"
+    }
+  },
+  "aiSummarizer": {
+    "poweredByChip": "Impulsado por los modelos de IA más avanzados",
+    "page": {
+      "title": "Resumidor de IA",
+      "loginCta": "Iniciar sesión"
+    },
+    "empty": {
+      "headline": "Comienza un nuevo chat subiendo un documento PDF.",
+      "uploadButton": "Subir archivo"
+    },
+    "sidebar": {
+      "newFile": "Nuevo archivo",
+      "history": "HISTORIAL",
+      "deleteFailed": "No se pudo eliminar el chat. Inténtalo de nuevo."
+    },
+    "loader": {
+      "analyzing": "Analizando tu archivo… No tardaremos mucho.",
+      "loadingDocument": "Cargando documento…"
+    },
+    "chat": {
+      "inputPlaceholder": "Escribe tu mensaje aquí...",
+      "sendButton": "Enviar",
+      "suggestedQuestionsHeader": "Preguntas sugeridas",
+      "summaryTitle": "Resumen de OnlyDoc:",
+      "keyInsightsTitle": "Ideas clave",
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "like": "Me gusta",
+      "dislike": "No me gusta"
+    },
+    "errors": {
+      "fileTooLarge": "El archivo es demasiado grande. El tamaño máximo es {{maxMb}}MB.",
+      "tooManyPages": "El archivo tiene demasiadas páginas. El máximo es {{maxPages}} páginas.",
+      "formatNotSupported": "Este formato de archivo no es compatible.",
+      "processingFailed": "No se pudo procesar el archivo. Prueba con otro archivo o inténtalo de nuevo.",
+      "sendFailed": "No se pudo enviar el mensaje. Inténtalo de nuevo.",
+      "loadFailed": "No se pudo cargar el chat.",
+      "messageTooLong": "El mensaje es demasiado largo. Máximo {{maxChars}} caracteres."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+---
+import { ContactUsPageLocales } from "@/pages-layer/contactUs";
+
+export { getContactUsLocalesStaticPaths as getStaticPaths } from "@/pages-layer/contactUs";
+
+const { localeSlugMap } = Astro.props;
+---
+
+<ContactUsPageLocales localeSlugMap={localeSlugMap} />

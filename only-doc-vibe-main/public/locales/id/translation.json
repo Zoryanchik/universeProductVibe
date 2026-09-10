@@ -1,0 +1,1092 @@
+{
+  "notifications": {
+    "file_is_password_protected": "File ini dilindungi kata sandi dan tidak dapat diproses"
+  },
+  "api_errors": {
+    "error": {
+      "login": {
+        "wrong-credentials": "Email atau kata sandi tidak valid"
+      },
+      "password": {
+        "min-length": "Kata sandi harus minimal 8 karakter",
+        "max-length": "Kata sandi harus kurang dari 50 karakter",
+        "dont-match": "Kata sandi tidak cocok",
+        "wrong-current": "Kata sandi saat ini salah"
+      },
+      "email": {
+        "already-used": "Email ini sudah terdaftar",
+        "invalid": "Masukkan alamat email yang valid",
+        "token-invalid": "Tautan tidak valid atau telah kedaluwarsa",
+        "token-expired": "Tautan telah kedaluwarsa. Silakan minta yang baru."
+      },
+      "user": {
+        "already-registered": "Akun ini sudah terdaftar",
+        "not-found": "Pengguna tidak ditemukan"
+      },
+      "account": {
+        "blocked": "Akun ini telah diblokir",
+        "deletion-in-progress": "Akun ini sedang dihapus"
+      },
+      "file": {
+        "file-missing": "File tidak tersedia atau tidak dapat ditemukan",
+        "max-size": "Ukuran file melebihi batas maksimum yang diizinkan",
+        "wrong_format": "Format file tidak didukung",
+        "max-files-count": "Jumlah file maksimum terlampaui ({{count}} file diizinkan)",
+        "deleted": "File ini telah dihapus"
+      },
+      "payment": {
+        "required": "Pembayaran diperlukan untuk melanjutkan"
+      }
+    },
+    "unknown": "Terjadi kesalahan tak terduga. Silakan coba lagi.",
+    "network_error": "Kesalahan jaringan. Periksa koneksi Anda dan coba lagi."
+  },
+  "global": {
+    "email": "Email",
+    "password": "Kata sandi",
+    "create_password": "Buat kata sandi",
+    "back": "Kembali",
+    "cancel": "Batal",
+    "download": "Unduh",
+    "loading": "Memuat..."
+  },
+  "login_page": {
+    "login": "Masuk",
+    "subtitle": "Selamat datang kembali! Senang bertemu Anda lagi.",
+    "do_not_have_account": "DonвЂ™t have an account?",
+    "sign_up": "Daftar sekarang",
+    "forgot_password": "Lupa kata sandi",
+    "forgot_password_title": "Pulihkan kata sandi Anda",
+    "forgot_password_subtitle": {
+      "enter_email": "Masukkan email ",
+      "suffix": "yang Anda gunakan saat mendaftar untuk memulihkan kata sandi. Anda akan menerima tautan penyetelan ulang kata sandi."
+    },
+    "forgot_password_button": "Pulihkan kata sandi"
+  },
+  "sign_up_page": {
+    "sign_up": "Daftar",
+    "subtitle": {
+      "prefix": "Daftar untuk membuka pengeditan dan konversi cepat,",
+      "suffix": "serta alat PDF yang andal."
+    },
+    "have_account": "Sudah punya akun?",
+    "receive_email": "Anda akan menerima tautan untuk mengonfirmasi email Anda.",
+    "password_hint": "Kata sandi harus minimal 8 karakter",
+    "consent_sentence": {
+      "by_proceeding": "Dengan melanjutkan, Anda menyatakan bahwa Anda",
+      "have_read": "telah membaca dan",
+      "agree": "menyetujui",
+      "to_our": "terhadap",
+      "terms_link": "Syarat dan Ketentuan Penggunaan",
+      "and": "dan",
+      "privacy_link": "Kebijakan Privasi"
+    },
+    "errors": {
+      "email_already_used": "Email ini sudah terdaftar. Silakan masuk atau gunakan email lain.",
+      "user_already_registered": "Akun ini sudah terdaftar.",
+      "account_blocked": "Akun ini telah diblokir. Silakan hubungi dukungan."
+    }
+  },
+  "check_inbox": {
+    "open_with_gmail": "Buka Gmail",
+    "forgot_password_title": "Periksa email Anda",
+    "forgot_password_subtitle": "WeвЂ™ve sent password reset instructions to:",
+    "sign_up_title": "Periksa kotak masuk Anda",
+    "sign_up_subtitle": {
+      "we_sent_email": "Kami telah mengirimkan email otorisasi ke {{useremail}}.",
+      "dont_forget": "DonвЂ™t forget to check the spam folder."
+    }
+  },
+  "reset_password": {
+    "seo_title": "Setel ulang kata sandi | OnlyDoc",
+    "seo_description": "Setel ulang kata sandi akun Anda di OnlyDoc.",
+    "title": "Buat kata sandi baru",
+    "subtitle": "Gunakan kata sandi yang kuat dengan minimal 8 karakter.",
+    "password_placeholder": "Kata sandi baru",
+    "repeat_password_placeholder": "Ulangi kata sandi baru",
+    "submit_button": "Perbarui kata sandi",
+    "validating_title": "Memvalidasi tautan Anda",
+    "validating_subtitle": "Harap tunggu saat kami memeriksa tautan penyetelan ulang Anda.",
+    "invalid_token_title": "Tautan penyetelan ulang ini tidak valid",
+    "invalid_token_subtitle": "Tautan tidak valid atau telah kedaluwarsa. Minta email penyetelan ulang kata sandi baru.",
+    "success_title": "Kata sandi diperbarui",
+    "success_subtitle": "Kata sandi Anda berhasil disetel ulang. Sekarang Anda dapat masuk dengan kata sandi baru Anda.",
+    "go_to_login": "Buka halaman masuk"
+  },
+  "footer": {
+    "copyright": "ⓒ {{date}}, OnlyDoc. All rights reserved."
+  },
+  "legal": {
+    "email": "only-docaddress@gmail.com",
+    "address": "Archiepiskopou Makariou III, 95, Charitini Court, 1st floor, office 102, 1071 Nicosia, Cyprus",
+    "phone": "+1(855)233-3368"
+  },
+  "input_email": {
+    "latin_character_error": "Email hanya boleh berisi karakter latin.",
+    "missing_symbol_error": "Alamat email tidak memiliki simbol '@'. Silakan periksa entri Anda.",
+    "invalid_character_error": "Alamat email Anda mengandung karakter yang tidak valid. Hapus spasi dan hindari penggunaan: ()[]{}<>/\\|,;:\"",
+    "max_length_error": "Email harus kurang dari 50 karakter",
+    "validation_error": "Gunakan alamat email yang valid",
+    "email_empty": "Email tidak boleh kosong"
+  },
+  "input_remember_me": {
+    "remember_me": "Ingat saya"
+  },
+  "input_password": {
+    "password_too_short_error": "Kata sandi harus berisi minimal 8 karakter",
+    "password_too_long_error": "Kata sandi harus berisi kurang dari 50 karakter",
+    "password_empty": "Kata sandi tidak boleh kosong"
+  },
+  "hero": {
+    "title": {
+      "prefix": "Free",
+      "highlight": "Konverter PDF",
+      "suffix": "Gratis untuk Kebutuhan Harian Anda",
+      "referenceText": "Konverter PDF"
+    },
+    "subtitle": "Alat PDF online untuk bekerja lebih cerdas, bukan lebih keras.",
+    "uploadButton": "Unggah atau seret & letakkan file",
+    "disclaimer": "Dengan mengunggah file, Anda menyetujui [Ketentuan Penggunaan](/terms-and-conditions) kami dan menyadari [Kebijakan Privasi](/privacy-policy) kami.",
+    "showMore": "Tampilkan lebih banyak",
+    "filters": {
+      "all": "Semua",
+      "editPdf": "Edit PDF",
+      "convertToPdf": "Konversi ke PDF",
+      "convertFromPdf": "Konversi dari PDF",
+      "other": "Lainnya"
+    },
+    "tools": {
+      "translatePdf": "Terjemahkan PDF",
+      "compressPdf": "Kompres PDF",
+      "pdfOcr": "OCR PDF",
+      "removeWatermark": "Hapus watermark",
+      "pdfToWord": "PDF ke WORD",
+      "pdfToExcel": "PDF ke EXCEL",
+      "pdfToJpg": "PDF ke JPG",
+      "pdfToPng": "PDF ke PNG",
+      "pdfToPptx": "PDF ke PPTX",
+      "wordToPdf": "WORD ke PDF",
+      "excelToPdf": "EXCEL ke PDF",
+      "jpgToPdf": "JPG ke PDF",
+      "pngToPdf": "PNG ke PDF",
+      "pptxToPdf": "PPTX ke PDF"
+    }
+  },
+  "contact_us": {
+    "title": "Hubungi kami",
+    "subtitle": "Our team is available to help with questions, issues, or feedback.",
+    "address": "Alamat",
+    "phone": "Telepon",
+    "form_title": "How can we help?",
+    "form_placeholders": {
+      "name": "Nama Anda",
+      "email": "Email Anda",
+      "message": "Pesan Anda",
+      "submit_button": "Kirim pesan"
+    },
+    "submit_popup": "Message sent! WeвЂ™ll get back to you shortly.",
+    "required_field": "Kolom ini wajib diisi"
+  },
+  "achievements": {
+    "title": "Bangga membantu lebih dari 6 juta pengguna di seluruh dunia ",
+    "uploads": "unggahan",
+    "edits": "pengeditan",
+    "conversions": "konversi"
+  },
+  "trustSection": {
+    "title": "Keamanan dan kepatuhan standar industri"
+  },
+  "benefitsSection": {
+    "title": "Why OnlyDoc is the best PDF converter",
+    "gridLabel": "OnlyDoc benefits and features",
+    "cards": {
+      "convert": {
+        "title": "Konversi ke PDF dalam hitungan detik",
+        "description": "Buat PDF berkualitas tinggi dari file Anda dalam hitungan detik dengan proses yang cepat dan aman, dirancang untuk tugas digital sehari-hari."
+      },
+      "compress": {
+        "title": "Kompres file dengan mudah",
+        "description": "Permudah berbagi, hemat ruang penyimpanan, dan kurangi ukuran file tanpa mengorbankan kualitas dokumen digital Anda."
+      },
+      "translate": {
+        "title": "Terjemahkan PDF Anda",
+        "description": "Terjemahkan seluruh dokumen dengan cepat dan akurat agar dapat memahami, berbagi, dan bekerja lebih baik dalam berbagai bahasa."
+      },
+      "formats": {
+        "title": "Bekerja dengan berbagai format",
+        "description": "Use one free file converter to handle Word, Excel, images, and more вЂ“ all in one fast, seamless experience."
+      },
+      "ocr": {
+        "title": "Ubah gambar menjadi teks",
+        "description": "Manfaatkan fitur OCR bawaan kami untuk membuat teks dari gambar dan foto hasil pindai dapat diedit, mengubah file statis menjadi konten digital yang dapat digunakan."
+      },
+      "navigate": {
+        "title": "Navigasi yang intuitif",
+        "description": "Nikmati antarmuka yang bersih dan elegan yang membantu Anda menyelesaikan tugas lebih cepat, tanpa proses belajar atau langkah tambahan."
+      }
+    }
+  },
+  "ctaSection": {
+    "title": {
+      "prefix": "Konversi ke PDF",
+      "highlight": "secara gratis"
+    },
+    "badges": {
+      "secure": "Aman",
+      "easy": "Mudah",
+      "fast": "Cepat"
+    },
+    "button": "Unggah dokumen Anda"
+  },
+  "faqSectionMainPage": {
+    "title": {
+      "prefix": "Pertanyaan yang sering",
+      "highlight": "diajukan"
+    },
+    "items": {
+      "1": {
+        "question": "What is OnlyDoc?",
+        "answer": "OnlyDoc is a free online PDF converter that allows you to convert files to and from PDF format. It supports popular formats including Word, Excel, PowerPoint, JPG, PNG, and EPUB. Beyond basic conversion, OnlyDoc includes built-in tools for reducing file size, translating into multiple languages, and converting scanned documents and images into text you can work with."
+      },
+      "2": {
+        "question": "Is OnlyDoc safe to use?",
+        "answer": "Yes, OnlyDoc is safe. Your files are protected with SSL encryption during upload, ensuring secure data transmission. The platform is GDPR-compliant and adheres to strict data privacy regulations. All files stored on servers are encrypted for added security. We prioritize your document safety and privacy at every step of the process."
+      },
+      "3": {
+        "question": "What features does OnlyDoc offer?",
+        "answer": "OnlyDoc offers comprehensive PDF conversion tools for multiple formats, working as a file converter to PDF for Word, Excel, PowerPoint, JPG, PNG, and EPUB. Other key features include built-in file compression to reduce document sizes, multilingual translation, and OCR technology that converts scanned documents and images into usable text."
+      },
+      "4": {
+        "question": "What file formats does OnlyDoc support?",
+        "answer": "OnlyDoc supports conversion between PDF and the following formats: Word (DOC/DOCX), Excel (XLS/XLSX), PowerPoint (PPTX/PPT), JPG, PNG, and EPUB. You can convert from any of these formats to PDF, or convert from PDF to any of these formats, helping you be more flexible with your workflow."
+      },
+      "5": {
+        "question": "Bagaimana cara mengonversi file ke PDF?",
+        "answer": "Converting files to PDF with OnlyDoc is very simple:\n\n1. Upload your file (Word, Excel, PowerPoint, JPG, PNG, or EPUB)\n2. Select PDF as your target format\n3. Click the Convert button\n4. Download your converted PDF file\n\nThe entire process takes just a few clicks."
+      },
+      "6": {
+        "question": "Bagaimana cara mengonversi PDF ke format lain?",
+        "answer": "1. Unggah file PDF Anda\n2. Pilih format keluaran yang diinginkan dari opsi yang tersedia: Word, Excel, PowerPoint, JPG, PNG, atau EPUB\n3. Klik konversi dan tunggu hingga proses selesai\n4. Unduh file Anda yang telah dikonversi dalam format baru\n\nSelama konversi, kami berusaha sebaik mungkin mempertahankan tata letak dan format aslinya."
+      },
+      "7": {
+        "question": "Berapa ukuran file maksimum yang dapat saya unggah?",
+        "answer": "OnlyDoc supports file uploads up to 100 MB. This generous limit accommodates most documents, presentations, spreadsheets, and images. If your file exceeds this size, consider using OnlyDoc's built-in compressor to reduce the file size before conversion, or split larger documents into smaller parts."
+      },
+      "8": {
+        "question": "Berapa lama waktu konversinya?",
+        "answer": "Waktu konversi bervariasi tergantung pada ukuran, format, dan kompleksitas file Anda. Konversi sederhana biasanya hanya butuh beberapa detik, sedangkan file yang lebih besar atau dokumen kompleks dengan banyak gambar mungkin membutuhkan waktu hingga beberapa menit."
+      },
+      "9": {
+        "question": "Does OnlyDoc work on mobile and other devices?",
+        "answer": "Yes, OnlyDoc is a web-based tool that works on all devices with a stable internet connection. This includes desktop computers, laptops, tablets, and smartphones. Whether you're using Windows, Mac, iOS, or Android, you can access all OnlyDoc's features without downloading or installing any additional software."
+      }
+    }
+  },
+  "serviceHeroSection": {
+    "title": "PDF ke Word",
+    "subtitle": "OnlyDoc supports common formats like Word, Excel, and more.",
+    "buttonLabel": "Unggah file",
+    "supportedFormats": "Mendukung PDF, DOCX, EXCEL, JPG, PNG",
+    "maxSize": "Ukuran hingga 100 MB",
+    "dropText": "Letakkan file Anda di sini untuk memulai"
+  },
+  "bottomCtaSection": {
+    "title": "Konversi file PDF secara gratis",
+    "subtitle": "OnlyDoc supports common formats like Word, Excel, and more.",
+    "button": "Mulai sekarang"
+  },
+  "allToolsSection": {
+    "title": "Lebih banyak cara untuk bekerja dengan file PDF"
+  },
+  "reviewsSection": {
+    "title": "Apa kata pengguna kami",
+    "reviews": {
+      "1": {
+        "title": "Tanpa stres dari awal hingga akhir!",
+        "text": "Saya suka betapa efisiennya! Hari ini saya menerjemahkan file PDF yang panjang untuk klien tanpa masalah. Terima kasih!",
+        "author": "Sofia Romano",
+        "date": "28 Feb 2025"
+      },
+      "2": {
+        "title": "Persis seperti yang saya butuhkan!",
+        "text": "Saya suka betapa mudahnya mengonversi file ke PDF untuk pekerjaan di Windows dengan layanan ini!",
+        "author": "Marcus Hill",
+        "date": "21 Jan 2025"
+      },
+      "3": {
+        "title": "Membantu saya tetap teratur!",
+        "text": "OnlyDoc is a huge time saver! This online PDF converter handled my workload perfectly.",
+        "author": "Daniel Brooks",
+        "date": "8 Mar 2025"
+      },
+      "4": {
+        "title": "Bekerja saat paling dibutuhkan!",
+        "text": "Saya suka betapa efisiennya! Hari ini saya menerjemahkan file PDF yang panjang untuk klien tanpa masalah. Terima kasih!",
+        "author": "Emily Chen",
+        "date": "26 Feb 2025"
+      },
+      "5": {
+        "title": "Sangat cepat dan andal!",
+        "text": "Mengonversi puluhan dokumen dalam hitungan menit. Kualitasnya luar biasa dan benar-benar gratis!",
+        "author": "James Wilson",
+        "date": "15 Mar 2025"
+      },
+      "6": {
+        "title": "Alat PDF terbaik yang pernah saya gunakan!",
+        "text": "Antarmuka sederhana, hasil cepat. Sempurna untuk alur kerja harian saya. Sangat direkomendasikan!",
+        "author": "Anna Martinez",
+        "date": "10 Mar 2025"
+      }
+    }
+  },
+  "modals": {
+    "upload_modal_default": {
+      "processing": "Memproses dokumen Anda...",
+      "tip_title": "Tips produktivitas",
+      "tip_message": "Menyimpan file yang telah dikonversi dalam folder akan memudahkan Anda menemukannya nanti."
+    },
+    "export_modal_default": {
+      "file_name": "Nama file",
+      "title": "File Anda sudah siap",
+      "subtitle": "Pilih format untuk diunduh."
+    },
+    "compress_modal": {
+      "title": "Kompres PDF",
+      "subtitle": "Pilih jenis konversi.",
+      "submit_button": "Kompres PDF",
+      "final_size": "Ukuran akhir",
+      "levels": {
+        "high": {
+          "title": "Tinggi",
+          "description": "Ukuran paling kecil, kualitas standar"
+        },
+        "medium": {
+          "title": "Sedang",
+          "description": "Ukuran sedang, kualitas lebih baik"
+        },
+        "low": {
+          "title": "Rendah",
+          "description": "Ukuran lebih besar, kualitas tertinggi"
+        }
+      }
+    },
+    "translate_modal": {
+      "title": "Pilih bahasa terjemahan",
+      "source_label": "Bahasa sumber:",
+      "target_label": "Bahasa target:",
+      "auto_detected_hint": "Terdeteksi otomatis (ubah jika perlu)",
+      "auto_suggested_hint": "Disarankan otomatis (ubah jika perlu)",
+      "select_source_placeholder": "Pilih bahasa sumber",
+      "select_target_placeholder": "Pilih bahasa target",
+      "submit_button": "Terjemahkan dokumen"
+    },
+    "ocr_modal": {
+      "title": "Format apa yang ingin Anda unduh?",
+      "file_name_label": "Nama file",
+      "cancel_button": "Batal",
+      "download_button": "Unduh",
+      "formats": {
+        "word": {
+          "title": "Dokumen Word",
+          "description": "Siap diedit dan diformat."
+        },
+        "searchable_pdf": {
+          "title": "PDF yang dapat dicari",
+          "description": "Cari dan pilih teks dalam file dengan mudah."
+        },
+        "plain_text": {
+          "title": "Teks biasa",
+          "description": "Hanya teks, tanpa pemformatan."
+        }
+      }
+    },
+    "unlock_pdf": {
+      "heading": "Memproses dokumen Anda...",
+      "estimated_time": "Perkiraan waktu: <1m",
+      "password_placeholder": "Masukkan kata sandi",
+      "show_password": "Tampilkan kata sandi",
+      "hide_password": "Sembunyikan kata sandi",
+      "back": "Kembali",
+      "unlock": "Buka kunci",
+      "unlocking": "Membuka kunci...",
+      "know_password": "Tunggu, saya tahu kata sandinya",
+      "errors": {
+        "incorrect_password": "Kata sandi salah — coba lagi.",
+        "decrypt_failed": "Kami tidak dapat mendekripsi PDF ini. Coba lagi atau pilih file lain.",
+        "could_not_unlock": "Kami tidak dapat membuka kunci file ini. Coba masukkan kata sandinya.",
+        "save_failed": "Kami tidak dapat menyimpan file yang telah dibuka. Coba lagi.",
+        "unlock_failed": "Terjadi kesalahan. Silakan coba lagi.",
+        "timed_out": "Waktu buka kunci habis. Coba lagi."
+      }
+    },
+    "remove_image_watermark_preview": {
+      "heading": "AI telah mendeteksi dan menghapus semua watermark",
+      "tab_split": "Layar terbagi",
+      "tab_slider": "Penggeser",
+      "original": "Asli",
+      "watermark_removed": "Watermark dihapus",
+      "upload_cta_action": "Unggah file baru",
+      "upload_cta_hint": "atau letakkan di sini",
+      "size_hint": "Ukuran hingga 50 MB. Mendukung file {{formats}}.",
+      "download": "Unduh",
+      "preview_mode_label": "Mode pratinjau",
+      "upload_new_label": "Unggah gambar baru",
+      "alt_original": "Asli dengan watermark",
+      "alt_result": "Pratinjau tanpa watermark"
+    },
+    "enhance_image": {
+      "heading": "Tingkatkan kualitas gambar Anda",
+      "select_quality_level": "Pilih tingkat kualitas",
+      "upload_new": "Unggah baru",
+      "original_size": "Ukuran asli:",
+      "dimensions": "{{width}} × {{height}}",
+      "level_option": "Peningkatan {{level}}X",
+      "before": "Sebelum",
+      "after": "Setelah",
+      "enhancing": "Meningkatkan kualitas...",
+      "no_watermark_badge": "Tanpa watermark setelah diunduh",
+      "zoom_to_preview": "Perbesar untuk melihat pratinjau kualitas",
+      "upgrade_and_download": "Tingkatkan paket & unduh",
+      "alt_before": "Gambar asli",
+      "alt_after": "Gambar yang ditingkatkan"
+    }
+  },
+  "reveal_modal": {
+    "title": "Masukkan email Anda",
+    "subtitle": "Masukkan alamat email Anda untuk mengunduh file. Kami akan mengirimkan kata sandi Anda ke email ini.",
+    "button": "Unduh",
+    "terms_text": "Dengan melanjutkan, Anda menyetujui Ketentuan Penggunaan dan Kebijakan Privasi kami.",
+    "errors": {
+      "email_empty": "Masukkan alamat email Anda",
+      "email_max_length": "Email harus kurang dari 50 karakter",
+      "email_invalid": "Masukkan alamat email yang valid",
+      "email_already_used": "Email ini sudah terdaftar. Silakan masuk atau gunakan email lain."
+    }
+  },
+  "aboutUs": {
+    "mainSection": {
+      "title": "About OnlyDoc",
+      "subtitle": "Mitra tepercaya Anda untuk pengelolaan dokumen yang mudah.",
+      "paragraphs": {
+        "1": "OnlyDoc was built with a single goal in mind вЂ” to make working with digital documents as simple as possible. Whether you need to convert files, compress PDFs, or transform images into professional documents, our platform handles it all without the hassle of downloads, sign-ups, or hidden costs.",
+        "2": "We believe that powerful document tools should be accessible to everyone. That's why OnlyDoc is completely free to use, with no limitations on how many files you can process. From students and freelancers to business professionals, our platform serves millions of users who need reliable results without the complexity."
+      }
+    },
+    "tools_section_title": {
+      "highlight": "Pilih",
+      "suffix": "alat untuk bekerja dengan dokumen"
+    },
+    "benefitsSection": {
+      "title": "Dibuat agar pekerjaan Anda terus berjalan",
+      "text": "Managing documents should never slow you down. OnlyDoc integrates seamlessly into your workflow, whether you're preparing contracts, organizing research, or sharing files with colleagues. Our platform handles the technical details вЂ” conversions, compressions, and formatting вЂ” so you can stay focused on your priorities. With support for all major file types and instant processing on any device, OnlyDoc adapts to your needs rather than forcing you to adapt to it. No learning curve, no frustration вЂ” just reliable tools that deliver results when you need them most."
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "myFiles": "File saya",
+      "tools": "Alat",
+      "forms": "Formulir",
+      "userMenu": "Menu pengguna",
+      "account": "Akun",
+      "myAccount": "Akun saya",
+      "blog": "Blog",
+      "help": "Bantuan",
+      "terms": "Syarat & Ketentuan",
+      "logout": "Keluar",
+      "login": "Masuk",
+      "guest": "Tamu",
+      "homeAria": "Go to OnlyDoc home"
+    },
+    "myAccount": {
+      "title": "Akun saya",
+      "accountInformation": "Informasi akun",
+      "email": "Email",
+      "password": "Kata sandi",
+      "changePassword": "Ganti kata sandi",
+      "changePasswordDescription": "Kami akan mengirimkan tautan aman melalui email untuk menyetel ulang kata sandi Anda.",
+      "sending": "Mengirim…",
+      "passwordEmailSent": "Tautan penyetelan ulang terkirim — periksa kotak masuk Anda.",
+      "passwordEmailError": "Terjadi kesalahan. Silakan coba lagi.",
+      "googleManaged": "Akun Anda dikelola melalui masuk dengan Google.",
+      "language": "Bahasa",
+      "languageDescription": "Pilih bahasa untuk antarmuka."
+    },
+    "header": {
+      "myFiles": "File saya",
+      "tools": "Alat",
+      "searchPlaceholder": "Cari file",
+      "upload": "Unggah file",
+      "uploading": "Uploading..."
+    },
+    "table": {
+      "name": "Nama",
+      "type": "Jenis",
+      "size": "Ukuran",
+      "created": "Dibuat",
+      "updated": "Diperbarui"
+    },
+    "view": {
+      "list": "List",
+      "grid": "Grid"
+    },
+    "sort": {
+      "dateDesc": "Terbaru dahulu",
+      "dateAsc": "Terlama dahulu",
+      "nameAsc": "Name (A-Z)",
+      "nameDesc": "Name (Z-A)",
+      "sizeDesc": "Terbesar dahulu",
+      "sizeAsc": "Terkecil dahulu"
+    },
+    "bulk": {
+      "selected": "{{count}} dipilih",
+      "selectAll": "Pilih semua file",
+      "toggleRow": "Pilih {{filename}}",
+      "clear": "Hapus pilihan"
+    },
+    "actions": {
+      "preview": "Pratinjau",
+      "download": "Unduh",
+      "duplicate": "Gandakan",
+      "print": "Cetak",
+      "rename": "Ganti nama",
+      "shareLink": "Bagikan tautan",
+      "sendEmail": "Kirim ke email",
+      "delete": "Hapus",
+      "more": "Tindakan lainnya",
+      "close": "Tutup",
+      "cancel": "Batal"
+    },
+    "empty": {
+      "title": "Selamat datang!",
+      "subtitle": "File Anda akan muncul di sini",
+      "cta": "Unggah file"
+    },
+    "drop": {
+      "title": "Letakkan file Anda di sini untuk memulai",
+      "subtitle": "Kami akan mengunggahnya ke dasbor Anda",
+      "sizeLimit": "Size up to 100 MB",
+      "formats": "Supported formats:",
+      "addFiles": "Add files",
+      "dropHere": "Drop your files here to get started"
+    },
+    "rename": {
+      "title": "Ganti nama",
+      "newNameLabel": "Nama baru",
+      "placeholder": "Nama file",
+      "confirm": "Ganti nama"
+    },
+    "delete": {
+      "title": "Hapus file",
+      "titleMany": "Hapus {{count}} file?",
+      "subtitle": "\"{{filename}}\" akan dihapus secara permanen dari dasbor Anda.",
+      "subtitleMany": "File yang dipilih akan dihapus secara permanen dari dasbor Anda.",
+      "bodyPrefix": "Apakah Anda yakin ingin menghapus file",
+      "bodySuffix": "?",
+      "confirm": "Hapus"
+    },
+    "share": {
+      "title": "Bagikan tautan",
+      "subtitle": "Siapa pun yang memiliki tautan dapat mengunduh file ini selama 7 hari ke depan.",
+      "linkLabel": "Tautan",
+      "loading": "Generating link...",
+      "copyLink": "Salin tautan",
+      "copied": "Tersalin!"
+    },
+    "email": {
+      "title": "Kirim ke email",
+      "recipientLabel": "Email penerima",
+      "recipientPlaceholder": "name@example.com",
+      "messageLabel": "Pesan",
+      "messagePlaceholder": "Add a message",
+      "send": "Send email",
+      "sent": "Sent",
+      "sentMessage": "File Anda \"{{filename}}\" telah dikirim ke {{email}}",
+      "errorSubtitle": "Kami tidak dapat mengirim \"{{filename}}\" ke {{email}}. Silakan coba lagi nanti."
+    },
+    "preview": {
+      "loading": "Loading preview...",
+      "unsupported": "Pratinjau tidak tersedia untuk jenis file ini",
+      "convert": "Konversi",
+      "translate": "Terjemahkan",
+      "ocr": "OCR",
+      "createCopy": "Buat salinan",
+      "panelAria": "File preview panel"
+    },
+    "tools": {
+      "all": "Semua",
+      "pdf": "Alat PDF",
+      "image": "Image tools",
+      "ai": "Alat AI",
+      "convertTo": "Convert to...",
+      "compress": "Kompres",
+      "translate": "Terjemahkan PDF",
+      "filterAria": "Tool category filter"
+    },
+    "pagination": {
+      "previous": "Previous page",
+      "next": "Next page"
+    },
+    "errors": {
+      "loadFiles": "Failed to load files"
+    },
+    "toast": {
+      "linkCopied": "Tautan disalin ke papan klip",
+      "fileDeleted": "File dihapus",
+      "filesDeleted": "File dihapus",
+      "emailSent": "File berhasil dikirim",
+      "emailFailed": "Gagal mengirim file. Silakan coba lagi.",
+      "undo": "Urungkan",
+      "fileAdded": "File baru telah ditambahkan ke dasbor Anda",
+      "open": "Buka",
+      "uploadError": "Beberapa file gagal diunggah"
+    },
+    "upgrade": {
+      "title": "Coba fitur baru kami!",
+      "subtitle": "Discover incredible tools available at OnlyDoc!",
+      "dismiss": "Tutup"
+    },
+    "formatTabs": {
+      "all": "Semua",
+      "pdf": "PDF",
+      "image": "Gambar",
+      "word": "Word",
+      "spreadsheet": "Lembar kerja",
+      "presentation": "Presentasi",
+      "ebook": "E-book",
+      "audio": "Audio",
+      "video": "Video",
+      "text": "Teks",
+      "other": "Lainnya"
+    },
+    "toolDescriptions": {
+      "translatePdf": "Translate PDF documents into other languages",
+      "compressPdf": "Reduce the file size while keeping the quality",
+      "pdfOcr": "Recognize text in scanned PDFs and images",
+      "pdfToWord": "Convert PDFs into editable Word documents",
+      "pdfToExcel": "Extract tables from PDFs into Excel sheets",
+      "pdfToAzw3": "Convert PDF documents to Kindle AZW3 format",
+      "wordToPdf": "Convert Word documents into PDF files",
+      "excelToPdf": "Convert Excel spreadsheets into PDF files",
+      "azw3ToPdf": "Convert AZW3 e-books into PDF files",
+      "removeWatermark": "Remove watermarks from your PDF files",
+      "pdfToJpg": "Export each PDF page as a JPG image",
+      "pdfToPng": "Export each PDF page as a PNG image",
+      "pdfToTiff": "Export each PDF page as a TIFF image",
+      "jpgToPdf": "Convert JPG images into a PDF file",
+      "pngToPdf": "Convert PNG images into a PDF file",
+      "tiffToPdf": "Convert TIFF images into a PDF file",
+      "svgToPdf": "Convert SVG vector files into a PDF file",
+      "enhanceImage": "Improve image quality with AI enhancement",
+      "pdfSummarizer": "Get an AI-generated summary of any PDF"
+    }
+  },
+  "seo": {
+    "blog": {
+      "breadcrumbs_home": "Beranda",
+      "breadcrumbs_blog": "Blog",
+      "all_articles": "Semua artikel",
+      "categories_label": "Kategori",
+      "toc_label": "Table of contents",
+      "no_articles": "Tidak ada artikel ditemukan.",
+      "by_author": "Oleh",
+      "read_time": "{{minutes}} min read",
+      "views": "{{count}} tampilan",
+      "published_on": "Diterbitkan",
+      "last_updated": "Terakhir diperbarui",
+      "key_takeaways": "Poin penting",
+      "related_articles": "Artikel terkait",
+      "author_articles": "Articles by this author",
+      "page_title_default": "Blog | OnlyDoc",
+      "page_description_default": "Discover advice and tips for working with PDFs on the OnlyDoc Blog",
+      "category_title_template": "{{category}} — OnlyDoc Blog",
+      "page_n_suffix": "Halaman {{page}}"
+    },
+    "templates": {
+      "nav_link": "PDF Templates",
+      "breadcrumbs_home": "Home",
+      "breadcrumbs_catalog": "PDF Templates",
+      "use_template": "Use template",
+      "about_title": "About {{name}}",
+      "related_title": "Related templates",
+      "no_templates": "No templates found.",
+      "search_prompt_title": "Start typing to search template",
+      "search_prompt_subtitle": "Find the perfect template for your needs",
+      "search_results_count": "{{count}} results",
+      "search_no_results": "Sorry, we couldn't find any results. Please try again with different keywords.",
+      "search_placeholder": "Search templates",
+      "all_templates": "All Templates",
+      "sidebar_aria": "Template categories",
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "catalog_fallback_title": "PDF Templates",
+      "catalog_fallback_description": "Browse a wide range of fillable PDF templates including application forms, legal documents, tax forms, and more.",
+      "catalog_meta_title": "PDF Templates Online | Edit, Fill & Download Forms | OnlyDoc",
+      "catalog_meta_description": "Browse 1,000+ editable PDF templates for business, legal, and personal use. Fill out forms online, customize documents, add eSignatures, and download instantly",
+      "hero_fallback_title_part1": "1000+ Free",
+      "hero_fallback_title_highlight": "PDF",
+      "hero_fallback_title_part2": "Templates"
+    }
+  },
+  "aiSummarizer": {
+    "poweredByChip": "Didukung oleh model AI paling canggih",
+    "page": {
+      "title": "Peringkas AI",
+      "loginCta": "Masuk"
+    },
+    "empty": {
+      "headline": "Mulai percakapan baru dengan mengunggah dokumen PDF.",
+      "uploadButton": "Unggah file"
+    },
+    "sidebar": {
+      "newFile": "File baru",
+      "history": "RIWAYAT",
+      "deleteFailed": "Tidak dapat menghapus percakapan. Silakan coba lagi."
+    },
+    "loader": {
+      "analyzing": "Menganalisis file Anda… Harap tunggu, proses ini tidak akan lama!",
+      "loadingDocument": "Memuat dokumen…"
+    },
+    "chat": {
+      "inputPlaceholder": "Tulis pesan Anda di sini...",
+      "sendButton": "Kirim",
+      "suggestedQuestionsHeader": "Pertanyaan yang disarankan",
+      "summaryTitle": "OnlyDoc Overview:",
+      "keyInsightsTitle": "Poin penting",
+      "copy": "Salin",
+      "copied": "Tersalin",
+      "like": "Suka",
+      "dislike": "Tidak suka"
+    },
+    "errors": {
+      "fileTooLarge": "File terlalu besar. Ukuran maksimum adalah {{maxMb}} MB.",
+      "tooManyPages": "File memiliki terlalu banyak halaman. Maksimum adalah {{maxPages}} halaman.",
+      "formatNotSupported": "Format file ini tidak didukung.",
+      "processingFailed": "Tidak dapat memproses file. Coba file lain atau coba lagi.",
+      "sendFailed": "Tidak dapat mengirim pesan. Silakan coba lagi.",
+      "loadFailed": "Tidak dapat memuat percakapan.",
+      "messageTooLong": "Pesan terlalu panjang. Maksimum adalah {{maxChars}} karakter."
+    }
+  },
+  "templatesEditor": {
+    "common": {
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "unlock": "Unlock",
+      "try_again": "Try again",
+      "replace": "Replace",
+      "clear_all": "Clear all"
+    },
+    "toasts": {
+      "delete_confirmation_header": "Delete confirmation",
+      "delete_elements_content": "Are you sure you want to delete selected files? You can restore them using the Undo button",
+      "delete_page_content": "Are you sure you want to delete the page? You can restore them using the Undo button",
+      "delete_files_content": "Are you sure you want to delete selected files?",
+      "page_locked_header": "Page is locked",
+      "page_locked_content": "This page is currently locked to prevent accidental changes. Unlock the page to start editing or drawing.",
+      "copy_style_applied_header": "Style applied successfully",
+      "copy_style_applied_content": "The copied style has been applied to the selected object.",
+      "copy_style_header": "Style copied successfully",
+      "copy_style_content": "Tap any object of the same type to apply the copied style, or press Cancel to exit.",
+      "page_resized_header_one": "Page resized successfully",
+      "page_resized_header_other": "Pages resized successfully",
+      "page_resized_content_one": "The page dimensions have been changed. Please note that elements within the frames were not resized and may require manual adjustment.",
+      "page_resized_content_other": "The pages dimensions have been changed. Please note that elements within the frames were not resized and may require manual adjustment.",
+      "file_too_large_header": "File is too large",
+      "file_too_large_content": "Maximum file size is {{maxSize}} MB. Please upload a smaller file",
+      "change_template_header": "Change template?",
+      "change_template_content": "Changing the template will permanently delete all your current progress and elements. This action cannot be undone."
+    },
+    "upload": {
+      "cta_highlight": "Upload New",
+      "cta_rest": " or just drop here",
+      "size_support": "Size up to {{maxSize}} MB. Support {{formats}}."
+    },
+    "templates_section": {
+      "heading": "Choose a template:",
+      "results": "Results",
+      "all_templates": "All templates"
+    },
+    "ui": {
+      "undo": "Undo",
+      "redo": "Redo",
+      "print": "Print",
+      "share": "Share",
+      "done": "Done",
+      "file_name": "File name",
+      "reset": "Reset",
+      "stroke_type": "Stroke type",
+      "linear": "Linear",
+      "angle": "Angle",
+      "eyedropper": "Eyedropper",
+      "pages": "Pages",
+      "pick_a_color": "Pick a color",
+      "group": "Group",
+      "ungroup": "Ungroup",
+      "close": "Close",
+      "remove_item": "Remove {{label}}",
+      "close_sidebar": "Close sidebar",
+      "collapse_side_panel": "Collapse side panel",
+      "expand_side_panel": "Expand side panel",
+      "page_title": "Template Editor",
+      "page_description": "Create and customize document templates.",
+      "page": {
+        "duplicate_page": "Duplicate page",
+        "add_page": "Add page",
+        "remove_page": "Remove page",
+        "page_alt": "Page {{number}}",
+        "unlock_page": "Unlock page",
+        "lock_page": "Lock page",
+        "page_menu": "Page menu",
+        "previous_page": "Previous page",
+        "next_page": "Next page",
+        "add_new_page": "Add new page",
+        "delete_page": "Delete page"
+      }
+    },
+    "toolbar": {
+      "position": "Position",
+      "copy": "Copy",
+      "copy_style": "Copy style",
+      "effects": "Effects",
+      "opacity": "Opacity",
+      "border": "Border",
+      "fit_to_page": "Fit to page",
+      "text_style": "Text style",
+      "text_color": "Text color",
+      "text_align": "Text align",
+      "vertical_align": "Vertical align",
+      "background_color": "Background color",
+      "table_border": "Table border",
+      "structure": "Structure",
+      "fill_color": "Fill color",
+      "color": "Color",
+      "flip": "Flip",
+      "mask": "Mask",
+      "crop": "Crop",
+      "line_style": "Line style",
+      "line_start": "Line start",
+      "line_end": "Line end",
+      "more_tools": "More tools",
+      "forward": "Forward",
+      "to_front": "To front",
+      "backward": "Backward",
+      "to_back": "To back",
+      "align_top": "Align top",
+      "align_left": "Align left",
+      "align_middle": "Align middle",
+      "align_down": "Align down",
+      "align_right": "Align right",
+      "align_centre": "Align centre",
+      "top": "Top",
+      "middle": "Middle",
+      "bottom": "Bottom",
+      "none": "None",
+      "left": "Left",
+      "right": "Right",
+      "center": "Center",
+      "all_sides": "All sides",
+      "solid": "Solid",
+      "dashed": "Dashed",
+      "dotted": "Dotted",
+      "border_width": "Border width",
+      "line_size": "Line size",
+      "insert_above": "Insert above",
+      "insert_below": "Insert below",
+      "delete_row": "Delete row",
+      "insert_left": "Insert left",
+      "insert_right": "Insert right",
+      "delete_column": "Delete column",
+      "rows_evenly": "Rows evenly",
+      "columns_evenly": "Columns evenly",
+      "distribute_rows_only": "Distribute rows only",
+      "distribute_columns_only": "Distribute columns only",
+      "style": "Style",
+      "horizontal": "Horizontal",
+      "vertical": "Vertical",
+      "bold": "Bold",
+      "italic": "Italic",
+      "underline": "Underline",
+      "strikethrough": "Strikethrough",
+      "font_family": "Font family",
+      "font_size": "Font size",
+      "mixed": "Mixed",
+      "intensity": "Intensity",
+      "border_sides": "Border sides",
+      "border_style": "Border style",
+      "table_structure": "Table structure",
+      "rows": "Rows",
+      "columns": "Columns",
+      "distribute": "Distribute",
+      "layering": "Layering",
+      "apply_crop": "Apply crop",
+      "cancel_crop": "Cancel crop",
+      "lock": "Lock"
+    },
+    "side_panel": {
+      "tabs": {
+        "text": "Text",
+        "photo": "Photo",
+        "elements": "Elements",
+        "draw": "Draw",
+        "signature": "Signature",
+        "template": "Template",
+        "upload": "Upload",
+        "background": "Background",
+        "resize": "Resize",
+        "layers": "Layers"
+      },
+      "headers": {
+        "add_text": "Add text:",
+        "add_photo": "Add photo:",
+        "add_elements": "Add elements:",
+        "mask_image": "Mask image:",
+        "add_sketch": "Add sketch:",
+        "tools": "Tools:",
+        "add_signature": "Add signature:",
+        "add_background": "Add background:",
+        "adjust_canvas": "Adjust canvas:",
+        "upload_file": "Upload file:",
+        "elements_on_page": "Elements on your active page:",
+        "effects_for_text": "Effects for text",
+        "effects_for_shapes": "Effects for shapes",
+        "effects_for_icons": "Effects for icons",
+        "effects_for_photos": "Effects for photos",
+        "basic_text": "Basic text",
+        "text_presets": "Text presets",
+        "lines": "Lines",
+        "shapes": "Shapes",
+        "tables": "Tables",
+        "icons": "Icons",
+        "icons_count": "500k+"
+      },
+      "text_tabs": {
+        "basic": "Basic",
+        "upload_font": "Upload font"
+      },
+      "photo_tabs": {
+        "search": "Search",
+        "upload": "Upload"
+      },
+      "upload_tabs": {
+        "photo": "Photo",
+        "font": "Font"
+      },
+      "size_tabs": {
+        "custom": "Custom",
+        "presets": "Presets"
+      },
+      "draw_tools": {
+        "pencil": "Pencil",
+        "highlighter": "Highlighter",
+        "selection": "Selection"
+      },
+      "controls": {
+        "stroke_width": "Stroke width",
+        "blur": "Blur",
+        "radius": "Radius",
+        "curved_text": "Curved text",
+        "power": "Power",
+        "text_stroke": "Text Stroke",
+        "background": "Background",
+        "corner_radius": "Corner radius",
+        "corner_radius_title": "Corner Radius",
+        "padding": "Padding",
+        "shadow": "Shadow",
+        "offset_x": "Offset X",
+        "offset_y": "Offset Y",
+        "brightness": "Brightness",
+        "temperature": "Temperature",
+        "contrast": "Contrast",
+        "shadows": "Shadows",
+        "white": "White",
+        "black": "Black",
+        "vibrance": "Vibrance",
+        "saturation": "Saturation"
+      },
+      "text_presets": {
+        "heading": "Heading",
+        "subheading": "Subheading",
+        "paragraph": "Paragraph",
+        "preview_alt": "Text preset"
+      },
+      "signature": {
+        "clear": "Clear",
+        "add_to_page": "Add to page"
+      },
+      "custom_size": {
+        "resize": "Resize"
+      },
+      "upload": {
+        "choose_local_file": "Choose a local file",
+        "my_uploads": "My uploads",
+        "photos_from_unsplash": "Photos from Unsplash",
+        "results_count": "{{count}} results",
+        "search_placeholder": "Try \"flower\", \"line\", or \"handshake\""
+      },
+      "background": {
+        "search_placeholder": "e.g. grainy texture, noise, paper background..."
+      },
+      "layers": {
+        "no_elements": "No elements on this page",
+        "hide_element": "Hide element",
+        "show_element": "Show element",
+        "unlock_element": "Unlock element",
+        "lock_element": "Lock element",
+        "delete_element": "Delete element",
+        "types": {
+          "text": "Text",
+          "image": "Image",
+          "figure": "Figure",
+          "table": "Table",
+          "group": "Group",
+          "element": "Element"
+        }
+      },
+      "size_presets": {
+        "categories": {
+          "instagram": "Instagram",
+          "facebook": "Facebook",
+          "youtube": "Youtube",
+          "linkedin": "LinkedIn",
+          "twitter": "Twitter",
+          "video": "Video",
+          "print": "Print"
+        },
+        "sizes": {
+          "post": "Post",
+          "story": "Story",
+          "ad": "Ad",
+          "cover": "Cover",
+          "thumbnail": "Thumbnail",
+          "channel": "Channel",
+          "short": "Short",
+          "banner": "Banner",
+          "square": "Square",
+          "header": "Header",
+          "full_hd": "Full HD",
+          "uhd_4k": "4K UHD",
+          "vertical_hd": "Vertical HD",
+          "square_hd": "Square HD",
+          "invitation": "Invitation",
+          "a4_portrait": "A4 Portrait",
+          "a4_landscape": "A4 Landscape",
+          "a3": "A3",
+          "letter_portrait": "Letter Portrait",
+          "letter": "Letter",
+          "business_card": "Business card",
+          "poster": "Poster"
+        }
+      }
+    }
+  },
+  "editor_page": {
+    "header": {
+      "back_to_site": "Kembali ke situs"
+    },
+    "bottom_bar": {
+      "open_pages": "Halaman",
+      "open_properties": "Properti",
+      "close_panel": "Tutup"
+    }
+  }
+}

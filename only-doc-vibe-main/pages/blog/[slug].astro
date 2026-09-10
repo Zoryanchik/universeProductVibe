@@ -1,0 +1,18 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+
+import { BlogArticlePage } from "@/pages-layer/blog";
+import { getBlogArticleStaticPaths } from "@/pages-layer/blog";
+
+export const getStaticPaths = getBlogArticleStaticPaths;
+
+interface Props {
+  locale: ELanguages;
+  slug: string;
+  localeSlugMap: Record<string, string>;
+}
+
+const { locale, slug, localeSlugMap } = Astro.props;
+---
+
+<BlogArticlePage locale={locale} slug={slug} localeSlugMap={localeSlugMap} />

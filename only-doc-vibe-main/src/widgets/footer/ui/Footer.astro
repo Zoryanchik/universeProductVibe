@@ -1,0 +1,22 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+
+import type { IFooterData } from "../model/types";
+import { Footer as FooterComponent } from "./Footer.tsx";
+
+interface Props {
+  lang: ELanguages;
+  footerData: IFooterData;
+  pageLocalizations?: ELanguages[];
+}
+
+const { lang, footerData, pageLocalizations } = Astro.props;
+---
+
+<FooterComponent
+  data={footerData}
+  path={Astro.url.pathname}
+  currentLang={lang}
+  pageLocalizations={pageLocalizations}
+  client:idle
+/>

@@ -1,0 +1,7 @@
+---
+import { IndexLegalPage } from "@/pages-layer/legal";
+
+export { getLegalStaticPaths as getStaticPaths } from "@/pages-layer/legal";
+---
+
+<IndexLegalPage slug={Astro.params.legal} />

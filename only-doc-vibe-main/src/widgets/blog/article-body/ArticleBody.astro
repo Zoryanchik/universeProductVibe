@@ -1,0 +1,31 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import { MarkdownRenderer } from "@/shared/ui/markdown-renderer";
+
+interface Props {
+  content: string;
+  className?: string;
+}
+
+const { content, className } = Astro.props;
+---
+
+<div
+  class={cn(
+    "blog-article-body w-full max-w-full min-w-0 overflow-x-clip",
+    "[&_h2]:!text-[20px] [&_h2]:!leading-[24px] [&_h2]:!font-medium [&_h2]:!mt-12 [&_h2]:!mb-4 max-md:[&_h2]:!mt-8",
+    "[&_h3]:!text-[18px] [&_h3]:!leading-[26px] [&_h3]:!font-medium [&_h3]:!mt-8 [&_h3]:!mb-3",
+    "[&_h4]:!text-[16px] [&_h4]:!leading-[24px] [&_h4]:!font-medium [&_h4]:!mt-6 [&_h4]:!mb-2",
+    "[&_p]:!text-[16px] [&_p]:!leading-[22px] [&_p]:!mb-4 [&_p]:break-words",
+    "[&_ul]:!my-4 [&_ol]:!my-4 [&_li]:!text-[16px] [&_li]:!leading-[22px] [&_li]:break-words",
+    "[&_img]:!my-4 [&_img]:!h-auto [&_img]:!max-w-full",
+    "[&_video]:!my-4 [&_video]:!h-auto [&_video]:!max-w-full",
+    "[&_iframe]:!my-4 [&_iframe]:!max-w-full",
+    "[&_pre]:!max-w-full [&_pre]:!overflow-x-auto",
+    "[&_table]:!my-6 [&_table]:!w-full [&_table]:!max-w-full",
+    "[&_div>:first-child]:!mt-0 [&_div>:last-child]:!mb-0",
+    className
+  )}
+>
+  <MarkdownRenderer client:visible content={content} />
+</div>

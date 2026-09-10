@@ -1,0 +1,41 @@
+---
+import type { InternalFileType } from "@/shared/constants/file-type";
+
+import type { EFunnels, EServiceType } from "@/entities/documents";
+
+import { BottomCtaSectionWithFunnel } from "./BottomCtaSectionWithFunnel";
+
+interface Props {
+  readonly title: string;
+  readonly subtitle: string;
+  readonly buttonLabel: string;
+  readonly acceptedFormats: InternalFileType[];
+  readonly serviceType: EServiceType;
+  readonly funnel: EFunnels;
+  readonly formatTo?: InternalFileType;
+  readonly className?: string;
+}
+
+const {
+  title,
+  subtitle,
+  buttonLabel,
+  acceptedFormats,
+  serviceType,
+  funnel,
+  formatTo,
+  className,
+} = Astro.props;
+---
+
+<BottomCtaSectionWithFunnel
+  client:load
+  title={title}
+  subtitle={subtitle}
+  buttonLabel={buttonLabel}
+  acceptedFormats={acceptedFormats}
+  serviceType={serviceType}
+  funnel={funnel}
+  formatTo={formatTo}
+  className={className}
+/>

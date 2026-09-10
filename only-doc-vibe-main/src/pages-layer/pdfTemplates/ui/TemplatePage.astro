@@ -1,0 +1,194 @@
+---
+import { WEB_HOST } from "astro:env/client";
+
+import { defaultLocale } from "@/shared/config/locale";
+import { EPageType } from "@/shared/constants/page-type";
+import { prepareSeoData } from "@/shared/lib/seo/prepare-seo-data";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import { stripSlashes } from "@/shared/lib/utils/stripSlashes";
+import { fetchFooter, fetchNavbar } from "@/shared/api/fetchers";
+import {
+  FaqSectionAstro,
+  getCmsFaqTitle,
+  mapCmsFaqItems,
+} from "@/shared/ui/faq-section";
+
+import { Breadcrumbs } from "@/widgets/blog";
+
+import BasePage from "../../base/ui/BasePage.astro";
+import { fetchTemplatePage } from "../api/fetch-template-page";
+import { buildTemplateSchema } from "../lib/schema/build-templates-schema";
+import {
+  getCatalogUrl,
+  getCategoryUrl,
+  getEditorUrl,
+  getSubcategoryUrl,
+  getTemplateUrl,
+} from "../lib/urls";
+import AboutSection from "./components/AboutSection.astro";
+import RelatedTemplates from "./components/RelatedTemplates.astro";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Props {
+  categorySlug: string;
+  templateSlug: string;
+}
+
+const locale = defaultLocale;
+const t = createServerT(locale);
+const { categorySlug, templateSlug } = Astro.props;
+
+const [template, navbarData, footerData] = await Promise.all([
+  fetchTemplatePage(templateSlug, locale),
+  fetchNavbar(locale),
+  fetchFooter(locale),
+]);
+
+if (!template) {
+  return Astro.redirect("/404");
+}
+
+const abs = (path: string): string => `https://${WEB_HOST}${path}`;
+const templateUrl = getTemplateUrl(categorySlug, templateSlug);
+const categoryName = template.category?.title ?? categorySlug;
+const categoryUrl = getCategoryUrl(categorySlug);
+const editorHref = getEditorUrl(templateSlug);
+
+const faqItems = mapCmsFaqItems(template.faq);
+const faqTitle = getCmsFaqTitle(template.faq);
+const schemaFaqItems = faqItems.map((item) => ({
+  question: item.question,
+  answer: item.answer,
+}));
+
+const seoProps = prepareSeoData(
+  template.seo,
+  templateUrl,
+  EPageType.TEMPLATE_PAGE,
+  locale,
+  undefined,
+  // Templates are English-only — restrict hreflang to en (+ x-default)
+  // so we don't emit pt/es alternates that resolve to 404.
+  { [defaultLocale]: stripSlashes(templateUrl) }
+);
+
+seoProps.schema = buildTemplateSchema({
+  name: template.title,
+  description: template.seo?.metaDescription ?? "",
+  url: abs(templateUrl),
+  categoryName,
+  categoryUrl: abs(categoryUrl),
+  subcategory: template.subcategory
+    ? {
+        name: template.subcategory.title,
+        url: abs(getSubcategoryUrl(categorySlug, template.subcategory.slug)),
+      }
+    : undefined,
+  faqItems: schemaFaqItems,
+});
+
+const breadcrumbItems = [
+  { label: t("seo.templates.breadcrumbs_home") as string, href: "/" },
+  {
+    label: t("seo.templates.breadcrumbs_catalog") as string,
+    href: getCatalogUrl(),
+  },
+  { label: categoryName, href: categoryUrl },
+  ...(template.subcategory
+    ? [
+        {
+          label: template.subcategory.title,
+          href: getSubcategoryUrl(categorySlug, template.subcategory.slug),
+        },
+      ]
+    : []),
+  { label: template.title },
+];
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  {
+    template.coverImageUrl && (
+      <link
+        slot="head"
+        rel="preload"
+        as="image"
+        href={template.coverImageUrl}
+        fetchpriority="high"
+      />
+    )
+  }
+  <BasePage
+    lang={locale}
+    navbarData={navbarData}
+    footerData={footerData}
+    pageLocalizations={[defaultLocale]}
+  >
+    <div class="w-full bg-[var(--color-bg-light-grey)]">
+      <section class="mx-auto w-full max-w-[1140px] px-4 py-12">
+        <div class="flex items-start gap-12 max-md:flex-col max-md:gap-8">
+          <div class="flex flex-1 flex-col gap-6 pt-8 max-md:pt-0">
+            <Breadcrumbs items={breadcrumbItems} />
+            <h1
+              class="text-desktop-title-1 max-md:text-mobile-title-1 font-extrabold text-[var(--color-text-primary)]"
+            >
+              {template.title}
+            </h1>
+            <a
+              href={editorHref}
+              class="inline-flex h-12 w-fit items-center justify-center rounded-xl bg-[var(--color-primary)] px-8 text-[16px] font-semibold text-[var(--color-primary-contrast-text)] transition-opacity hover:opacity-90"
+            >
+              {t("seo.templates.use_template")}
+            </a>
+          </div>
+
+          <a
+            href={editorHref}
+            class="group relative block h-[420px] w-[420px] shrink-0 overflow-hidden rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white max-md:w-full"
+            aria-label={template.title}
+          >
+            {
+              template.coverImageUrl ? (
+                <img
+                  src={template.coverImageUrl}
+                  alt={template.coverImageAlt}
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                  class="block h-auto w-full object-top transition-transform duration-[2600ms] ease-linear group-hover:[transform:translateY(calc(-100%+420px))]"
+                />
+              ) : (
+                <span class="flex h-full w-full items-center justify-center text-[14px] text-[var(--color-text-secondary)]">
+                  {template.title}
+                </span>
+              )
+            }
+          </a>
+        </div>
+      </section>
+
+      <AboutSection
+        title={t("seo.templates.about_title", {
+          name: template.title,
+        }) as string}
+        content={template.aboutMarkdown}
+        categoryTag={categoryName}
+      />
+
+      {
+        faqItems.length > 0 && (
+          <div class="mx-auto w-full max-w-[1140px] px-4 pb-16">
+            <FaqSectionAstro
+              title={faqTitle}
+              items={faqItems}
+              className="[&_h3]:text-[18px] lg:[&_h3]:text-[20px]"
+            />
+          </div>
+        )
+      }
+
+      <RelatedTemplates templates={template.relatedTemplates} />
+    </div>
+  </BasePage>
+</SeoBaseLayout>

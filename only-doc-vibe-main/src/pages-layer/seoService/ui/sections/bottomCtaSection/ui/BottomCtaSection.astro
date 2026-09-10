@@ -1,0 +1,35 @@
+---
+import { createServerT } from "@/shared/lib/translations/server-t";
+import type { ELanguages } from "@/shared/constants/languages";
+import { InternalFileType } from "@/shared/constants/file-type";
+
+import { EFunnels, EServiceType } from "@/entities/documents";
+
+import { BottomCtaSectionWithFunnel } from "./BottomCtaSectionWithFunnel";
+
+interface Props {
+  readonly lang: ELanguages;
+  readonly cmsTitle?: string;
+  readonly cmsDescription?: string;
+  readonly cmsCtaButtonTitle?: string;
+}
+
+const { lang, cmsTitle, cmsDescription, cmsCtaButtonTitle } = Astro.props;
+const t = createServerT(lang);
+
+const title = cmsTitle ?? t("bottomCtaSection.title");
+const subtitle = cmsDescription ?? t("bottomCtaSection.subtitle");
+const buttonLabel = cmsCtaButtonTitle ?? t("bottomCtaSection.button");
+
+const ACCEPTED_FORMATS = [InternalFileType.PDF];
+---
+
+<BottomCtaSectionWithFunnel
+  client:load
+  title={title}
+  subtitle={subtitle}
+  buttonLabel={buttonLabel}
+  serviceType={EServiceType.CONVERTOR}
+  funnel={EFunnels.MAIN}
+  acceptedFormats={ACCEPTED_FORMATS}
+/>

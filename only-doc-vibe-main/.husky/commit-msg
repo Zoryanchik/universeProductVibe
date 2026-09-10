@@ -1,0 +1,23 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Commit message validation
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Patterns:
+# Allow commits with or without task IDs
+PATTERN_WITH_TASK='^(chore|feat|fix|style|refactor|docs|test|revert)\([A-Z]+-[0-9]+\): .+'
+PATTERN_WITHOUT_TASK='^(chore|feat|fix|style|refactor|docs|test|ci|revert): .+'
+PATTERN_MERGE='^Merge'
+
+echo "🔎 Validating commit message: $COMMIT_MSG"
+
+if echo "$COMMIT_MSG" | grep -Eq "$PATTERN_WITH_TASK" || echo "$COMMIT_MSG" | grep -Eq "$PATTERN_WITHOUT_TASK" || echo "$COMMIT_MSG" | grep -Eq "$PATTERN_MERGE"; then
+  echo "✅ Commit message is valid"
+else
+  echo "❌ Invalid commit message!"
+  echo "Commit message must match: <type>: description"
+  echo "Allowed types: chore, feat, fix, style, refactor, docs, test, ci"
+  exit 1
+fi

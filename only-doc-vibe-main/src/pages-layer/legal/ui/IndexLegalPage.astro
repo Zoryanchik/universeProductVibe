@@ -1,0 +1,15 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+
+import { getLegalPages } from "../api/get-legal-static-routes";
+import BaseLegalPage from "./BaseLegalPage.astro";
+
+export async function getLegalStaticPaths() {
+  return await getLegalPages();
+}
+
+const lang = Astro.props.lang || defaultLocale;
+const { slug } = Astro.props;
+---
+
+<BaseLegalPage lang={lang} slug={slug} />

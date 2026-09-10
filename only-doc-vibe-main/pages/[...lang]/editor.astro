@@ -1,0 +1,14 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+import { isELanguage } from "@/shared/constants/languages";
+import { defaultLocale } from "@/shared/config/locale";
+
+import { EditorPage, getEditorLocalesStaticPaths } from "@/pages-layer/editor";
+
+export const getStaticPaths = getEditorLocalesStaticPaths;
+
+const param = Astro.params.lang ?? "";
+const currentLocale: ELanguages = isELanguage(param) ? param : defaultLocale;
+---
+
+<EditorPage lang={currentLocale} />

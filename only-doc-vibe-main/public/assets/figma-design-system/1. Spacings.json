@@ -1,0 +1,400 @@
+{
+    "id": "VariableCollectionId:26779:16545",
+    "name": "1. Spacings",
+    "modes": {
+        "26779:21": "UNIVERSAL"
+    },
+    "variableIds": ["VariableID:26783:2107", "VariableID:26783:2105", "VariableID:26783:2109", "VariableID:26779:16546", "VariableID:26788:49631", "VariableID:26788:49632", "VariableID:26788:49636", "VariableID:26788:49633", "VariableID:26788:49634", "VariableID:26788:49635", "VariableID:26788:49625", "VariableID:26788:49628", "VariableID:26788:49624", "VariableID:26788:49629", "VariableID:26788:49613", "VariableID:28153:481", "VariableID:26783:2103", "VariableID:26779:16548", "VariableID:26788:49616", "VariableID:26779:16547", "VariableID:26783:2108", "VariableID:26788:49637", "VariableID:27944:27776"],
+    "variables": [{
+        "id": "VariableID:26779:16546",
+        "name": "Large intervals/72",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 72
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 72,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26779:16547",
+        "name": "Small interval/24",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 24
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 24,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26779:16548",
+        "name": "Small interval/16",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 16
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 16,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26783:2103",
+        "name": "Small interval/12",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 12
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 12,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26783:2105",
+        "name": "Small interval/4",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 4
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 4,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26783:2107",
+        "name": "Micro interval/2",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 2
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 2,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26783:2108",
+        "name": "Small interval/32",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 32
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 32,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26783:2109",
+        "name": "Medium intervals/36",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 36
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 36,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49613",
+        "name": "Small interval/8",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 8
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 8,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49616",
+        "name": "Small interval/20",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 20
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 20,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49624",
+        "name": "Medium intervals/56",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 56
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 56,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49625",
+        "name": "Medium intervals/40",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 40
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 40,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49628",
+        "name": "Medium intervals/48",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 48
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 48,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49629",
+        "name": "Medium intervals/64",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 64
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 64,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49631",
+        "name": "Large intervals/80",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 80
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 80,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49632",
+        "name": "Large intervals/88",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 88
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 88,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49633",
+        "name": "Large intervals/104",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 104
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 104,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49634",
+        "name": "Large intervals/112",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 112
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 112,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49635",
+        "name": "Large intervals/120",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 120
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 120,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49636",
+        "name": "Large intervals/96",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 96
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 96,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:26788:49637",
+        "name": "Huge intervals/140",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 140
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 140,
+                "alias": null
+            }
+        },
+        "scopes": ["ALL_SCOPES"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:27944:27776",
+        "name": "0",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 0
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 0,
+                "alias": null
+            }
+        },
+        "scopes": ["ALL_SCOPES"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }, {
+        "id": "VariableID:28153:481",
+        "name": "Small interval/10",
+        "description": "",
+        "type": "FLOAT",
+        "valuesByMode": {
+            "26779:21": 10
+        },
+        "resolvedValuesByMode": {
+            "26779:21": {
+                "resolvedValue": 10,
+                "alias": null
+            }
+        },
+        "scopes": ["WIDTH_HEIGHT", "GAP"],
+        "hiddenFromPublishing": false,
+        "codeSyntax": {}
+    }]
+}

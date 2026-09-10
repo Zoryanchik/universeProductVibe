@@ -1,0 +1,17 @@
+---
+import { CAPTCHA_SITE_KEY } from "astro:env/client";
+
+const recaptchaSiteKey = CAPTCHA_SITE_KEY;
+---
+
+<script is:inline async defer define:vars={{ recaptchaSiteKey }}>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      const recaptchaScript = document.createElement("script");
+      recaptchaScript.src = `https://www.google.com/recaptcha/enterprise.js?render=${recaptchaSiteKey}`;
+      recaptchaScript.async = true;
+      recaptchaScript.defer = true;
+      document.head.appendChild(recaptchaScript);
+    }, 10_000);
+  });
+</script>

@@ -1,0 +1,991 @@
+@layer base {
+  :root {
+    /* FONTS */
+    /* Lato has no Arabic glyphs, so Arabic codepoints fall through to
+       Noto Sans Arabic instead of an arbitrary system font. */
+    --font-primary: Lato, Noto Sans Arabic, sans-serif;
+
+    /* general */
+    --text-subtitle-size: 1.125rem;
+    --text-subtitle--line-height: 1.625rem;
+    --text-subtitle--font-weight: 400;
+    --text-subtitle-emph--font-weight: 700;
+
+    --text-body-size: 1rem;
+    --text-body--line-height: 1.375rem;
+    --text-body--font-weight: 400;
+    --text-body-emph--font-weight: 700;
+
+    --text-body-2-size: 0.875rem;
+    --text-body-2--line-height: 1.125rem;
+    --text-body-2--font-weight: 400;
+    --text-body-2-emph--font-weight: 700;
+
+    --text-caption-size: 0.8125rem;
+    --text-caption--line-height: 1rem;
+    --text-caption--font-weight: 400;
+    --text-caption-emph--font-weight: 700;
+    --text-caption-overline--font-weight: 400;
+
+    --text-caption-xs-size: 0.6875rem;
+    --text-caption-xs--line-height: 0.875rem;
+    --text-caption-xs--font-weight: 400;
+    --text-caption-xs-emph--font-weight: 700;
+
+    /* desktop */
+    --text-desktop-leading-size: 6rem;
+    --text-desktop-leading--line-height: 6.875rem;
+    --text-desktop-leading--font-weight: 900;
+
+    --text-desktop-title-1-size: 3rem;
+    --text-desktop-title-1--line-height: 3.5rem;
+    --text-desktop-title-1--font-weight: 800;
+
+    --text-desktop-title-2-size: 2.5rem;
+    --text-desktop-title-2--line-height: 3rem;
+    --text-desktop-title-2--font-weight: 700;
+
+    --text-desktop-title-3-size: 2rem;
+    --text-desktop-title-3--line-height: 2.5rem;
+    --text-desktop-title-3--font-weight: 700;
+
+    --text-desktop-title-4-size: 1.75rem;
+    --text-desktop-title-4--line-height: 2.125rem;
+    --text-desktop-title-4--font-weight: 700;
+
+    --text-desktop-title-5-size: 1.5rem;
+    --text-desktop-title-5--line-height: 1.875rem;
+    --text-desktop-title-5--font-weight: 700;
+
+    --text-desktop-title-6-size: 1.25rem;
+    --text-desktop-title-6--line-height: 1.5rem;
+    --text-desktop-title-6--font-weight: 400;
+    --text-desktop-title-6-emph--font-weight: 600;
+
+    /* mobile */
+    --text-mobile-leading-size: 4rem;
+    --text-mobile-leading--line-height: 4.875rem;
+    --text-mobile-leading--font-weight: 900;
+
+    --text-mobile-title-1-size: 2rem;
+    --text-mobile-title-1--line-height: 2.375rem;
+    --text-mobile-title-1--font-weight: 800;
+
+    --text-mobile-title-2-size: 1.75rem;
+    --text-mobile-title-2--line-height: 2.125rem;
+    --text-mobile-title-2--font-weight: 700;
+
+    --text-mobile-title-3-size: 1.5rem;
+    --text-mobile-title-3--line-height: 1.875rem;
+    --text-mobile-title-3--font-weight: 700;
+
+    --text-mobile-title-4-size: 1.375rem;
+    --text-mobile-title-4--line-height: 1.75rem;
+    --text-mobile-title-4--font-weight: 700;
+
+    --text-mobile-title-5-size: 1.25rem;
+    --text-mobile-title-5--line-height: 1.5rem;
+    --text-mobile-title-5--font-weight: 700;
+
+    --text-mobile-title-6-size: 1.125rem;
+    --text-mobile-title-6--line-height: 1.375rem;
+    --text-mobile-title-6--font-weight: 700;
+    --text-mobile-title-6-emph--font-weight: 600;
+
+    /* COLORS */
+    --color-primary: #ffdf41ff;
+    --color-primary-light: #ffe357ff;
+    --color-primary-dark: #b29a1fff;
+    --color-primary-contrast-text: #201c11ff;
+
+    --color-secondary: #2d50ffff;
+    --color-secondary-light: #5773ffff;
+    --color-secondary-dark: #1f38b2ff;
+    --color-secondary-contrast-text: #ffffffff;
+
+    --color-action-main: #000000ff;
+    --color-action-light: #333333ff;
+    --color-action-dark: #000000ff;
+    --color-action-contrast-text: #ffffffff;
+
+    --color-state-primary-hover: #ffdd2d14;
+    --color-state-primary-50: #ffdd2d80;
+
+    --color-state-secondary-hover: #2d50ff14;
+    --color-state-secondary-50: #2d50ff80;
+
+    --color-state-action-hover: #00000014;
+    --color-state-action-50: #00000080;
+
+    --color-text-primary: #000000de;
+    --color-text-secondary: #00000099;
+    --color-text-disabled: #0000007a;
+
+    --color-action-active: #0000007a;
+    --color-action-hover: #00000014;
+    --color-action-selected: #00000014;
+    --color-action-disabled: #00000042;
+    --color-action-disabled-bg: #0000001f;
+    --color-action-stroke: #00000026;
+
+    --color-bg-white-bg: #ffffffff;
+    --color-bg-light-grey: #f5f5f7ff;
+    --color-bg-blue-grey: #f5f5f7ff;
+    --color-bg-dark-blue-grey: #6d7580ff;
+    --color-bg-dark: #323232ff;
+    --color-bg-tooltip: #000000ad;
+
+    --color-common-black: #000000ff;
+    --color-common-white: #ffffffff;
+
+    --color-os-divider: #0000001f;
+    --color-os-outline-border: #00000024;
+    --color-os-filled-input-bg: #0000000f;
+    --color-os-filled-input-disabled-background: #0000000a;
+    --color-os-backdrop-overlay: #00000080;
+    --color-os-snackbar-bg: #323232ff;
+    --color-os-button-outline-action-border: #00000033;
+
+    --color-error-main: #f44336ff;
+    --color-error-light: #f6685eff;
+    --color-error-dark: #aa2e25ff;
+    --color-error-contrast-text: #ffffffff;
+    --color-error-state-hover-opacity: #f4433614;
+    --color-error-state-selected-opacity: #f4433614;
+    --color-error-state-main-50: #f4433680;
+
+    --color-warning-main: #ff9900ff;
+    --color-warning-light: #ffad33ff;
+    --color-warning-dark: #8b5402ff;
+    --color-warning-contrast-text: #000000de;
+    --color-warning-state-hover-opacity: #ff990014;
+    --color-warning-state-selected-opacity: #ff990014;
+    --color-warning-state-main-50: #ff990080;
+
+    --color-success-main: #4caf50ff;
+    --color-success-light: #6fbf73ff;
+    --color-success-dark: #357a38ff;
+    --color-success-contrast-text: #ffffffff;
+    --color-success-state-hover-opacity: #4caf5014;
+    --color-success-state-selected-opacity: #4caf5014;
+    --color-success-state-main-50: #4caf5080;
+
+    --color-info-main: #2196f3ff;
+    --color-info-light: #4dabf5ff;
+    --color-info-dark: #1769aaff;
+    --color-info-contrast-text: #ffffffff;
+    --color-info-state-hover-opacity: #2196f314;
+    --color-info-state-selected-opacity: #2196f314;
+    --color-info-state-main-50: #2196f380;
+
+    --color-primary-opacity-4: #ffdd2d0a;
+    --color-primary-opacity-8: #ffdd2d14;
+    --color-primary-opacity-12: #ffdd2d1f;
+    --color-primary-opacity-16: #ffdd2d29;
+    --color-primary-opacity-20: #ffdd2d33;
+    --color-primary-opacity-24: #ffdd2d3d;
+    --color-primary-opacity-32: #ffdd2d52;
+    --color-primary-opacity-40: #ffdd2d66;
+    --color-primary-opacity-50: #ffdd2d80;
+    --color-primary-opacity-70: #ffdd2db2;
+
+    --color-primary-filled-50: #fffee7ff;
+    --color-primary-filled-100: #fffac3ff;
+    --color-primary-filled-200: #fef69bff;
+    --color-primary-filled-300: #fdf171ff;
+    --color-primary-filled-400: #fbed4fff;
+    --color-primary-filled-500: #f8e829ff;
+    --color-primary-filled-600: #ffdc2dff;
+    --color-primary-filled-700: #fec424ff;
+    --color-primary-filled-800: #fdab1aff;
+    --color-primary-filled-900: #fa8106ff;
+
+    --color-secondary-opacity-4: #2d50ff0a;
+    --color-secondary-opacity-8: #2d50ff14;
+    --color-secondary-opacity-12: #2d50ff1f;
+    --color-secondary-opacity-16: #2d50ff29;
+    --color-secondary-opacity-20: #2d50ff33;
+    --color-secondary-opacity-24: #2d50ff3d;
+    --color-secondary-opacity-32: #2d50ff52;
+    --color-secondary-opacity-40: #2d50ff66;
+    --color-secondary-opacity-50: #2d50ff80;
+    --color-secondary-opacity-70: #2d50ffb2;
+
+    --color-secondary-filled-50: #eaebffff;
+    --color-secondary-filled-100: #c9ccffff;
+    --color-secondary-filled-200: #a3acffff;
+    --color-secondary-filled-300: #798affff;
+    --color-secondary-filled-400: #566dffff;
+    --color-secondary-filled-500: #2d50ffff;
+    --color-secondary-filled-600: #2847f3ff;
+    --color-secondary-filled-700: #193be6ff;
+    --color-secondary-filled-800: #042edbff;
+    --color-secondary-filled-900: #000ccbff;
+
+    --color-action-4: #0000000a;
+    --color-action-8: #00000014;
+    --color-action-12: #0000001f;
+    --color-action-16: #00000029;
+    --color-action-20: #00000033;
+    --color-action-24: #0000003d;
+    --color-action-32: #00000052;
+    --color-action-40: #00000066;
+
+    --color-error-4: #f443360a;
+    --color-error-8: #f4433614;
+    --color-error-12: #f443361f;
+    --color-error-16: #f4433629;
+    --color-error-20: #f4433633;
+    --color-error-24: #f443363d;
+    --color-error-32: #f4433652;
+    --color-error-40: #f4433666;
+    --color-error-50: #f4433680;
+
+    --color-warning-4: #ff99000a;
+    --color-warning-8: #ff990014;
+    --color-warning-12: #ff99001f;
+    --color-warning-16: #ff990029;
+    --color-warning-20: #ff990033;
+    --color-warning-24: #ff99003d;
+    --color-warning-32: #ff990052;
+    --color-warning-40: #ff990066;
+    --color-warning-50: #ff990080;
+
+    --color-success-4: #4caf500a;
+    --color-success-8: #4caf5014;
+    --color-success-12: #4caf501f;
+    --color-success-16: #4caf5029;
+    --color-success-20: #4caf5033;
+    --color-success-24: #4caf503d;
+    --color-success-32: #4caf5052;
+    --color-success-40: #4caf5066;
+    --color-success-50: #4caf5080;
+
+    --color-info-4: #2196f30a;
+    --color-info-8: #2196f314;
+    --color-info-12: #2196f31f;
+    --color-info-16: #2196f329;
+    --color-info-20: #2196f333;
+    --color-info-24: #2196f33d;
+    --color-info-32: #2196f352;
+    --color-info-40: #2196f366;
+    --color-info-50: #2196f380;
+
+    --color-white-4: #ffffff0a;
+    --color-white-8: #ffffff14;
+    --color-white-12: #ffffff1f;
+    --color-white-16: #ffffff29;
+    --color-white-20: #ffffff33;
+    --color-white-24: #ffffff3d;
+    --color-white-32: #ffffff52;
+    --color-white-40: #ffffff66;
+    --color-white-50: #ffffff80;
+    --color-white-75: #ffffffbf;
+    --color-white-85: #ffffffd9;
+    --color-white-95: #fffffff2;
+
+    /* Blog */
+    --color-blog-thumbnail-bg: #d9d1ff;
+    --color-blog-hero-cover-bg: #d9f2f7;
+    --color-blog-cta-bg: var(--color-secondary-opacity-16);
+    --color-blog-badge-bg: var(--color-primary-opacity-8);
+    --color-blog-category-active: var(--color-secondary);
+
+    /* Achievements Section */
+    --color-achievement-card-teal: #82cfc3;
+    --color-achievement-card-orange: #fee1b8;
+    --color-achievement-card-cyan: #b2ebf2;
+    --color-achievement-icon: #049c87;
+    --color-achievement-card-base: #e8e8e8;
+    --color-achievement-card-folder: rgba(232, 232, 232, 0.8);
+
+    /* Material */
+    --color-material-bp-red: #d2294bff;
+    --color-material-bp-red-transparent-8: #d2294b14;
+    --color-material-bp-red-transparent-16: #d2294b29;
+    --color-material-bp-red-light: #ffc9cbff;
+
+    --color-material-bp-orange: #f99d34ff;
+    --color-material-bp-orange-transparent-8: #f99d3414;
+    --color-material-bp-orange-transparent-16: #f99d3429;
+    --color-material-bp-orange-light: #ffe0b2ff;
+
+    --color-material-bp-amber: #fdd318ff;
+    --color-material-bp-amber-transparent-8: #fdd31814;
+    --color-material-bp-amber-transparent-16: #fdd31829;
+    --color-material-bp-amber-light: #ffecb3ff;
+
+    --color-material-bp-green: #43a047ff;
+    --color-material-bp-green-transparent-8: #43a04714;
+    --color-material-bp-green-transparent-16: #43a0470f;
+    --color-material-bp-green-light: #c8e6c9ff;
+
+    --color-material-bp-teal: #00897bff;
+    --color-material-bp-teal-transparent-8: #00897b14;
+    --color-material-bp-teal-transparent-16: #00897b29;
+    --color-material-bp-teal-light: #b2dfdbff;
+
+    --color-material-bp-cyan: #00acc1ff;
+    --color-material-bp-cyan-transparent-8: #00acc114;
+    --color-material-bp-cyan-transparent-16: #00acc129;
+    --color-material-bp-cyan-light: #b2ebf2ff;
+
+    --color-material-bp-blue: #1e88e5ff;
+    --color-material-bp-blue-transparent-8: #1e88e514;
+    --color-material-bp-blue-transparent-16: #1e88e529;
+    --color-material-bp-blue-light: #bbdefbff;
+
+    --color-material-bp-deep-purple: #532bdcff;
+    --color-material-bp-deep-purple-transparent-8: #532bdc14;
+    --color-material-bp-deep-purple-transparent-16: #532bdc29;
+    --color-material-bp-deep-purple-light: #d3c3f6ff;
+
+    --color-material-bp-purple: #910fb3ff;
+    --color-material-bp-purple-transparent-8: #910fb314;
+    --color-material-bp-purple-transparent-16: #910fb329;
+    --color-material-bp-purple-light: #f7c5ffff;
+
+    --color-material-blue-grey-50: #eceff1ff;
+    --color-material-blue-grey-100: #cfd8dcff;
+    --color-material-blue-grey-200: #b0bec5ff;
+    --color-material-blue-grey-300: #90a4aeff;
+    --color-material-blue-grey-400: #78909cff;
+    --color-material-blue-grey-500: #607d8bff;
+    --color-material-blue-grey-600: #546e7aff;
+    --color-material-blue-grey-700: #455a64ff;
+    --color-material-blue-grey-800: #37474fff;
+    --color-material-blue-grey-900: #263238ff;
+    --color-material-blue-grey-a100: #cfd8dcff;
+    --color-material-blue-grey-a200: #b0bec5ff;
+    --color-material-blue-grey-a400: #78909cff;
+    --color-material-blue-grey-a700: #455a64ff;
+
+    --color-material-red-50: #ffe9ebff;
+    --color-material-red-100: #ffc9cbff;
+    --color-material-red-200: #f6938cff;
+    --color-material-red-300: #ed6860ff;
+    --color-material-red-400: #f54335ff;
+    --color-material-red-500: #f92e0aff;
+    --color-material-red-600: #e53935ff;
+    --color-material-red-700: #d90a0aff;
+    --color-material-red-800: #cc0000ff;
+    --color-material-red-900: #d2294bff;
+    --color-material-red-a100: #ff8a80ff;
+    --color-material-red-a200: #ff5252ff;
+    --color-material-red-a400: #d2294bff;
+    --color-material-red-a700: #d2294bff;
+
+    --color-material-pink-50: #fce4ecff;
+    --color-material-pink-100: #f9bbc7ff;
+    --color-material-pink-200: #f48fa2ff;
+    --color-material-pink-300: #ee647fff;
+    --color-material-pink-400: #e84664ff;
+    --color-material-pink-500: #e22e4cff;
+    --color-material-pink-600: #d2294bff;
+    --color-material-pink-700: #bd2348ff;
+    --color-material-pink-800: #a91d45ff;
+    --color-material-pink-900: #861340ff;
+    --color-material-pink-a100: #ff80abff;
+    --color-material-pink-a200: #ff4081ff;
+    --color-material-pink-a400: #f50057ff;
+    --color-material-pink-a700: #c51162ff;
+
+    --color-material-purple-50: #f3e5f5ff;
+    --color-material-purple-100: #e2bceaff;
+    --color-material-purple-200: #d090dcff;
+    --color-material-purple-300: #bd62ceff;
+    --color-material-purple-400: #ae3dc4ff;
+    --color-material-purple-500: #a110b9ff;
+    --color-material-purple-600: #910fb3ff;
+    --color-material-purple-700: #7d0bacff;
+    --color-material-purple-800: #6a08a5ff;
+    --color-material-purple-900: #470399ff;
+    --color-material-purple-a100: #ea80fcff;
+    --color-material-purple-a200: #e040fbff;
+    --color-material-purple-a400: #d500f9ff;
+    --color-material-purple-a700: #aa00ffff;
+
+    --color-material-deep-purple-50: #eee7fbff;
+    --color-material-deep-purple-100: #d3c3f6ff;
+    --color-material-deep-purple-200: #b59cf1ff;
+    --color-material-deep-purple-300: #9672ecff;
+    --color-material-deep-purple-400: #7c51e7ff;
+    --color-material-deep-purple-500: #5f30e2ff;
+    --color-material-deep-purple-600: #532bdcff;
+    --color-material-deep-purple-700: #4023d3ff;
+    --color-material-deep-purple-800: #291dcdff;
+    --color-material-deep-purple-900: #5f30e2ff;
+    --color-material-deep-purple-a100: #b388ffff;
+    --color-material-deep-purple-a200: #7c4dffff;
+    --color-material-deep-purple-a400: #651fffff;
+    --color-material-deep-purple-a700: #6200eaff;
+
+    --color-material-indigo-50: #ece7fbff;
+    --color-material-indigo-100: #cec4f5ff;
+    --color-material-indigo-200: #ad9cf0ff;
+    --color-material-indigo-300: #8a74ebff;
+    --color-material-indigo-400: #6c55e6ff;
+    --color-material-indigo-500: #4737e1ff;
+    --color-material-indigo-600: #3833dbff;
+    --color-material-indigo-700: #192cd2ff;
+    --color-material-indigo-800: #0026ccff;
+    --color-material-indigo-900: #001ac2ff;
+    --color-material-indigo-a100: #8c9effff;
+    --color-material-indigo-a200: #536dfeff;
+    --color-material-indigo-a400: #3d5afeff;
+    --color-material-indigo-a700: #304ffeff;
+
+    --color-material-blue-50: #e3f2fdff;
+    --color-material-blue-100: #bbdefbff;
+    --color-material-blue-200: #90caf9ff;
+    --color-material-blue-300: #64b5f6ff;
+    --color-material-blue-400: #42a5f5ff;
+    --color-material-blue-500: #2196f3ff;
+    --color-material-blue-600: #1e88e5ff;
+    --color-material-blue-700: #1976d2ff;
+    --color-material-blue-800: #1565c0ff;
+    --color-material-blue-900: #0d47a1ff;
+    --color-material-blue-a100: #82b1ffff;
+    --color-material-blue-a200: #448affff;
+    --color-material-blue-a400: #2979ffff;
+    --color-material-blue-a700: #2962ffff;
+
+    --color-material-light-blue-50: #e1f5feff;
+    --color-material-light-blue-100: #b3e5fcff;
+    --color-material-light-blue-200: #81d4faff;
+    --color-material-light-blue-300: #4fc3f7ff;
+    --color-material-light-blue-400: #29b6f6ff;
+    --color-material-light-blue-500: #03a9f4ff;
+    --color-material-light-blue-600: #039be5ff;
+    --color-material-light-blue-700: #0288d1ff;
+    --color-material-light-blue-800: #0277bdff;
+    --color-material-light-blue-900: #01579bff;
+    --color-material-light-blue-a100: #80d8ffff;
+    --color-material-light-blue-a200: #40c4ffff;
+    --color-material-light-blue-a400: #00b0ffff;
+    --color-material-light-blue-a700: #0091eaff;
+
+    --color-material-cyan-50: #e0f7faff;
+    --color-material-cyan-100: #b2ebf2ff;
+    --color-material-cyan-200: #80deeaff;
+    --color-material-cyan-300: #4dd0e1ff;
+    --color-material-cyan-400: #26c6daff;
+    --color-material-cyan-500: #00bcd4ff;
+    --color-material-cyan-600: #00acc1ff;
+    --color-material-cyan-700: #0097a7ff;
+    --color-material-cyan-800: #00838fff;
+    --color-material-cyan-900: #006064ff;
+    --color-material-cyan-a100: #84ffffff;
+    --color-material-cyan-a200: #18ffffff;
+    --color-material-cyan-a400: #00e5ffff;
+    --color-material-cyan-a700: #00b8d4ff;
+
+    --color-material-teal-50: #e0f2f1ff;
+    --color-material-teal-100: #b2dfdbff;
+    --color-material-teal-200: #80cbc4ff;
+    --color-material-teal-300: #4db6acff;
+    --color-material-teal-400: #26a69aff;
+    --color-material-teal-500: #009688ff;
+    --color-material-teal-600: #00897bff;
+    --color-material-teal-700: #00796bff;
+    --color-material-teal-800: #00695cff;
+    --color-material-teal-900: #004d40ff;
+    --color-material-teal-a100: #a7ffebff;
+    --color-material-teal-a200: #64ffdaff;
+    --color-material-teal-a400: #1de9b6ff;
+    --color-material-teal-a700: #00bfa5ff;
+
+    --color-material-green-50: #e8f5e9ff;
+    --color-material-green-100: #c8e6c9ff;
+    --color-material-green-200: #a5d6a7ff;
+    --color-material-green-300: #81c784ff;
+    --color-material-green-400: #66bb6aff;
+    --color-material-green-500: #4caf50ff;
+    --color-material-green-600: #43a047ff;
+    --color-material-green-700: #388e3cff;
+    --color-material-green-800: #2e7d32ff;
+    --color-material-green-900: #1b5e20ff;
+    --color-material-green-a100: #b9f6caff;
+    --color-material-green-a200: #69f0aeff;
+    --color-material-green-a400: #46da83ff;
+    --color-material-green-a700: #00c853ff;
+
+    --color-material-light-green-50: #f1f8e9ff;
+    --color-material-light-green-100: #dcedc8ff;
+    --color-material-light-green-200: #c5e1a5ff;
+    --color-material-light-green-300: #aed581ff;
+    --color-material-light-green-400: #9ccc65ff;
+    --color-material-light-green-500: #8bc34aff;
+    --color-material-light-green-600: #7cb342ff;
+    --color-material-light-green-700: #689f38ff;
+    --color-material-light-green-800: #558b2fff;
+    --color-material-light-green-900: #33691eff;
+    --color-material-light-green-a100: #ccff90ff;
+    --color-material-light-green-a200: #b2ff59ff;
+    --color-material-light-green-a400: #76ff03ff;
+    --color-material-light-green-a700: #64dd17ff;
+
+    --color-material-lime-50: #f9fbe7ff;
+    --color-material-lime-100: #f0f4c3ff;
+    --color-material-lime-200: #e6ee9cff;
+    --color-material-lime-300: #dce775ff;
+    --color-material-lime-400: #d4e157ff;
+    --color-material-lime-500: #cddc39ff;
+    --color-material-lime-600: #c0ca33ff;
+    --color-material-lime-700: #afb42bff;
+    --color-material-lime-800: #9e9d24ff;
+    --color-material-lime-900: #827717ff;
+    --color-material-lime-a100: #f4ff81ff;
+    --color-material-lime-a200: #eeff41ff;
+    --color-material-lime-a400: #c6ff00ff;
+    --color-material-lime-a700: #aeea00ff;
+
+    --color-material-yellow-50: #fffde7ff;
+    --color-material-yellow-100: #fff9c4ff;
+    --color-material-yellow-200: #fff59dff;
+    --color-material-yellow-300: #fff176ff;
+    --color-material-yellow-400: #ffee58ff;
+    --color-material-yellow-500: #ffeb3bff;
+    --color-material-yellow-600: #fdd835ff;
+    --color-material-yellow-700: #fbc02dff;
+    --color-material-yellow-800: #f9a825ff;
+    --color-material-yellow-900: #f57f17ff;
+    --color-material-yellow-a100: #ffff8dff;
+    --color-material-yellow-a200: #ffff00ff;
+    --color-material-yellow-a400: #ffea00ff;
+    --color-material-yellow-a700: #ffd600ff;
+
+    --color-material-amber-50: #fff8e1ff;
+    --color-material-amber-100: #ffecb3ff;
+    --color-material-amber-200: #ffe082ff;
+    --color-material-amber-300: #ffd54fff;
+    --color-material-amber-400: #ffca28ff;
+    --color-material-amber-500: #ffc107ff;
+    --color-material-amber-600: #ffb300ff;
+    --color-material-amber-700: #ffa000ff;
+    --color-material-amber-800: #ff8f00ff;
+    --color-material-amber-900: #ff6f00ff;
+    --color-material-amber-a100: #ffe57fff;
+    --color-material-amber-a200: #ffd740ff;
+    --color-material-amber-a400: #ffc400ff;
+    --color-material-amber-a700: #ffab00ff;
+
+    --color-material-orange-50: #fff3e0ff;
+    --color-material-orange-100: #ffe0b2ff;
+    --color-material-orange-200: #ffcc80ff;
+    --color-material-orange-300: #ffb74dff;
+    --color-material-orange-400: #ffa726ff;
+    --color-material-orange-500: #ff9800ff;
+    --color-material-orange-600: #fb8c00ff;
+    --color-material-orange-700: #f57c00ff;
+    --color-material-orange-800: #ef6c00ff;
+    --color-material-orange-900: #e65100ff;
+    --color-material-orange-a100: #ffd180ff;
+    --color-material-orange-a200: #ffab40ff;
+    --color-material-orange-a400: #ff9100ff;
+    --color-material-orange-a700: #ff6d00ff;
+
+    --color-material-deep-orange-50: #fbe9e7ff;
+    --color-material-deep-orange-100: #ffccbcff;
+    --color-material-deep-orange-200: #ffab91ff;
+    --color-material-deep-orange-300: #ff8a65ff;
+    --color-material-deep-orange-400: #ff7043ff;
+    --color-material-deep-orange-500: #ff5722ff;
+    --color-material-deep-orange-600: #f4511eff;
+    --color-material-deep-orange-700: #e64a19ff;
+    --color-material-deep-orange-800: #d84315ff;
+    --color-material-deep-orange-900: #bf360cff;
+    --color-material-deep-orange-a100: #ff9e80ff;
+    --color-material-deep-orange-a200: #ff6e40ff;
+    --color-material-deep-orange-a400: #ff3d00ff;
+    --color-material-deep-orange-a700: #dd2c00ff;
+
+    --color-material-brown-50: #efebe9ff;
+    --color-material-brown-100: #d7ccc8ff;
+    --color-material-brown-200: #bcaaa4ff;
+    --color-material-brown-300: #a1887fff;
+    --color-material-brown-400: #8d6e63ff;
+    --color-material-brown-500: #795548ff;
+    --color-material-brown-600: #6d4c41ff;
+    --color-material-brown-700: #5d4037ff;
+    --color-material-brown-800: #4e342eff;
+    --color-material-brown-900: #3e2723ff;
+    --color-material-brown-a100: #d7ccc8ff;
+    --color-material-brown-a200: #bcaaa4ff;
+    --color-material-brown-a400: #8d6e63ff;
+    --color-material-brown-a700: #5d4037ff;
+
+    --color-material-grey-50: #fafafaff;
+    --color-material-grey-100: #f5f5f5ff;
+    --color-material-grey-200: #eeeeeeff;
+    --color-material-grey-300: #e0e0e0ff;
+    --color-material-grey-400: #bdbdbdff;
+    --color-material-grey-500: #9e9e9eff;
+    --color-material-grey-600: #757575ff;
+    --color-material-grey-700: #616161ff;
+    --color-material-grey-800: #424242ff;
+    --color-material-grey-900: #212121ff;
+    --color-material-grey-a100: #f5f5f5ff;
+    --color-material-grey-a200: #eeeeeeff;
+    --color-material-grey-a400: #bdbdbdff;
+    --color-material-grey-a700: #616161ff;
+
+    /* Components */
+    /* Button */
+    --spacing-btn-lg-vertical-padding: 1rem;
+    --spacing-btn-lg-horizontal-padding: 1.5rem;
+    --radius-btn-lg: 1rem;
+    --text-button-lg-size: 1.125rem;
+    --text-button-lg--line-height: 1.5rem;
+    --text-button-lg--font-weight: 700;
+
+    --spacing-btn-md-vertical-padding: 0.75rem;
+    --spacing-btn-md-horizontal-padding: 1rem;
+    --radius-btn-md: 0.75rem;
+    --text-button-md-size: 1rem;
+    --text-button-md--line-height: 1.5rem;
+    --text-button-md--font-weight: 700;
+
+    --spacing-btn-ms-vertical-padding: 0.5rem;
+    --spacing-btn-ms-horizontal-padding: 1rem;
+    --radius-btn-ms: 0.75rem;
+    --text-button-ms-size: 1rem;
+    --text-button-ms--line-height: 1.5rem;
+    --text-button-ms--font-weight: 700;
+
+    --spacing-btn-sm-vertical-padding: 0.375rem;
+    --spacing-btn-sm-horizontal-padding: 0.5rem;
+    --radius-btn-sm: 0.5rem;
+    --text-button-sm-size: 0.875rem;
+    --text-button-sm--line-height: 1.25rem;
+    --text-button-sm--font-weight: 700;
+
+    --btn-outlined-border-width: 0.0625rem;
+    --btn-lg-border-width: 0.0625rem;
+
+    /* Icon Button */
+    --spacing-icon-btn-lg-vertical-padding: 1rem;
+    --spacing-icon-btn-lg-horizontal-padding: 1rem;
+    --radius-icon-btn-lg: 1rem;
+
+    --spacing-icon-btn-md-vertical-padding: 0.75rem;
+    --spacing-icon-btn-md-horizontal-padding: 0.75rem;
+    --radius-icon-btn-md: 0.75rem;
+
+    --spacing-icon-btn-ms-vertical-padding: 0.5rem;
+    --spacing-icon-btn-ms-horizontal-padding: 0.5rem;
+    --radius-icon-btn-ms: 0.75rem;
+
+    --spacing-icon-btn-sm-vertical-padding: 0.375rem;
+    --spacing-icon-btn-sm-horizontal-padding: 0.375rem;
+    --radius-icon-btn-sm: 0.5rem;
+
+    --spacing-icon-btn-xs-vertical-padding: 0.1875rem;
+    --spacing-icon-btn-xs-horizontal-padding: 0.1875rem;
+    --radius-icon-btn-xs: 0.5rem;
+
+    --icon-btn-outlined-border-width: 0.0625rem;
+
+    /* Input */
+    --spacing-input-dense-horizontal-padding: 0.625rem;
+    --radius-dense-input: 0.625rem;
+
+    --spacing-input-lg-horizontal-padding: 0.75rem;
+    --radius-lg-input: 0.75rem;
+
+    --text-input-label-size: 0.8125rem;
+    --text-input-label--line-height: 0.875rem;
+    --text-input-label--font-weight: 300;
+    --spacing-input-label-bottom-padding: 0.25rem;
+    --spacing-input-label-left-padding: 0;
+    --color-input-label: var(--color-text-secondary);
+
+    --text-input-helper-text-size: 0.8125rem;
+    --text-input-helper-text--line-height: 1rem;
+    --text-input-helper-text--font-weight: 300;
+
+    --text-input-lg-size: 1rem;
+    --text-input-lg--line-height: 1.5rem;
+    --text-input-lg--font-weight: 300;
+    --input-lg-min-height: 3.5rem;
+    --spacing-input-lg-vertical-padding: 1rem;
+
+    --text-input-sm-size: 0.875rem;
+    --text-input-sm--line-height: 1.25rem;
+    --text-input-sm--font-weight: 300;
+    --input-dense-min-height: 2.5rem;
+    --spacing-input-dense-vertical-padding: 0.5rem;
+
+    --text-avatar-letter-size: 1rem;
+    --text-avatar-letter--line-height: 1.5rem;
+    --text-avatar-letter--font-weight: 700;
+
+    --text-alert-title-size: 1.125rem;
+    --text-alert-title--line-height: 1.25rem;
+    --text-alert-title--font-weight: 700;
+    --radius-alert-lg: 1rem;
+    --radius-alert-sm: 0.75rem;
+
+    --text-chip-badge-size: 0.875rem;
+    --text-chip-badge--line-height: 1.25rem;
+    --text-chip-badge--font-weight: 400;
+
+    --text-chip-sm-size: 0.875rem;
+    --text-chip-sm--line-height: 1.25rem;
+    --text-chip-sm--font-weight: 400;
+
+    --text-badge-sm-size: 0.625rem;
+    --text-badge-sm--line-height: 0.875rem;
+    --text-badge-sm--font-weight: 500;
+
+    /* Toast */
+    --radius-toast-md: 1rem;
+    --radius-toast-sm: 0.75rem;
+
+    /* Tabs */
+    --radius-tabs-list-md: 0.75rem;
+    --radius-tabs-item-md: 0.75rem;
+
+    --radius-tabs-list-sm: 0.75rem;
+    --radius-tabs-item-sm: 0.75rem;
+
+    --radius-tabs-list-lg: 0.75rem;
+    --radius-tabs-item-lg: 0.75rem;
+
+    /* Badge */
+    --spacing-badge-default-vertical-padding: 0.125rem;
+    --spacing-badge-default-horizontal-padding: 0.375rem;
+    --radius-badge-default: 0.375rem;
+    --text-badge-default-size: 0.8125rem;
+    --text-badge-default--line-height: 1.4375rem;
+    --text-badge-default--font-weight: 700;
+
+    --spacing-badge-dense-vertical-padding: 0.25rem;
+    --spacing-badge-dense-horizontal-padding: 0.5rem;
+    --radius-badge-dense: 0.375rem;
+    --text-badge-dense-size: 0.625rem;
+    --text-badge-dense--line-height: 0.875rem;
+    --text-badge-dense--font-weight: 700;
+
+    /* Menu */
+    --radius-menu-parent: 1rem;
+    --spacing-menu-item-vertical-padding: 0.75rem;
+    --spacing-menu-item-horizontal-padding: 0.75rem;
+    --spacing-menu-item-gap: 0.5rem;
+    --radius-menu-item: 0.75rem;
+
+    /* Chip */
+    --radius-chip-lg: 1rem;
+    --text-chip-lg-size: 0.875rem;
+    --text-chip-lg--line-height: 1.25rem;
+    --text-chip-lg--font-weight: 400;
+    --spacing-chip-lg-vertical-padding: 0.375rem;
+    --spacing-chip-lg-horizontal-padding: 0.625rem;
+    --spacing-chip-lg-horizontal-padding-without-icon: 0.625rem;
+    --spacing-chip-lg-horizontal-padding-remove-icon: 0.5rem;
+
+    --radius-chip-sm: 1rem;
+    --spacing-chip-sm-vertical-padding: 0.375rem;
+    --spacing-chip-sm-horizontal-padding-default: 0.625rem;
+    --spacing-chip-sm-horizontal-padding-without-icon: 0.5rem;
+    --spacing-chip-sm-horizontal-padding-remove-icon: 0.5rem;
+    --chip-sm-min-height: 2rem;
+
+    /* Search */
+    --spacing-search-lg-right-padding: 0;
+    --spacing-search-sm-right-padding: 0;
+
+    /* Dialog */
+    --radius-dialog-desktop: 1.25rem;
+
+    /* Tooltip */
+    --radius-tooltip: 0.75rem;
+
+    /* Popover */
+    --radius-popover: 1rem;
+
+    /* Skeleton */
+    --radius-skeleton: 0.5rem;
+
+    /* Icon */
+    --icon-weight: Regular;
+
+    /* Radius */
+    --radius-none: 0;
+    --radius-1: 0.25rem;
+    --radius-2: 0.5rem;
+    --radius-3: 0.625rem;
+    --radius-4: 0.75rem;
+    --radius-5: 1rem;
+    --radius-6: 1.25rem;
+    --radius-7: 1.5rem;
+    --radius-8: 2rem;
+    --radius-9: 6.25rem;
+  }
+}
+
+/* Typography Utilities */
+@layer utilities {
+  /* Base font family */
+  .font-primary {
+    font-family: var(--font-primary);
+  }
+
+  /* Mobile Typography */
+  .text-mobile-leading {
+    font-size: var(--text-mobile-leading-size);
+    line-height: var(--text-mobile-leading--line-height);
+    font-weight: var(--text-mobile-leading--font-weight);
+  }
+
+  .text-mobile-title-1 {
+    font-size: var(--text-mobile-title-1-size);
+    line-height: var(--text-mobile-title-1--line-height);
+    font-weight: var(--text-mobile-title-1--font-weight);
+  }
+
+  .text-mobile-title-2 {
+    font-size: var(--text-mobile-title-2-size);
+    line-height: var(--text-mobile-title-2--line-height);
+    font-weight: var(--text-mobile-title-2--font-weight);
+  }
+
+  .text-mobile-title-3 {
+    font-size: var(--text-mobile-title-3-size);
+    line-height: var(--text-mobile-title-3--line-height);
+    font-weight: var(--text-mobile-title-3--font-weight);
+  }
+
+  .text-mobile-title-4 {
+    font-size: var(--text-mobile-title-4-size);
+    line-height: var(--text-mobile-title-4--line-height);
+    font-weight: var(--text-mobile-title-4--font-weight);
+  }
+
+  .text-mobile-title-5 {
+    font-size: var(--text-mobile-title-5-size);
+    line-height: var(--text-mobile-title-5--line-height);
+    font-weight: var(--text-mobile-title-5--font-weight);
+  }
+
+  .text-mobile-title-6 {
+    font-size: var(--text-mobile-title-6-size);
+    line-height: var(--text-mobile-title-6--line-height);
+    font-weight: var(--text-mobile-title-6--font-weight);
+  }
+
+  /* General Typography */
+  .text-subtitle {
+    font-size: var(--text-subtitle-size);
+    line-height: var(--text-subtitle--line-height);
+    font-weight: var(--text-subtitle--font-weight);
+  }
+
+  .text-subtitle-emph {
+    font-size: var(--text-subtitle-size);
+    line-height: var(--text-subtitle--line-height);
+    font-weight: var(--text-subtitle-emph--font-weight);
+  }
+
+  .text-body {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body--line-height);
+    font-weight: var(--text-body--font-weight);
+  }
+
+  .text-body-emph {
+    font-size: var(--text-body-size);
+    line-height: var(--text-body--line-height);
+    font-weight: var(--text-body-emph--font-weight);
+  }
+
+  .text-body-2 {
+    font-size: var(--text-body-2-size);
+    line-height: var(--text-body-2--line-height);
+    font-weight: var(--text-body-2--font-weight);
+  }
+
+  .text-caption {
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    font-weight: var(--text-caption--font-weight);
+  }
+
+  .text-input-label {
+    font-size: var(--text-input-label-size);
+    line-height: var(--text-input-label--line-height);
+    font-weight: var(--text-input-label--font-weight);
+  }
+
+  /* Desktop Typography - Responsive */
+  @media (min-width: 64rem) {
+    .lg\:text-desktop-leading {
+      font-size: var(--text-desktop-leading-size);
+      line-height: var(--text-desktop-leading--line-height);
+      font-weight: var(--text-desktop-leading--font-weight);
+    }
+
+    .lg\:text-desktop-title-1 {
+      font-size: var(--text-desktop-title-1-size);
+      line-height: var(--text-desktop-title-1--line-height);
+      font-weight: var(--text-desktop-title-1--font-weight);
+    }
+
+    .lg\:text-desktop-title-2 {
+      font-size: var(--text-desktop-title-2-size);
+      line-height: var(--text-desktop-title-2--line-height);
+      font-weight: var(--text-desktop-title-2--font-weight);
+    }
+
+    .lg\:text-desktop-title-3 {
+      font-size: var(--text-desktop-title-3-size);
+      line-height: var(--text-desktop-title-3--line-height);
+      font-weight: var(--text-desktop-title-3--font-weight);
+    }
+
+    .lg\:text-desktop-title-4 {
+      font-size: var(--text-desktop-title-4-size);
+      line-height: var(--text-desktop-title-4--line-height);
+      font-weight: var(--text-desktop-title-4--font-weight);
+    }
+
+    .lg\:text-desktop-title-5 {
+      font-size: var(--text-desktop-title-5-size);
+      line-height: var(--text-desktop-title-5--line-height);
+      font-weight: var(--text-desktop-title-5--font-weight);
+    }
+
+    .lg\:text-desktop-title-6 {
+      font-size: var(--text-desktop-title-6-size);
+      line-height: var(--text-desktop-title-6--line-height);
+      font-weight: var(--text-desktop-title-6--font-weight);
+    }
+
+    .lg\:text-desktop-title-6-emph {
+      font-size: var(--text-desktop-title-6-size);
+      line-height: var(--text-desktop-title-6--line-height);
+      font-weight: var(--text-desktop-title-6-emph--font-weight);
+    }
+
+    .lg\:text-subtitle {
+      font-size: var(--text-subtitle-size);
+      line-height: var(--text-subtitle--line-height);
+      font-weight: var(--text-subtitle--font-weight);
+    }
+  }
+
+  /* Animations */
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+}

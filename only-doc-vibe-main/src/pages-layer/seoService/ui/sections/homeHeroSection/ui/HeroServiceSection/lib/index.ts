@@ -1,0 +1,1 @@
+export { useHeroServiceSection } from "./useHeroServiceSection";

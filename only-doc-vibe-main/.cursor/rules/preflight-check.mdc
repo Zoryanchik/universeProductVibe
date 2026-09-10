@@ -1,0 +1,9 @@
+---
+description: Run before every commit: lint, types, boundary + copy checks.
+globs: ["src/**/*.{ts,tsx,astro}"]
+alwaysApply: false
+---
+
+Follow `docs/vibe/preflight.md` as your pre-commit checklist. Verify lint passes,
+types are clean, boundaries are respected, and all copy is in locale files.
+Do not commit without completing all checks.

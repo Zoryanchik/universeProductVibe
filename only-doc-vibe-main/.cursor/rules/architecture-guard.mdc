@@ -1,0 +1,9 @@
+---
+description: Enforce FSD import direction, naming, and clean-code rules while editing.
+globs: ["src/**/*.{ts,tsx,astro}"]
+alwaysApply: false
+---
+
+Follow `docs/vibe/architecture.md` as hard rules. Never import upward in
+`app → pages-layer → widgets → features → entities → shared`. Enforce FSD
+naming and clean-code principles in every edit.

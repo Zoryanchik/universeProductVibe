@@ -1,0 +1,36 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+import { availableLocales, defaultLocale } from "@/shared/config/locale";
+import { buildDashboardLinkSlugs } from "@/shared/lib/seo/get-localized-tool-href";
+
+import { DashboardPage } from "@/pages-layer/dashboard";
+import { getAllServiceRoutes } from "@/pages-layer/seoService";
+import { getAllLegalRoutes } from "@/pages-layer/legal";
+import { fetchContactUsSlugMap } from "@/pages-layer/contactUs";
+
+export async function getStaticPaths() {
+  return availableLocales
+    .filter((locale) => locale !== defaultLocale)
+    .map((locale) => ({
+      params: { lang: locale },
+    }));
+}
+
+const rawLang = Astro.params.lang;
+const lang = (rawLang as ELanguages | undefined) ?? ("en" as ELanguages);
+
+const [serviceRoutes, legalRoutes, contactSlugMap] = await Promise.all([
+  getAllServiceRoutes(),
+  getAllLegalRoutes(),
+  fetchContactUsSlugMap(),
+]);
+
+const slugMap = buildDashboardLinkSlugs(
+  lang,
+  serviceRoutes,
+  legalRoutes,
+  contactSlugMap
+);
+---
+
+<DashboardPage lang={lang} slugMap={slugMap} view="account" />

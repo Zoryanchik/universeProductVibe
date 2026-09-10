@@ -1,0 +1,63 @@
+# build output
+dist/
+dist-new/
+.output/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+.env.local
+.env.development
+
+# macOS-specific files
+.DS_Store
+
+# Editor directories and files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.serena/
+
+# Astro
+.astro/
+
+# Cache
+.cache/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Temporary files
+tmp/
+
+# macOS-specific files
+.DS_Store
+
+public/sw.js
+public/sw-config.js
+public/vars.css
+
+/public/sw.js
+/public/sw-config.js
+/public/vars.css
+
+.cursor/debug.log
+
+# Generated during `npm run generate-api-schema` (removed by script on Unix; may remain on Windows)
+openapi-spec.json
+
+# Figma MCP asset exports (local design reference only)
+public/assets/figma/
+public/assets/images/

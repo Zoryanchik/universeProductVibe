@@ -1,0 +1,87 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import type { IBlogKeyTakeaway } from "@/shared/types/blog";
+
+interface Props {
+  items: ReadonlyArray<IBlogKeyTakeaway>;
+  title: string;
+  className?: string;
+}
+
+const { items, title, className } = Astro.props;
+
+const stripRichText = (value: string): string =>
+  value
+    .replace(/<[^>]*>/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+---
+
+{
+  items.length > 0 && (
+    <aside
+      class={cn(
+        "box-border flex w-full max-w-full min-w-0 flex-col gap-4 rounded-[16px] bg-[var(--color-primary-opacity-8)] p-6 max-md:p-4",
+        className
+      )}
+    >
+      <p class="text-[13px] leading-[16px] font-medium tracking-[0.26px] text-[var(--color-primary-dark)] uppercase">
+        {title}
+      </p>
+      <ol class="flex flex-col">
+        {items.map((item, i) => {
+          const itemTitle = item.header ? stripRichText(item.header) : "";
+          const itemText = item.text ? stripRichText(item.text) : "";
+
+          return (
+            <li class="flex flex-col">
+              <div class="flex min-w-0 items-start gap-2 p-2 max-md:px-0">
+                <span
+                  aria-hidden="true"
+                  class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)]"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                      fill="#ffffff"
+                    />
+                  </svg>
+                </span>
+                <div class="flex min-w-0 flex-1 flex-col gap-1 break-words">
+                  {itemTitle && (
+                    <span class="text-[16px] leading-[22px] font-normal break-words text-[var(--color-text-primary)]">
+                      {itemTitle}
+                    </span>
+                  )}
+                  {itemText && (
+                    <span
+                      class={cn(
+                        "text-[13px] leading-[16px] tracking-[0.26px] break-words text-[var(--color-text-secondary)]",
+                        !itemTitle &&
+                          "text-[16px] leading-[22px] tracking-normal text-[var(--color-text-primary)]"
+                      )}
+                    >
+                      {itemText}
+                    </span>
+                  )}
+                </div>
+              </div>
+              {i < items.length - 1 && (
+                <div
+                  aria-hidden="true"
+                  class="ms-[20px] h-6 w-px bg-[var(--color-os-divider)]"
+                />
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </aside>
+  )
+}

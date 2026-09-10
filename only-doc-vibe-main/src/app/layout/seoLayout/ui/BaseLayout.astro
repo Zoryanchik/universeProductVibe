@@ -1,0 +1,53 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+import { RTL_LANGUAGES } from "@/shared/constants/languages";
+import type { SeoProps } from "@/shared/types/seo/meta";
+
+import "@/styles/index.css";
+import { AnalyticsIniter } from "@/widgets/analyticsIniter";
+import { ModalsController } from "@/widgets/modalsController";
+import { UserIniter } from "@/widgets/userIniter";
+
+import DeferThirdParty from "../../../third-party/defer-third-party.astro";
+import GoogleAnalytics from "../../../third-party/google-analytics.astro";
+import Clarity from "../../../third-party/clarity.astro";
+import CustomerIo from "../../../third-party/customer-io.astro";
+import { BaseSchema } from "./BaseSchema";
+import SEO from "./SEO.astro";
+
+interface Props extends SeoProps {
+  lang: ELanguages;
+  disabledAutoInitUser?: boolean;
+}
+
+const props = Astro.props;
+
+const { lang: locale, schema, disabledAutoInitUser, ...seoProps } = props;
+
+const dir = RTL_LANGUAGES.includes(locale) ? "rtl" : "ltr";
+
+const isSchemaValid =
+  schema &&
+  (Array.isArray(schema) ? schema.length > 0 : Object.keys(schema).length > 0);
+---
+
+<!doctype html>
+<html lang={locale} dir={dir} transition:name="root" transition:animate="none">
+  <head>
+    <SEO {...seoProps} lang={locale} />
+    <DeferThirdParty />
+    <GoogleAnalytics />
+    <Clarity />
+    <CustomerIo />
+    <slot name="head" />
+  </head>
+
+  <body>
+    {isSchemaValid && <BaseSchema data={schema} />}
+
+    <ModalsController transition:persist client:only="react" />
+    {!disabledAutoInitUser && <UserIniter client:idle />}
+    <AnalyticsIniter client:idle />
+    <slot />
+  </body>
+</html>

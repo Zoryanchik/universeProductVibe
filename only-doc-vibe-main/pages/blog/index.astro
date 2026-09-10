@@ -1,0 +1,17 @@
+---
+import type { defaultLocale } from "@/shared/config/locale";
+
+import { BlogListPage } from "@/pages-layer/blog";
+import { getBlogListStaticPaths } from "@/pages-layer/blog";
+
+export const getStaticPaths = getBlogListStaticPaths;
+
+interface Props {
+  locale: typeof defaultLocale;
+  page: number;
+}
+
+const { locale, page } = Astro.props;
+---
+
+<BlogListPage locale={locale} page={page} />

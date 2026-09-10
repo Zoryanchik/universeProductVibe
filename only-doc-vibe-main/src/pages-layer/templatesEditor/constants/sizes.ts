@@ -1,0 +1,23 @@
+export const EDITOR_HEADER_HEIGHT = 68;
+
+export const SMALL_PADDING = 8;
+export const MEDIUM_PADDING = 16;
+
+export const ELEMENT_VERY_SMALL_BORDER_RADIUS = 4;
+export const ELEMENT_SMALL_BORDER_RADIUS = 8;
+export const ELEMENT_MEDIUM_BORDER_RADIUS = 10;
+export const ELEMENT_LARGE_BORDER_RADIUS = 12;
+export const ELEMENT_XX_LARGE_BORDER_RADIUS = 24;
+
+export const PAGES_TOOLBAR_HEIGHT = 40;
+export const PAGES_TOOLBAR_GAP = 8;
+
+export const TOOLBAR_HEIGHT = 60;
+
+export const PAGES_PANEL_HEIGHT = 249;
+export const THUMBNAIL_WIDTH = 120;
+export const THUMBNAIL_HEIGHT = 162;
+
+export const MOBILE_TAB_BAR_HEIGHT = 60;
+export const MOBILE_SHEET_MAX_HEIGHT_DVH = 76;
+export const MOBILE_TOOL_SHEET_MAX_HEIGHT = 480;

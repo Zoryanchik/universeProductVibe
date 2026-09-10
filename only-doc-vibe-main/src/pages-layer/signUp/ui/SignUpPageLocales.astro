@@ -1,0 +1,18 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+
+import { getLocalizedSignUpPages } from "../api/get-sign-up-static-routes";
+import BaseSignUpPage from "./BaseSignUpPage.astro";
+
+interface IParams {
+  lang: ELanguages;
+}
+
+export async function getSignUpLocalesStaticPaths() {
+  return await getLocalizedSignUpPages();
+}
+
+const { lang } = Astro.params as unknown as IParams;
+---
+
+<BaseSignUpPage lang={lang} />

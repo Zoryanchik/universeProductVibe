@@ -1,0 +1,62 @@
+---
+import type { components } from "@/shared/api/cms/cms-schema";
+import { type ELanguages } from "@/shared/constants/languages";
+import { EPageType } from "@/shared/constants/page-type";
+import { prepareSeoData } from "@/shared/lib/seo/prepare-seo-data";
+import type { FaqItem } from "@/shared/ui/faq-section";
+
+import BasePage from "../../../base/ui/BasePage.astro";
+import { fetchHomePageData } from "../../api/fetch-home-page-data";
+import SectionRouter from "../sections/router/SectionRouter.astro";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+const locale = Astro.props.lang as ELanguages;
+
+const { pageData, navbarData, footerData } = await fetchHomePageData(locale);
+
+if (!pageData) {
+  return;
+}
+
+const sections = pageData.sections ?? [];
+
+// Extract FAQ items from CMS sections for SEO structured data
+type SectionUnion = components["schemas"]["MainPage"]["sections"][number];
+
+const faqSection = sections.find(
+  (s: SectionUnion): s is components["schemas"]["SectionsFaqComponent"] =>
+    s.__component === "sections.faq"
+);
+
+const faqItemsForSeo: FaqItem[] = (faqSection?.q_and_a ?? []).map(
+  (item: components["schemas"]["SectionsQAndAComponent"], index: number) => ({
+    id: String(index + 1),
+    question: item.question,
+    answer: item.answer,
+  })
+);
+
+const seoProps = prepareSeoData(
+  {
+    ...pageData.seo,
+    publishedAt: pageData.publishedAt,
+    updatedAt: pageData.updatedAt,
+  },
+  Astro.url.pathname,
+  EPageType.HOME,
+  locale,
+  faqItemsForSeo
+);
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  <BasePage lang={locale} navbarData={navbarData} footerData={footerData}>
+    <SectionRouter
+      sections={sections}
+      context={EPageType.HOME}
+      lang={locale}
+      slug={Astro.url.pathname}
+    />
+  </BasePage>
+</SeoBaseLayout>

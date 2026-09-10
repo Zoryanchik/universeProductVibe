@@ -1,0 +1,17 @@
+---
+import {
+  CategoryListPage,
+  getCategoryPagedStaticPaths,
+} from "@/pages-layer/pdfTemplates";
+
+export const getStaticPaths = getCategoryPagedStaticPaths;
+
+interface Props {
+  categorySlug: string;
+  page: number;
+}
+
+const { categorySlug, page } = Astro.props;
+---
+
+<CategoryListPage categorySlug={categorySlug} page={page} />

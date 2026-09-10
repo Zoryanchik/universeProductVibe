@@ -1,0 +1,11 @@
+---
+description: Fake backend data at the api/ layer to test a product hypothesis without the real backend.
+globs: ["src/**/api/**/*.{ts,tsx}"]
+alwaysApply: false
+---
+
+Follow `docs/vibe/mock-data.md`. When a hypothesis needs the internal app
+backend (`apiHttpClient`), return typed mock data from the slice's
+`api/services.ts` behind the `USE_MOCKS` toggle (`src/shared/config/mocks.ts`) —
+never mock inside components or stores. Name mock files `<name>.mock.ts`, match
+the real response type, and keep the real backend call in the `else` branch.

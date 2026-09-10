@@ -1,0 +1,256 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import type { ELanguages } from "@/shared/constants/languages";
+import { EPageType } from "@/shared/constants/page-type";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import { buildPaginatedSeo } from "@/shared/lib/seo/build-paginated-seo";
+import {
+  getBlogCategoryUrl,
+  getBlogHomeUrl,
+  getLocaleHomeUrl,
+} from "@/shared/lib/navigation/get-blog-url";
+import type { components } from "@/shared/api/cms/cms-schema";
+
+import { ArticleCard } from "@/widgets/blog";
+import { Breadcrumbs } from "@/widgets/blog";
+import { BlogPagination } from "@/widgets/blog";
+import { CategorySidebar } from "@/widgets/blog";
+import { CategoryTabs } from "@/widgets/blog";
+import { BlogCtaBanner } from "@/widgets/blog";
+
+import {
+  resolveBlogCategorySlug,
+  resolveBlogLocale,
+  resolveBlogPage,
+} from "../lib/resolve-blog-route";
+import BasePage from "../../base/ui/BasePage.astro";
+import { fetchBlogListPageData } from "../api/fetch-blog-list-data";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+type SeoComponent = components["schemas"]["SeoSeoComponent"];
+
+interface Props {
+  locale?: ELanguages;
+  page?: number;
+  categorySlug?: string;
+}
+
+const {
+  locale: propsLocale,
+  page: propsPage,
+  categorySlug: propsCategorySlug,
+} = Astro.props;
+
+const locale = resolveBlogLocale(propsLocale, Astro.params.lang);
+const page = resolveBlogPage(propsPage, Astro.params.n);
+const categorySlug = resolveBlogCategorySlug(
+  propsCategorySlug,
+  Astro.params.category
+);
+
+const data = await fetchBlogListPageData({ locale, page, categorySlug });
+
+const t = createServerT(locale);
+const viewsLabel = t("seo.blog.views") as string;
+
+const heroTitle =
+  data.category?.name ??
+  data.allCategory?.name ??
+  (t("seo.blog.breadcrumbs_blog") as string);
+const heroSubtitle =
+  data.category?.description ?? data.allCategory?.description;
+
+const blogHomeUrl = getBlogHomeUrl(locale);
+
+const breadcrumbItems = [
+  {
+    label: t("seo.blog.breadcrumbs_home") as string,
+    href: getLocaleHomeUrl(locale),
+  },
+  { label: t("seo.blog.breadcrumbs_blog") as string, href: blogHomeUrl },
+  ...(data.category ? [{ label: data.category.name }] : []),
+];
+
+const categoryTabs = [
+  {
+    slug: null,
+    label: t("seo.blog.all_articles") as string,
+    href: blogHomeUrl,
+    isActive: !categorySlug,
+  },
+  ...data.categories.map((category) => {
+    const slug = category.slug.replace(/^\//, "");
+
+    return {
+      slug,
+      label: category.name,
+      href: getBlogCategoryUrl(locale, slug),
+      isActive: slug === categorySlug,
+    };
+  }),
+];
+
+const basePath = data.category
+  ? getBlogCategoryUrl(locale, data.category.slug.replace(/^\//, ""))
+  : blogHomeUrl;
+
+const seoSource = data.category ?? data.allCategory ?? undefined;
+const isBlogHome = !data.category;
+const blogHomeBaseSeo: SeoComponent | undefined = isBlogHome
+  ? ({
+      ...seoSource?.seo,
+      metaTitle:
+        seoSource?.seo?.metaTitle ||
+        (t("seo.blog.page_title_default") as string),
+      metaDescription:
+        seoSource?.seo?.metaDescription ||
+        (t("seo.blog.page_description_default") as string),
+    } as SeoComponent)
+  : seoSource?.seo;
+const seoProps = buildPaginatedSeo({
+  baseSeo: blogHomeBaseSeo,
+  paginatedOverrides: seoSource?.paginated_seo,
+  page,
+  pathname: page > 1 ? `${basePath}/page/${page}` : basePath,
+  locale,
+  pageType: data.category ? EPageType.BLOG_CATEGORY : EPageType.BLOG_HOME,
+  // Blog is English-only for now; advertise only the default locale in hreflang.
+  availableLocales: [defaultLocale],
+});
+
+const inlineCta =
+  data.category?.inline_cta ?? data.allCategory?.inline_cta ?? undefined;
+const articlesBeforeCta = data.articles.slice(0, 3);
+const articlesAfterCta = data.articles.slice(3);
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  <BasePage
+    lang={locale}
+    navbarData={data.navbarData}
+    footerData={data.footerData}
+    pageLocalizations={[defaultLocale]}
+  >
+    <div class="w-full bg-[#f2f2f7]">
+      <section
+        class="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-8 py-12 max-md:gap-8 max-md:px-4 max-md:py-8"
+      >
+        <!-- Hero: breadcrumbs + centered title block -->
+        <div class="flex flex-col items-center gap-4 text-center">
+          <Breadcrumbs items={breadcrumbItems} />
+          <div class="flex w-full max-w-[720px] flex-col items-center gap-5">
+            <h1
+              class="text-desktop-title-1 max-md:text-mobile-title-1 w-full font-extrabold text-[var(--color-text-primary)]"
+            >
+              {heroTitle}
+            </h1>
+            {
+              heroSubtitle && (
+                <p class="text-body w-full text-[var(--color-text-secondary)]">
+                  {heroSubtitle}
+                </p>
+              )
+            }
+          </div>
+        </div>
+
+        <!-- White content card: sidebar + cards -->
+        <div
+          class="flex w-full gap-6 overflow-hidden rounded-[28px] bg-white p-8 max-md:flex-col max-md:p-4"
+        >
+          <!-- Category sidebar (desktop) -->
+          <CategorySidebar
+            className="hidden shrink-0 md:flex"
+            categories={data.categories}
+            activeCategorySlug={categorySlug}
+            locale={locale}
+            allArticlesLabel={t("seo.blog.all_articles") as string}
+            categoriesLabel={t("seo.blog.categories_label") as string}
+          />
+
+          <!-- Cards area -->
+          <div class="flex min-w-0 flex-1 flex-col gap-14 overflow-hidden">
+            <!-- Mobile category tabs -->
+            <div class="md:hidden">
+              <CategoryTabs client:visible tabs={categoryTabs} />
+            </div>
+
+            {
+              data.articles.length === 0 ? (
+                <div class="flex flex-col gap-6">
+                  <p class="text-body py-12 text-center text-[var(--color-text-secondary)]">
+                    {t("seo.blog.no_articles") as string}
+                  </p>
+                  {!categorySlug && inlineCta && (
+                    <BlogCtaBanner cta={inlineCta} variant="inline" />
+                  )}
+                </div>
+              ) : (
+                <div class="flex flex-col gap-6">
+                  <div class="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
+                    {articlesBeforeCta.map((article, i) => {
+                      const hideOnTablet = inlineCta && i === 2;
+
+                      return hideOnTablet ? (
+                        <div class="max-lg:hidden lg:contents">
+                          <ArticleCard
+                            article={article}
+                            locale={locale}
+                            viewsLabel={viewsLabel}
+                            eager={true}
+                            priority={false}
+                          />
+                        </div>
+                      ) : (
+                        <ArticleCard
+                          article={article}
+                          locale={locale}
+                          viewsLabel={viewsLabel}
+                          eager={i < 3}
+                          priority={i === 0}
+                        />
+                      );
+                    })}
+                  </div>
+
+                  {inlineCta && (
+                    <BlogCtaBanner cta={inlineCta} variant="inline" />
+                  )}
+
+                  {(articlesAfterCta.length > 0 ||
+                    (inlineCta && articlesBeforeCta[2])) && (
+                    <div class="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
+                      {inlineCta && articlesBeforeCta[2] && (
+                        <div class="lg:hidden">
+                          <ArticleCard
+                            article={articlesBeforeCta[2]}
+                            locale={locale}
+                            viewsLabel={viewsLabel}
+                          />
+                        </div>
+                      )}
+                      {articlesAfterCta.map((article) => (
+                        <ArticleCard
+                          article={article}
+                          locale={locale}
+                          viewsLabel={viewsLabel}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            }
+
+            <BlogPagination
+              page={page}
+              pageCount={data.pageCount}
+              basePath={basePath}
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </BasePage>
+</SeoBaseLayout>

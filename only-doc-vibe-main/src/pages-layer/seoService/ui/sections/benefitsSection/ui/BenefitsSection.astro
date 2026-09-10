@@ -1,0 +1,30 @@
+---
+import { createServerT } from "@/shared/lib/translations/server-t";
+import type { ELanguages } from "@/shared/constants/languages";
+import type { IBenefitsContent } from "@/shared/types/seo/sections";
+import { Title } from "@/shared/ui/title";
+
+import { BenefitsGrid } from "./BenefitsGrid";
+
+interface Props {
+  lang: ELanguages;
+  content?: IBenefitsContent;
+}
+
+const { lang, content } = Astro.props;
+const t = createServerT(lang);
+
+const title = content?.title ?? t("benefitsSection.title");
+const gridLabel = content?.gridLabel ?? t("benefitsSection.gridLabel");
+const benefits = content?.items ?? [];
+---
+
+<section class="bg-white">
+  <div
+    class="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-4 px-4 pt-10 pb-6 md:gap-10 md:px-[150px] md:pt-[104px] md:pb-10"
+  >
+    <Title variant="desktop-title-2" className="text-black/87">{title}</Title>
+
+    <BenefitsGrid benefits={benefits} gridLabel={gridLabel} />
+  </div>
+</section>

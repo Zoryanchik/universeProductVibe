@@ -1,0 +1,2435 @@
+{
+    "id": "VariableCollectionId:28005:34083",
+    "name": "6.Components variables",
+    "modes": {
+        "30470:1": "PDFFly"
+    },
+    "variableIds": [
+        "VariableID:28005:34272",
+        "VariableID:28005:34284",
+        "VariableID:28005:34285",
+        "VariableID:28005:34286",
+        "VariableID:28005:34287",
+        "VariableID:28005:34299",
+        "VariableID:28005:34300",
+        "VariableID:28005:34301",
+        "VariableID:28005:34302",
+        "VariableID:28005:34303",
+        "VariableID:28005:34320",
+        "VariableID:28005:34321",
+        "VariableID:28005:34322",
+        "VariableID:28005:34323",
+        "VariableID:28005:34324",
+        "VariableID:28005:34325",
+        "VariableID:28005:34328",
+        "VariableID:28021:31990",
+        "VariableID:28021:31991",
+        "VariableID:28021:31992",
+        "VariableID:28072:31970",
+        "VariableID:28072:31971",
+        "VariableID:28072:31972",
+        "VariableID:28072:31973",
+        "VariableID:28207:29317",
+        "VariableID:28332:29570",
+        "VariableID:28332:29574",
+        "VariableID:28332:29577",
+        "VariableID:28337:38112",
+        "VariableID:28337:38117",
+        "VariableID:28340:34327",
+        "VariableID:28392:30531",
+        "VariableID:28396:29457",
+        "VariableID:28410:36343",
+        "VariableID:28625:35498",
+        "VariableID:28627:29701",
+        "VariableID:28627:29705",
+        "VariableID:28627:29760",
+        "VariableID:28629:28444",
+        "VariableID:28676:33612",
+        "VariableID:28730:28331",
+        "VariableID:28732:28721",
+        "VariableID:28732:28722",
+        "VariableID:28756:32521",
+        "VariableID:28756:32523",
+        "VariableID:28756:32524",
+        "VariableID:28760:33108",
+        "VariableID:28760:33109",
+        "VariableID:28760:33110",
+        "VariableID:28760:33111",
+        "VariableID:28763:37666",
+        "VariableID:28782:33823",
+        "VariableID:28782:33824",
+        "VariableID:28799:34144",
+        "VariableID:28818:30800",
+        "VariableID:28818:30801",
+        "VariableID:28818:30802",
+        "VariableID:28818:30803",
+        "VariableID:28818:30804",
+        "VariableID:28818:30805",
+        "VariableID:28818:30806",
+        "VariableID:28823:31166",
+        "VariableID:29072:37463",
+        "VariableID:29072:37464",
+        "VariableID:29072:37465",
+        "VariableID:29082:32406",
+        "VariableID:29082:32407",
+        "VariableID:29082:32408",
+        "VariableID:29082:32409",
+        "VariableID:29095:33447",
+        "VariableID:29095:33448",
+        "VariableID:29257:37356",
+        "VariableID:29257:37359",
+        "VariableID:29257:37361",
+        "VariableID:29257:37362",
+        "VariableID:29257:37365",
+        "VariableID:29257:37367",
+        "VariableID:29257:37368",
+        "VariableID:29257:37371",
+        "VariableID:29257:37637",
+        "VariableID:29257:37638",
+        "VariableID:29257:37639",
+        "VariableID:29257:37640",
+        "VariableID:29257:37641",
+        "VariableID:29257:37705",
+        "VariableID:29257:37706",
+        "VariableID:29257:37707",
+        "VariableID:29261:41019",
+        "VariableID:29261:41020",
+        "VariableID:29261:41021",
+        "VariableID:29261:41022",
+        "VariableID:29261:41023",
+        "VariableID:29261:41024",
+        "VariableID:29307:46230",
+        "VariableID:29529:78888",
+        "VariableID:29838:68290",
+        "VariableID:29838:68294",
+        "VariableID:30027:63850",
+        "VariableID:30027:63851",
+        "VariableID:30027:63852",
+        "VariableID:30027:63853",
+        "VariableID:30062:59267",
+        "VariableID:30062:59268",
+        "VariableID:30062:59269",
+        "VariableID:30062:59270",
+        "VariableID:30062:59271",
+        "VariableID:30062:59272",
+        "VariableID:30081:64753",
+        "VariableID:30167:60735",
+        "VariableID:30793:28640",
+        "VariableID:30793:28641",
+        "VariableID:30793:28642",
+        "VariableID:30793:28643",
+        "VariableID:30857:30404",
+        "VariableID:30857:30405"
+    ],
+    "variables": [
+        {
+            "id": "VariableID:28005:34272",
+            "name": "Alert/alert large/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34284",
+            "name": "Button/medium/font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34285",
+            "name": "Button/medium/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34286",
+            "name": "Button/medium/font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 24
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 24,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34287",
+            "name": "Button/medium/font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34299",
+            "name": "Button/large/font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 24
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 24,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34300",
+            "name": "Button/large/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34301",
+            "name": "Button/large/font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 18
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 18,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34302",
+            "name": "Button/large/font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34303",
+            "name": "Button/large/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34320",
+            "name": "Button/button small/font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 14
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 14,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34321",
+            "name": "Button/button small/font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 20
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 20,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34322",
+            "name": "Button/button small/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34323",
+            "name": "Button/button small/font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34324",
+            "name": "Alert/alert large/font size title",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 18
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 18,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34325",
+            "name": "Alert/alert large/font height title",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 20
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 20,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28005:34328",
+            "name": "Alert/alert large/font weight title",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28021:31990",
+            "name": "Textfield/textfield large/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28021:31991",
+            "name": "Textfield/value/value font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 24
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 24,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28021:31992",
+            "name": "Textfield/value/value font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28072:31970",
+            "name": "Badge/badge default/font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28072:31971",
+            "name": "Badge/badge default/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 6
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 6,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28072:31972",
+            "name": "Badge/badge default/font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 23
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 23,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28072:31973",
+            "name": "Badge/badge default/font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 13
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 13,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28207:29317",
+            "name": "Button/large/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 24
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 24,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28332:29570",
+            "name": "Menu/menu item/Vertical padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28332:29574",
+            "name": "Menu/menu item/Horizontal padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28332:29577",
+            "name": "Menu/menu item/Gap",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28337:38112",
+            "name": "Menu/menu item/Border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28337:38117",
+            "name": "Menu/menu parent/Border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28340:34327",
+            "name": "Chip/chip small/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28392:30531",
+            "name": "Button/common buttton props/button outlined line stroke",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 1
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 1,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "STROKE_FLOAT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28396:29457",
+            "name": "Button/medium/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28410:36343",
+            "name": "Textfield/value/value font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Light"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Light",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28625:35498",
+            "name": "Textfield/label/label bottom padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 4
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 4,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28627:29701",
+            "name": "Textfield/label/label font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 13
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 13,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28627:29705",
+            "name": "Textfield/label/label font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Light"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Light",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28627:29760",
+            "name": "Textfield/label/label font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 14
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 14,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28629:28444",
+            "name": "Textfield/textfield large/min height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 56
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 56,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28676:33612",
+            "name": "Skeleton/skeleton border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28730:28331",
+            "name": "Textfield/label/label left padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 0
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 0,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28732:28721",
+            "name": "Textfield/textfield large/vertical padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28732:28722",
+            "name": "Textfield/textfield large/horizontal padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28756:32521",
+            "name": "Textfield/label/label bottom padding 2",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 4
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 4,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28756:32523",
+            "name": "Textfield/helper text/value font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 13
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 13,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28756:32524",
+            "name": "Textfield/helper text/value font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28760:33108",
+            "name": "Textfield/textfield dense/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 10
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 10,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28760:33109",
+            "name": "Textfield/textfield dense/min height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 40
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 40,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28760:33110",
+            "name": "Textfield/textfield dense/horizontal padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 10
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 10,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28760:33111",
+            "name": "Textfield/textfield dense/vertical padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28763:37666",
+            "name": "Icon/icon weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Regular"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Regular",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28782:33823",
+            "name": "Badge/badge default/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 2
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 2,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28782:33824",
+            "name": "Badge/badge default/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 6
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 6,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28799:34144",
+            "name": "Textfield/label/label color",
+            "description": "",
+            "type": "COLOR",
+            "valuesByMode": {
+                "30470:1": {
+                    "type": "VARIABLE_ALIAS",
+                    "id": "VariableID:26779:16585"
+                }
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": {
+                        "r": 0,
+                        "g": 0,
+                        "b": 0,
+                        "a": 0.6000000238418579
+                    },
+                    "alias": "VariableID:26779:16585",
+                    "aliasName": "text colors/secondary"
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28818:30800",
+            "name": "Chip/chip small/font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 14
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 14,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28818:30801",
+            "name": "Chip/chip small/font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 20
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 20,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28818:30802",
+            "name": "Chip/chip small/font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Regular"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Regular",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28818:30803",
+            "name": "Chip/chip small/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 6
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 6,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28818:30804",
+            "name": "Chip/chip small/horizontal padding DEFAULT",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 10
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 10,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28818:30805",
+            "name": "Chip/chip small/horizontal padding without icon",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28818:30806",
+            "name": "Chip/chip small/min height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 32
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 32,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:28823:31166",
+            "name": "Button/medium/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29072:37463",
+            "name": "Chip/chip large/font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Regular"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Regular",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29072:37464",
+            "name": "Chip/chip large/font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 20
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 20,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29072:37465",
+            "name": "Chip/chip large/font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 14
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 14,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29082:32406",
+            "name": "Tabs/Toggle buttons/tab(s) large/vertical/container border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29082:32407",
+            "name": "Tabs/Toggle buttons/tab(s) small/container border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29082:32408",
+            "name": "Tabs/Toggle buttons/tab(s) small/1 tab border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29082:32409",
+            "name": "Tabs/Toggle buttons/tab(s) large/vertical/1 tab border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29095:33447",
+            "name": "Search/search large/right padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 0
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 0,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29095:33448",
+            "name": "Search/search small/right padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 0
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 0,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37356",
+            "name": "Icon Button/common buttton props/button outlined line stroke",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 1
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 1,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "STROKE_FLOAT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37359",
+            "name": "Icon Button/large/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37361",
+            "name": "Icon Button/large/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37362",
+            "name": "Icon Button/large/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37365",
+            "name": "Icon Button/medium/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37367",
+            "name": "Icon Button/medium/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37368",
+            "name": "Icon Button/medium/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37371",
+            "name": "Icon Button/small/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37637",
+            "name": "Icon Button/small/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 6
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 6,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37638",
+            "name": "Icon Button/small/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 6
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 6,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37639",
+            "name": "Icon Button/m-s/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37640",
+            "name": "Icon Button/m-s/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37641",
+            "name": "Icon Button/m-s/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37705",
+            "name": "Icon Button/extra small/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37706",
+            "name": "Icon Button/extra small/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 3
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 3,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29257:37707",
+            "name": "Icon Button/extra small/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 3
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 3,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29261:41019",
+            "name": "Button/m-s/font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_WEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29261:41020",
+            "name": "Button/m-s/font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 24
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 24,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29261:41021",
+            "name": "Button/m-s/font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29261:41022",
+            "name": "Button/m-s/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29261:41023",
+            "name": "Button/m-s/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29261:41024",
+            "name": "Button/m-s/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29307:46230",
+            "name": "Dialog/dialog desktop/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 20
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 20,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29529:78888",
+            "name": "Tooltip/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29838:68290",
+            "name": "Button/button small/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:29838:68294",
+            "name": "Button/button small/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 6
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 6,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30027:63850",
+            "name": "Alert/alert small/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30027:63851",
+            "name": "Alert/alert small/font size title",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 18
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 18,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30027:63852",
+            "name": "Alert/alert small/font height title",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 20
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 20,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30027:63853",
+            "name": "Alert/alert small/font weight title",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30062:59267",
+            "name": "Badge/badge dense/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 6
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 6,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30062:59268",
+            "name": "Badge/badge dense/font size",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 10
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 10,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "FONT_SIZE"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30062:59269",
+            "name": "Badge/badge dense/font height",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 14
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 14,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "LINE_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30062:59270",
+            "name": "Badge/badge dense/font weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "Medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "Medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30062:59271",
+            "name": "Badge/badge dense/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 4
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 4,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30062:59272",
+            "name": "Badge/badge dense/horizontal paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30081:64753",
+            "name": "Pop-over/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30167:60735",
+            "name": "Avatar/avatarLetter weight",
+            "description": "",
+            "type": "STRING",
+            "valuesByMode": {
+                "30470:1": "medium"
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": "medium",
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "ALL_SCOPES"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30793:28640",
+            "name": "Chip/chip large/vertical paddings",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 6
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 6,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30793:28641",
+            "name": "Chip/chip large/horizontal padding",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30793:28642",
+            "name": "Chip/chip large/horizontal padding without icon",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 12
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30793:28643",
+            "name": "Chip/chip large/border radius",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 16
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30857:30404",
+            "name": "Chip/chip large/horizontal padding Remove icon",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 10
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 10,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30857:30405",
+            "name": "Chip/chip small/horizontal padding Remove icon 2",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30470:1": 8
+            },
+            "resolvedValuesByMode": {
+                "30470:1": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "GAP"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        }
+    ]
+}

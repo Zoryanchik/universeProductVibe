@@ -1,0 +1,75 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+import type { CmsModalContentMap } from "@/shared/lib/cms-modal-content";
+import type { LocaleSlugMap } from "@/shared/lib/seo/get-localized-tool-href";
+import { defaultLocale } from "@/shared/config/locale";
+import { CmsModalDataHydrator } from "@/shared/lib/cms-modal-content";
+import { createServerT } from "@/shared/lib/translations/server-t";
+
+import type { DashboardView } from "@/entities/documents";
+
+import type { IDashboardTool } from "../model/dashboard-tools";
+import { DashboardApp } from "./DashboardApp";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Props {
+  lang?: ELanguages;
+  cmsModalData?: Partial<CmsModalContentMap>;
+  slugMap?: LocaleSlugMap;
+  availableToolSlugs?: readonly string[];
+  tools?: IDashboardTool[];
+  view?: DashboardView;
+}
+
+const {
+  lang = defaultLocale,
+  cmsModalData = {},
+  slugMap = {},
+  availableToolSlugs,
+  tools = [],
+  view = "main",
+} = Astro.props;
+const t = createServerT(lang);
+
+const pageTitle =
+  view === "account"
+    ? `${String(t("dashboard.myAccount.title"))} | OnlyDoc`
+    : `${String(t("dashboard.header.myFiles"))} | OnlyDoc`;
+---
+
+<SeoBaseLayout
+  lang={lang}
+  title={pageTitle}
+  description={String(t("dashboard.empty.subtitle"))}
+  isHidden
+>
+  {
+    Object.keys(cmsModalData).length > 0 && (
+      <CmsModalDataHydrator client:load data={cmsModalData} />
+    )
+  }
+  <DashboardApp
+    client:load
+    slugMap={slugMap}
+    availableToolSlugs={availableToolSlugs}
+    tools={tools}
+    lang={lang}
+    view={view}
+  />
+</SeoBaseLayout>
+
+<style is:global>
+  body {
+    background-color: var(--color-bg-light-grey);
+  }
+
+  body,
+  body * {
+    font-family: "Zalando Sans", "Lato", sans-serif;
+  }
+
+  .material-symbols-rounded {
+    font-family: "Material Symbols Rounded", sans-serif;
+  }
+</style>

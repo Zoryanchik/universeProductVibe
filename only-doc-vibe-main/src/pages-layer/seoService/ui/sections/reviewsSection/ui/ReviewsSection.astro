@@ -1,0 +1,56 @@
+---
+import { createServerT } from "@/shared/lib/translations/server-t";
+import type { ELanguages } from "@/shared/constants/languages";
+import { Title } from "@/shared/ui/title";
+
+import type { Review } from "../model/types";
+import { ReviewsSlider } from "./ReviewsSlider";
+import { getReviews } from "../lib/getReviews";
+
+interface Props {
+  readonly lang: ELanguages;
+  readonly disableBackground?: boolean;
+  readonly cmsTitle?: string;
+  readonly cmsReviews?: readonly Review[];
+  readonly variant?: "default" | "about-us";
+}
+
+const {
+  lang,
+  disableBackground,
+  cmsTitle,
+  cmsReviews,
+  variant = "default",
+} = Astro.props;
+const t = createServerT(lang);
+
+const title = cmsTitle ?? t("reviewsSection.title");
+const reviews = cmsReviews ?? getReviews(t);
+---
+
+<section
+  class:list={[
+    "w-full",
+    disableBackground ? "" : "bg-[var(--color-bg-light-grey)]",
+  ]}
+  aria-labelledby="reviews-section-title"
+>
+  <div
+    class:list={[
+      "mx-auto flex w-full max-w-[1440px] flex-col items-center",
+      variant === "about-us"
+        ? "gap-4 px-4 pt-10 pb-6 min-[1024px]:gap-10 min-[1024px]:px-[114px] min-[1024px]:pt-[104px] min-[1024px]:pb-10 min-[1440px]:px-[150px]"
+        : "gap-4 px-4 pt-10 pb-6 md:gap-10 md:px-[150px] md:pt-[104px] md:pb-10",
+    ]}
+  >
+    <Title
+      id="reviews-section-title"
+      variant="desktop-title-2"
+      className="text-black/87">{title}</Title
+    >
+
+    <div class="w-full">
+      <ReviewsSlider client:load reviews={reviews} />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+---
+// Defines `window.__deferThirdParty(cb)` — runs `cb` on the first user
+// interaction OR when the browser goes idle (whichever comes first), so heavy
+// third-party analytics scripts load off the initial critical path (lower TBT /
+// main-thread work) without dropping events. Must be included before any script
+// that relies on it; consumers fall back to running immediately if it's absent.
+---
+
+<script is:inline>
+  (function () {
+    if (window.__deferThirdParty) return;
+
+    var queue = [];
+    var fired = false;
+    var events = [
+      "scroll",
+      "mousemove",
+      "touchstart",
+      "keydown",
+      "pointerdown",
+      "click",
+    ];
+    var opts = { once: true, passive: true, capture: true };
+
+    function cleanup() {
+      events.forEach(function (name) {
+        window.removeEventListener(name, run, opts);
+      });
+    }
+
+    function run() {
+      if (fired) return;
+      fired = true;
+      cleanup();
+      var callbacks = queue;
+      queue = [];
+      callbacks.forEach(function (cb) {
+        try {
+          cb();
+        } catch (e) {
+          /* keep other consumers running if one throws */
+        }
+      });
+    }
+
+    events.forEach(function (name) {
+      window.addEventListener(name, run, opts);
+    });
+
+    // Fallback so analytics still initialises for users who never interact.
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(run, { timeout: 4000 });
+    } else {
+      setTimeout(run, 4000);
+    }
+
+    window.__deferThirdParty = function (cb) {
+      if (fired) {
+        try {
+          cb();
+        } catch (e) {
+          /* no-op */
+        }
+      } else {
+        queue.push(cb);
+      }
+    };
+  })();
+</script>

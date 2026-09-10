@@ -1,0 +1,27 @@
+---
+import { GTAG_ID } from "astro:env/client";
+---
+
+<script is:inline define:vars={{ gtagId: GTAG_ID }}>
+  // Stub gtag immediately so any early calls queue in dataLayer; defer loading
+  // the (heavy) gtag library until first interaction/idle to cut initial TBT.
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+  gtag("js", new Date());
+  gtag("config", gtagId);
+
+  (
+    window.__deferThirdParty ||
+    function (cb) {
+      cb();
+    }
+  )(function () {
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + gtagId;
+    document.head.appendChild(s);
+  });
+</script>

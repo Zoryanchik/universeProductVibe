@@ -1,0 +1,13 @@
+"project_id_env": "${{ secrets.CROWDIN_PROJECT_ID }}"
+"api_token_env": "${{ secrets.CROWDIN_PERSONAL_TOKEN }}"
+"base_path": "."
+
+"preserve_hierarchy": true
+
+"files":
+  [
+    {
+      "source": "public/seo/locales/en/translation.json",
+      "translation": "public/seo/locales/%two_letters_code%/translation.json",
+    },
+  ]

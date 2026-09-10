@@ -1,0 +1,231 @@
+{
+    "id": "VariableCollectionId:30768:28022",
+    "name": "2. Corner radiuses",
+    "modes": {
+        "30768:9": "PDFFly"
+    },
+    "variableIds": [
+        "VariableID:30768:28040",
+        "VariableID:30768:28041",
+        "VariableID:30768:28042",
+        "VariableID:30768:28043",
+        "VariableID:30768:28044",
+        "VariableID:30768:28045",
+        "VariableID:30768:28046",
+        "VariableID:30768:28047",
+        "VariableID:30767:28023",
+        "VariableID:30767:28024"
+    ],
+    "variables": [
+        {
+            "id": "VariableID:30768:28040",
+            "name": "Corner radiuses/radius-9",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 100
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 100,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30768:28041",
+            "name": "Corner radiuses/radius-6",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 20
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 20,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30768:28042",
+            "name": "Corner radiuses/radius-5",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 16
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 16,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30768:28043",
+            "name": "Corner radiuses/radius-none",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 0
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 0,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30768:28044",
+            "name": "Corner radiuses/radius-4",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 12
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 12,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30768:28045",
+            "name": "Corner radiuses/radius-3",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 10
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 10,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30768:28046",
+            "name": "Corner radiuses/radius-2",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 8
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 8,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30768:28047",
+            "name": "Corner radiuses/radius-1",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 4
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 4,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30767:28023",
+            "name": "Corner radiuses/radius-7",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 24
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 24,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        },
+        {
+            "id": "VariableID:30767:28024",
+            "name": "Corner radiuses/radius-8",
+            "description": "",
+            "type": "FLOAT",
+            "valuesByMode": {
+                "30768:9": 32
+            },
+            "resolvedValuesByMode": {
+                "30768:9": {
+                    "resolvedValue": 32,
+                    "alias": null
+                }
+            },
+            "scopes": [
+                "CORNER_RADIUS",
+                "WIDTH_HEIGHT"
+            ],
+            "hiddenFromPublishing": false,
+            "codeSyntax": {}
+        }
+    ]
+}

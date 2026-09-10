@@ -1,0 +1,69 @@
+---
+import { cn } from "@universe-forma/ui-pes";
+
+import type { ELanguages } from "@/shared/constants/languages";
+import { EPageType } from "@/shared/constants/page-type";
+import { prepareSeoData } from "@/shared/lib/seo/prepare-seo-data";
+import { navigateThroughURL } from "@/shared/lib/seo/navigate-through-url";
+import { PAGE_LINKS } from "@/shared/constants/page-links";
+import { Title } from "@/shared/ui/title";
+import { PageViewTracker } from "@/shared/ui/page-view-tracker";
+
+import { SignUpForm } from "@/features/auth-signup";
+
+import { HeaderLogoOnly } from "@/widgets/headerLogoOnly";
+
+import { fetchSignUpPageData } from "../api/fetch-sign-up-page-data";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Props {
+  lang: ELanguages;
+}
+
+const { lang: currentLocale } = Astro.props;
+const { pageData } = await fetchSignUpPageData(currentLocale);
+
+if (!pageData) {
+  return;
+}
+
+const loginHref = navigateThroughURL(PAGE_LINKS.LOGIN, currentLocale);
+
+const seoProps = prepareSeoData(
+  {
+    ...pageData.seo,
+    publishedAt: pageData.publishedAt,
+    updatedAt: pageData.updatedAt,
+  },
+  Astro.url.pathname,
+  EPageType.SIGN_UP,
+  currentLocale
+);
+
+const copyright = pageData.copyright.replace(
+  "{date}",
+  String(new Date().getFullYear())
+);
+---
+
+<SeoBaseLayout {...seoProps} lang={currentLocale}>
+  <PageViewTracker eventName="sign_up_page_view" client:load />
+  <div class="bg-material-grey-100 flex min-h-dvh flex-col overflow-y-auto">
+    <HeaderLogoOnly />
+    <div class={cn("flex flex-1 justify-center items-center", "max-sm:px-4")}>
+      <section class="sr-only">
+        <Title level="h1" variant="desktop-title-2">
+          {pageData.title}
+        </Title>
+        <p>{pageData.subtitle}</p>
+      </section>
+      <SignUpForm client:load texts={pageData} loginHref={loginHref} />
+    </div>
+    <footer class="flex items-end justify-center self-stretch pt-8 pb-6">
+      <p class="text-body text-text-disabled">
+        {copyright}
+      </p>
+    </footer>
+  </div>
+</SeoBaseLayout>

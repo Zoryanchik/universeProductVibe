@@ -1,0 +1,62 @@
+---
+import { createServerT } from "@/shared/lib/translations/server-t";
+import { InternalFileType } from "@/shared/constants/file-type";
+import type { ELanguages } from "@/shared/constants/languages";
+
+import { EFunnels, EServiceType } from "@/entities/documents";
+
+import { HeroUploadSection } from "@/widgets/heroUploadSection";
+
+import { DEFAULT_ACCEPTED_FORMATS } from "../model/constants";
+
+interface Props {
+  lang: string;
+  title?: string;
+  subtitle?: string;
+  buttonLabel?: string;
+  supportedFormatsText?: string;
+  maxSizeText?: string;
+  dropText?: string;
+  serviceType?: EServiceType;
+  funnel?: EFunnels;
+  formatTo?: InternalFileType;
+  acceptedFormats?: InternalFileType[];
+}
+
+const {
+  lang,
+  title: propTitle,
+  subtitle: propSubtitle,
+  buttonLabel: propButtonLabel,
+  supportedFormatsText: propSupportedFormatsText,
+  maxSizeText: propMaxSizeText,
+  dropText: propDropText,
+  serviceType = EServiceType.CONVERTOR,
+  funnel = EFunnels.PDF_TO_WORD,
+  formatTo = InternalFileType.DOCX,
+  acceptedFormats = DEFAULT_ACCEPTED_FORMATS,
+} = Astro.props;
+
+const t = createServerT(lang as ELanguages);
+
+const title = propTitle || t("serviceHeroSection.title");
+const subtitle = propSubtitle || t("serviceHeroSection.subtitle");
+const buttonLabel = propButtonLabel || t("serviceHeroSection.buttonLabel");
+const supportedFormatsText =
+  propSupportedFormatsText || t("serviceHeroSection.supportedFormats");
+const maxSizeText = propMaxSizeText || t("serviceHeroSection.maxSize");
+const dropText = propDropText || t("serviceHeroSection.dropText");
+---
+
+<HeroUploadSection
+  title={title}
+  subtitle={subtitle}
+  uploadButtonLabel={buttonLabel}
+  dropText={dropText}
+  supportedFormatsText={supportedFormatsText}
+  maxSizeText={maxSizeText}
+  serviceType={serviceType}
+  funnel={funnel}
+  formatTo={formatTo}
+  acceptedFormats={acceptedFormats}
+/>

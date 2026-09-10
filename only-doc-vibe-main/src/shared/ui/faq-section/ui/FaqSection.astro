@@ -1,0 +1,21 @@
+---
+import type { FaqItem } from "../model/types";
+import { FaqSection as FaqSectionComponent } from "./FaqSection";
+
+interface Props {
+  readonly title: string;
+  readonly items: readonly FaqItem[];
+  readonly className?: string;
+  readonly defaultOpenId?: string;
+}
+
+const { title, items, className, defaultOpenId } = Astro.props;
+---
+
+<FaqSectionComponent
+  client:load
+  title={title}
+  items={items}
+  className={className}
+  defaultOpenId={defaultOpenId}
+/>

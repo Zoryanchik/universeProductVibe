@@ -1,0 +1,25 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+const seoProps = {
+  title: "404",
+  description: "404",
+};
+---
+
+<SeoBaseLayout {...seoProps} lang={defaultLocale}>
+  <main
+    class="flex min-h-[60vh] flex-col items-center justify-center px-4 text-center"
+  >
+    <h1 class="mb-4 text-6xl font-bold">404</h1>
+    <h2 class="mb-6 text-2xl">Page Not Found</h2>
+    <a
+      href="/"
+      class="rounded-lg bg-blue-600 px-6 py-3 text-white transition-colors hover:bg-blue-700"
+    >
+      Return Home
+    </a>
+  </main>
+</SeoBaseLayout>

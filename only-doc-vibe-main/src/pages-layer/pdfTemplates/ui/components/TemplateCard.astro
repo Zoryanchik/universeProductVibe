@@ -1,0 +1,75 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import { cn } from "@/shared/lib/utils/cn";
+
+import type { ITemplateCard } from "../../model/types";
+import { getTemplateUrl } from "../../lib/urls";
+
+interface Props {
+  card: ITemplateCard;
+  ctaLabel?: string;
+  className?: string;
+  /** LCP candidate (first card): loads eagerly with high fetch priority. */
+  priority?: boolean;
+}
+
+const t = createServerT(defaultLocale);
+const { card, ctaLabel, className, priority = false } = Astro.props;
+const cta = ctaLabel ?? (t("seo.templates.use_template") as string);
+
+const href = getTemplateUrl(card.categorySlug, card.slug);
+const imageLoading = priority ? "eager" : "lazy";
+const imageFetchPriority = priority ? "high" : undefined;
+---
+
+<article
+  class={cn(
+    "group flex flex-col gap-3 rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white p-3 transition-shadow hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.16)]",
+    className
+  )}
+>
+  <a
+    href={href}
+    class="relative block h-[260px] overflow-hidden rounded-xl bg-[var(--color-bg-light-grey,#f2f2f7)]"
+    aria-label={card.title}
+  >
+    {
+      card.coverImageUrl ? (
+        <img
+          src={card.coverImageUrl}
+          alt={card.coverImageAlt}
+          loading={imageLoading}
+          fetchpriority={imageFetchPriority}
+          decoding="async"
+          class="block h-auto w-full object-top transition-transform duration-[2600ms] ease-linear group-hover:[transform:translateY(calc(-100%+260px))]"
+        />
+      ) : (
+        <span class="flex h-full w-full items-center justify-center text-[13px] text-[var(--color-text-secondary)]">
+          {card.title}
+        </span>
+      )
+    }
+    {
+      card.categoryLabel && (
+        <span class="absolute start-3 bottom-3 rounded-md bg-white/90 px-2 py-1 text-[12px] font-medium text-[var(--color-secondary)] shadow-sm backdrop-blur">
+          {card.categoryLabel}
+        </span>
+      )
+    }
+  </a>
+
+  <a
+    href={href}
+    class="px-1 text-[16px] leading-[22px] font-semibold text-[var(--color-text-primary)] hover:underline"
+  >
+    {card.title}
+  </a>
+
+  <a
+    href={href}
+    class="mt-auto flex h-11 items-center justify-center rounded-xl bg-[var(--color-primary)] px-4 text-[15px] font-semibold text-[var(--color-primary-contrast-text)] transition-opacity hover:opacity-90"
+  >
+    {cta}
+  </a>
+</article>

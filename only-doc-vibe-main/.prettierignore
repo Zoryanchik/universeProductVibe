@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+.astro/
+
+# Generated files
+openapi-spec.json
+src/shared/api/cms/cms-schema.ts
+
+# Public assets
+public/
+
+# Config files
+pnpm-lock.yaml
+
+# Markdown files (may contain invalid JSX in code examples)
+*.md
+**/*.md
+.cursor/
+
+
+
+
+
+

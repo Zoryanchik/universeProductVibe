@@ -1,0 +1,30 @@
+---
+import { MarkdownRenderer } from "@/shared/ui/markdown-renderer";
+
+interface Props {
+  title: string;
+  content: string;
+  categoryTag?: string;
+}
+
+const { title, content, categoryTag } = Astro.props;
+const hasContent = Boolean(content?.trim());
+---
+
+{
+  hasContent && (
+    <section class="mx-auto flex w-full max-w-[1140px] flex-col items-center gap-5 px-4 py-12 text-center">
+      {categoryTag && (
+        <span class="rounded-md bg-[var(--color-secondary-opacity-12)] px-3 py-1 text-[13px] font-medium text-[var(--color-secondary)]">
+          {categoryTag}
+        </span>
+      )}
+      <h2 class="text-desktop-title-2 max-md:text-mobile-title-2 font-bold text-[var(--color-text-primary)]">
+        {title}
+      </h2>
+      <div class="w-full text-start">
+        <MarkdownRenderer client:load content={content} />
+      </div>
+    </section>
+  )
+}

@@ -1,0 +1,122 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import { EPageType } from "@/shared/constants/page-type";
+import { buildPaginatedSeo } from "@/shared/lib/seo/build-paginated-seo";
+import { createServerT } from "@/shared/lib/translations/server-t";
+
+import { BlogPagination } from "@/widgets/blog";
+
+import BasePage from "../../base/ui/BasePage.astro";
+import { fetchTemplatesHome } from "../api/fetch-templates-home";
+import { fetchTemplatesListContext } from "../api/fetch-templates-list-context";
+import { listTemplates } from "../lib/derive-listings";
+import { buildCatalogSchema } from "../lib/schema/build-templates-schema";
+import { getCatalogUrl, withPage } from "../lib/urls";
+import { CategorySidebar } from "./components/CategorySidebar";
+import TemplatesGrid from "./components/TemplatesGrid.astro";
+import TemplatesHero from "./components/TemplatesHero.astro";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Props {
+  page?: number;
+}
+
+const locale = defaultLocale;
+const t = createServerT(locale);
+const page = Astro.props.page ?? Number(Astro.params.n ?? 1);
+
+const [home, context] = await Promise.all([
+  fetchTemplatesHome(locale),
+  fetchTemplatesListContext(locale),
+]);
+
+const listing = listTemplates(context.index, page);
+const catalogUrl = getCatalogUrl();
+
+const heroTitle = [
+  home?.hero_title_part1,
+  home?.hero_title_highlight,
+  home?.hero_title_part2,
+]
+  .filter(Boolean)
+  .join(" ");
+const fallbackName = t("seo.templates.catalog_fallback_title") as string;
+const fallbackDescription = t(
+  "seo.templates.catalog_fallback_description"
+) as string;
+
+const seoProps = buildPaginatedSeo({
+  baseSeo: home?.seo,
+  paginatedOverrides: home?.paginated_seo,
+  page,
+  pathname: withPage(catalogUrl, page),
+  locale,
+  pageType: EPageType.TEMPLATES_HOME,
+  availableLocales: [defaultLocale],
+});
+
+const metaTitleFallback = t("seo.templates.catalog_meta_title") as string;
+const metaDescriptionFallback = t(
+  "seo.templates.catalog_meta_description"
+) as string;
+
+if (!seoProps.title) {
+  seoProps.title =
+    page > 1
+      ? `${metaTitleFallback} | ${t("seo.blog.page_n_suffix", { page })}`
+      : metaTitleFallback;
+}
+
+seoProps.description ||= metaDescriptionFallback;
+
+seoProps.schema = buildCatalogSchema({
+  name: home?.seo?.metaTitle || heroTitle || fallbackName,
+  description: home?.seo?.metaDescription || fallbackDescription,
+});
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  <BasePage
+    lang={locale}
+    navbarData={context.navbarData}
+    footerData={context.footerData}
+    pageLocalizations={[defaultLocale]}
+  >
+    <div class="w-full bg-[var(--color-bg-light-grey)]">
+      <section class="mx-auto w-full max-w-[1440px] px-8 pb-12 max-md:px-4">
+        <TemplatesHero
+          titlePart1={home?.hero_title_part1}
+          titleHighlight={home?.hero_title_highlight}
+          titlePart2={home?.hero_title_part2}
+          description={home?.hero_description}
+          searchPlaceholder={home?.search_placeholder}
+          searchEntries={context.searchIndex}
+        />
+
+        <div
+          class="flex w-full gap-8 rounded-[28px] bg-white p-8 max-md:flex-col max-md:p-4"
+        >
+          <CategorySidebar
+            client:load
+            className="flex max-md:hidden"
+            categories={context.categoryNav}
+            allTemplatesLabel={t("seo.templates.all_templates") as string}
+            navLabel={t("seo.templates.sidebar_aria") as string}
+            expandLabel={t("seo.templates.expand") as string}
+            collapseLabel={t("seo.templates.collapse") as string}
+          />
+
+          <div class="flex min-w-0 flex-1 flex-col gap-10">
+            <TemplatesGrid templates={listing.templates} />
+            <BlogPagination
+              page={listing.page}
+              pageCount={listing.pageCount}
+              basePath={catalogUrl}
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </BasePage>
+</SeoBaseLayout>

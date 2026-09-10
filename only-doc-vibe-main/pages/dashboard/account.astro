@@ -1,0 +1,24 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import { buildDashboardLinkSlugs } from "@/shared/lib/seo/get-localized-tool-href";
+
+import { DashboardPage } from "@/pages-layer/dashboard";
+import { getAllServiceRoutes } from "@/pages-layer/seoService";
+import { getAllLegalRoutes } from "@/pages-layer/legal";
+import { fetchContactUsSlugMap } from "@/pages-layer/contactUs";
+
+const [serviceRoutes, legalRoutes, contactSlugMap] = await Promise.all([
+  getAllServiceRoutes(),
+  getAllLegalRoutes(),
+  fetchContactUsSlugMap(),
+]);
+
+const slugMap = buildDashboardLinkSlugs(
+  defaultLocale,
+  serviceRoutes,
+  legalRoutes,
+  contactSlugMap
+);
+---
+
+<DashboardPage slugMap={slugMap} view="account" />

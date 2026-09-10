@@ -1,0 +1,65 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import { createServerT } from "@/shared/lib/translations/server-t";
+
+import type { ITemplateSearchEntry } from "../../model/types";
+import { TemplatesSearch } from "./TemplatesSearch";
+
+interface Props {
+  titlePart1?: string;
+  titleHighlight?: string;
+  titlePart2?: string;
+  description?: string;
+  searchPlaceholder?: string;
+  searchEntries: ReadonlyArray<ITemplateSearchEntry>;
+}
+
+const t = createServerT(defaultLocale);
+const {
+  titlePart1 = t("seo.templates.hero_fallback_title_part1") as string,
+  titleHighlight = t("seo.templates.hero_fallback_title_highlight") as string,
+  titlePart2 = t("seo.templates.hero_fallback_title_part2") as string,
+  description,
+  searchPlaceholder,
+  searchEntries,
+} = Astro.props;
+
+const searchPlaceholderLabel =
+  searchPlaceholder ?? (t("seo.templates.search_placeholder") as string);
+const searchNoResultsLabel = t("seo.templates.search_no_results") as string;
+const searchPromptTitle = t("seo.templates.search_prompt_title") as string;
+const searchPromptSubtitle = t(
+  "seo.templates.search_prompt_subtitle"
+) as string;
+const searchResultsCountLabel = t(
+  "seo.templates.search_results_count"
+) as string;
+---
+
+<section class="flex flex-col items-center gap-6 px-4 py-12 text-center">
+  <h1
+    class="text-desktop-title-1 max-md:text-mobile-title-1 max-w-[860px] font-extrabold text-[var(--color-text-primary)]"
+  >
+    {titlePart1}{" "}
+    <span class="text-[var(--color-secondary)]">{titleHighlight}</span>{" "}
+    {titlePart2}
+  </h1>
+
+  {
+    description && (
+      <p class="text-body max-w-[680px] text-[var(--color-text-secondary)]">
+        {description}
+      </p>
+    )
+  }
+
+  <TemplatesSearch
+    client:load
+    entries={searchEntries}
+    placeholder={searchPlaceholderLabel}
+    noResultsLabel={searchNoResultsLabel}
+    promptTitle={searchPromptTitle}
+    promptSubtitle={searchPromptSubtitle}
+    resultsCountLabel={searchResultsCountLabel}
+  />
+</section>

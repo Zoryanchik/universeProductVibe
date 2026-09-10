@@ -1,0 +1,7 @@
+---
+import { SEOHomePageIndex } from "@/pages-layer/seoService";
+
+export { getHomePageLocalesStaticPaths as getStaticPaths } from "@/pages-layer/seoService";
+---
+
+<SEOHomePageIndex lang={Astro.params.lang} />

@@ -1,0 +1,97 @@
+<svg width="161" height="187" viewBox="0 0 161 187" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- neutral shadow only -->
+    <filter id="filter0_dd" x="0" y="0" width="160.139" height="187" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 127 0"
+        result="hardAlpha"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="3"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="shadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="shadow" result="shape"/>
+    </filter>
+
+    <!-- border gradient -->
+    <linearGradient id="borderGradient" x1="41" y1="37" x2="128.619" y2="132.64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35A595"/>
+      <stop offset="0.47" stop-color="#FFFFFF"/>
+    </linearGradient>
+
+    <!-- content gradients -->
+    <linearGradient id="contentGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#D9D9D9"/>
+      <stop offset="1" stop-color="#EBEBEB"/>
+    </linearGradient>
+
+    <!-- glow filter for animated outline -->
+    <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- card -->
+  <g filter="url(#filter0_dd)">
+    <path
+      d="M41 45.1081C41 40.6301 44.5698 37 48.9734 37H111.166C115.57 37 119.14 40.6301 119.14 45.1081V133.892C119.14 138.37 115.57 142 111.166 142H48.9734C44.5698 142 41 138.37 41 133.892V45.1081Z"
+      fill="#FFFFFF"
+    />
+  </g>
+
+  <!-- animated glowing outline circling the card -->
+  <path
+    d="M111.166 36.5C115.854 36.5 119.64 40.3622 119.64 45.1084V133.892C119.64 138.638 115.854 142.5 111.166 142.5H48.9736C44.286 142.5 40.5 138.638 40.5 133.892V45.1084C40.5 40.3622 44.286 36.5 48.9736 36.5H111.166Z"
+    fill="none"
+    stroke="#35A595"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-dasharray="80 280"
+    filter="url(#glowFilter)"
+  >
+    <animate
+      attributeName="stroke-dashoffset"
+      from="360"
+      to="0"
+      dur="3s"
+      repeatCount="indefinite"
+    />
+  </path>
+
+  <!-- top bar -->
+  <path d="M50.8828 62.9457C50.8828 60.7067 52.6979 58.8916 54.9369 58.8916H106.829C109.068 58.8916 110.883 60.7067 110.883 62.9457C110.883 65.1846 109.068 66.9997 106.829 66.9997H54.9369C52.6979 66.9997 50.8828 65.1846 50.8828 62.9457Z" fill="url(#contentGradient)"/>
+
+  <!-- left column -->
+  <g fill="url(#contentGradient)">
+    <rect x="50.8828" y="79.5674" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="50.8828" y="86.0539" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="50.8828" y="92.5404" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="50.8828" y="99.0268" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="50.8828" y="105.513" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="50.8828" y="112" width="27.1622" height="2.8378" rx="1.4189"/>
+  </g>
+
+  <!-- right column -->
+  <g fill="url(#contentGradient)">
+    <rect x="83.7207" y="79.5674" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="83.7207" y="86.0539" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="83.7207" y="92.5404" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="83.7207" y="99.0268" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="83.7207" y="105.513" width="27.1622" height="2.8378" rx="1.4189"/>
+    <rect x="83.7207" y="112" width="27.1622" height="2.8378" rx="1.4189"/>
+  </g>
+
+</svg>

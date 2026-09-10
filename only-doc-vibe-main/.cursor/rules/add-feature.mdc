@@ -1,0 +1,9 @@
+---
+description: Add a feature the FSD-correct way. Use when creating new UI/slices.
+globs: ["src/**/*.{ts,tsx,astro}"]
+alwaysApply: false
+---
+
+Follow `docs/vibe/add-feature.md` as hard rules. Structure every new slice and
+component according to FSD principles. Verify imports stay within layer bounds
+before finishing.

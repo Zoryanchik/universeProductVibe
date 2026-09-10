@@ -1,0 +1,23 @@
+# Validate branch name
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+PATTERN_TASK='^(chore|feat|fix|test|refactor|revert)/.+'
+PATTERN_CI='^ci/.+'
+PATTERN_REVERT='^revert.+'
+
+
+echo "🔎 Validating branch name: $BRANCH_NAME"
+
+if echo "$BRANCH_NAME" | grep -Eq "$PATTERN_TASK" || echo "$BRANCH_NAME" | grep -Eq "$PATTERN_CI" || echo "$BRANCH_NAME" | grep -Eq "$PATTERN_REVERT"; then
+  echo "✅ Branch name is valid"
+else
+  echo "❌ Invalid branch name!"
+  echo "Branch name must match: <type>/<description>"
+  echo "Allowed types: chore, feat, fix, ci, revert"
+  exit 1
+fi
+
+# Run precommit scripts (temporarily disabled)
+npm run precommit
+
+git add .

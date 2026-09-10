@@ -1,0 +1,49 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import { buildDashboardLinkSlugs } from "@/shared/lib/seo/get-localized-tool-href";
+import {
+  buildDashboardPageData,
+  mergeToolDescriptions,
+} from "@/shared/lib/dashboard/build-dashboard-page-data";
+
+import { DashboardPage } from "@/pages-layer/dashboard";
+import {
+  fetchDashboardModalData,
+  fetchDashboardToolDescriptions,
+  fetchDashboardTools,
+} from "@/pages-layer/dashboard";
+import { getAllServiceRoutes } from "@/pages-layer/seoService";
+import { getAllLegalRoutes } from "@/pages-layer/legal";
+import { fetchContactUsSlugMap } from "@/pages-layer/contactUs";
+
+const [serviceRoutes, cmsModalData, legalRoutes, contactSlugMap] =
+  await Promise.all([
+    getAllServiceRoutes(),
+    fetchDashboardModalData(defaultLocale),
+    getAllLegalRoutes(),
+    fetchContactUsSlugMap(),
+  ]);
+
+const [toolDescriptionMap, tools] = await Promise.all([
+  fetchDashboardToolDescriptions(defaultLocale, serviceRoutes),
+  fetchDashboardTools(defaultLocale, serviceRoutes),
+]);
+
+const pageData = buildDashboardPageData({
+  cmsModalData,
+  tools: mergeToolDescriptions(tools, toolDescriptionMap),
+  slugMap: buildDashboardLinkSlugs(
+    defaultLocale,
+    serviceRoutes,
+    legalRoutes,
+    contactSlugMap
+  ),
+});
+---
+
+<DashboardPage
+  cmsModalData={pageData.cmsModalData}
+  slugMap={pageData.slugMap}
+  availableToolSlugs={pageData.availableToolSlugs}
+  tools={pageData.tools}
+/>

@@ -1,0 +1,74 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+import { EPageType } from "@/shared/constants/page-type";
+import { redirectTo404 } from "@/shared/lib/navigation/redirect-to-404";
+import { prepareSeoData } from "@/shared/lib/seo/prepare-seo-data";
+
+import { fetchServicePageData } from "../../api/fetch-service-page-data";
+import { getLocalizedServicePages } from "../../api/get-service-static-routes";
+import { getPageLocalizations } from "../../lib/get-page-localizations";
+import BasePage from "../../../base/ui/BasePage.astro";
+import { SectionRouter } from "../sections/router";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Params {
+  lang: ELanguages;
+  service: string;
+}
+
+export async function getServicePageLocalesStaticPaths() {
+  return await getLocalizedServicePages();
+}
+
+const { lang: locale, service } = Astro.params as unknown as Params;
+
+const { pageData, navbarData, footerData } = await fetchServicePageData(
+  service,
+  locale
+);
+
+if (!pageData) {
+  redirectTo404(Astro);
+}
+
+const sections =
+  pageData?.sections?.map((section) => ({
+    ...section,
+    __component: String(
+      (section as Record<string, unknown>).__component || "unknown"
+    ),
+  })) ?? [];
+
+const seoProps = prepareSeoData(
+  {
+    ...pageData!.seo,
+    publishedAt: pageData!.publishedAt,
+    updatedAt: pageData!.updatedAt,
+  },
+  Astro.url.pathname,
+  EPageType.SERVICE,
+  locale
+);
+
+const pageLocalizations = getPageLocalizations(pageData, locale);
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  <BasePage
+    lang={locale}
+    navbarData={navbarData}
+    footerData={footerData}
+    pageLocalizations={pageLocalizations}
+  >
+    <div class="bg-[var(--color-bg-light-grey)] pb-6 md:pb-15">
+      <SectionRouter
+        sections={sections}
+        context={EPageType.SERVICE}
+        lang={locale}
+        service={pageData}
+        slug={Astro.url.pathname}
+      />
+    </div>
+  </BasePage>
+</SeoBaseLayout>

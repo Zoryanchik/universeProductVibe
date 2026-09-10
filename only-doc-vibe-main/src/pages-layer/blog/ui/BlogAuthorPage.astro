@@ -1,0 +1,187 @@
+---
+import { WEB_HOST } from "astro:env/client";
+
+import { cn } from "@/shared/lib/utils/cn";
+import type { ELanguages } from "@/shared/constants/languages";
+import { defaultLocale } from "@/shared/config/locale";
+import { EPageType } from "@/shared/constants/page-type";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import { generateSchema } from "@/shared/lib/seo/generate-schema";
+import { getHreflangsFromSlugMap } from "@/shared/lib/seo/get-hreflangs";
+import {
+  getBlogHomeUrl,
+  getLocaleHomeUrl,
+} from "@/shared/lib/navigation/get-blog-url";
+
+import { ArticleCard } from "@/widgets/blog";
+import { ArticleBody } from "@/widgets/blog";
+import { AuthorCard } from "@/widgets/blog";
+import { BlogCtaBanner } from "@/widgets/blog";
+import { Breadcrumbs } from "@/widgets/blog";
+
+import { resolveBlogLocale, resolveBlogSlug } from "../lib/resolve-blog-route";
+import BasePage from "../../base/ui/BasePage.astro";
+import { fetchBlogAuthorPageData } from "../api/fetch-blog-author-data";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+import { DEFAULT_COVER_IMAGE } from "@/app/layout/seoLayout";
+
+interface Props {
+  locale?: ELanguages;
+  slug?: string;
+  localeSlugMap?: Record<string, string>;
+}
+
+const { locale: propsLocale, slug: propsSlug, localeSlugMap } = Astro.props;
+
+const locale = resolveBlogLocale(propsLocale, Astro.params.lang);
+const slug = resolveBlogSlug(propsSlug, Astro.params.slug);
+
+if (!slug) {
+  return Astro.redirect("/404");
+}
+
+const data = await fetchBlogAuthorPageData(slug, locale);
+if (!data.author) {
+  return Astro.redirect("/404");
+}
+
+const author = data.author;
+const t = createServerT(locale);
+const viewsLabel = t("seo.blog.views") as string;
+const inlineCta =
+  author.inline_cta ?? data.allCategory?.inline_cta ?? undefined;
+
+const breadcrumbItems = [
+  {
+    label: t("seo.blog.breadcrumbs_home") as string,
+    href: getLocaleHomeUrl(locale),
+  },
+  {
+    label: t("seo.blog.breadcrumbs_blog") as string,
+    href: getBlogHomeUrl(locale),
+  },
+  { label: author.name },
+];
+
+const metaTitle = author.seo?.metaTitle ?? author.name;
+const metaDescription = author.seo?.metaDescription ?? author.role ?? "";
+const metaImage =
+  (author.seo?.metaImage as { url?: string } | undefined)?.url ??
+  author.avatar?.url ??
+  DEFAULT_COVER_IMAGE;
+
+const canonicalUrl = `https://${WEB_HOST}${Astro.url.pathname}`;
+const { hreflangs } = localeSlugMap
+  ? getHreflangsFromSlugMap(
+      Object.fromEntries(
+        Object.entries(localeSlugMap).map(([loc, s]) => [
+          loc,
+          `blog/author/${s.replace(/^\//, "")}`,
+        ])
+      )
+    )
+  : { hreflangs: [] };
+
+const schema = generateSchema(
+  Astro.url.pathname,
+  metaDescription,
+  metaTitle,
+  EPageType.BLOG_AUTHOR,
+  undefined,
+  undefined,
+  {
+    person: {
+      name: author.name,
+      imageUrl: author.avatar?.url,
+      jobTitle: author.role ?? undefined,
+      sameAs: author.twitter_url ? [author.twitter_url] : undefined,
+    },
+  }
+);
+
+const seoProps = {
+  title: metaTitle,
+  description: metaDescription,
+  imageUrl: metaImage,
+  hreflangs,
+  canonicalUrl,
+  schema,
+};
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  <BasePage
+    lang={locale}
+    navbarData={data.navbarData}
+    footerData={data.footerData}
+    pageLocalizations={[defaultLocale]}
+  >
+    <!-- Full-bleed grey background -->
+    <div class="w-full bg-[#f2f2f7]">
+      <div
+        class={cn(
+          "mx-auto flex w-full max-w-[1440px] flex-col gap-6 px-8 py-12",
+          "max-md:gap-4 max-md:px-4 max-md:py-8"
+        )}
+      >
+        <!-- Author profile white card -->
+        <div
+          class={cn(
+            "flex w-full flex-col gap-12 overflow-hidden rounded-[28px] bg-white p-8",
+            "max-md:gap-6 max-md:p-6"
+          )}
+        >
+          <Breadcrumbs items={breadcrumbItems} />
+
+          <div
+            class="flex items-start gap-12 max-lg:gap-8 max-md:flex-col max-md:gap-6"
+          >
+            <!-- Left: author profile card -->
+            <div class="w-[300px] shrink-0 max-md:w-full">
+              <div class="sticky top-24">
+                <AuthorCard author={author} />
+              </div>
+            </div>
+
+            <!-- Right: bio + CTA banner -->
+            <div class="flex min-w-0 flex-1 flex-col gap-8 max-md:gap-6">
+              {
+                author.bio_section && (
+                  <ArticleBody content={author.bio_section} />
+                )
+              }
+
+              {inlineCta && <BlogCtaBanner cta={inlineCta} variant="inline" />}
+            </div>
+          </div>
+        </div>
+
+        <!-- Author articles white card -->
+        {
+          data.articles.length > 0 && (
+            <section
+              class={cn(
+                "flex w-full flex-col gap-6 rounded-[28px] border border-[rgba(0,0,0,0.08)] bg-white p-8",
+                "max-md:p-6"
+              )}
+            >
+              <h2 class="text-[28px] leading-[34px] font-semibold text-[var(--color-text-primary)] max-md:text-[22px] max-md:leading-[28px]">
+                {t("seo.blog.author_articles") as string}
+              </h2>
+              <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {data.articles.map((article) => (
+                  <ArticleCard
+                    article={article}
+                    locale={locale}
+                    viewsLabel={viewsLabel}
+                  />
+                ))}
+              </div>
+            </section>
+          )
+        }
+      </div>
+    </div>
+  </BasePage>
+</SeoBaseLayout>

@@ -1,0 +1,68 @@
+---
+import type { components } from "@/shared/api/cms/cms-schema";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import type { ICmsDropZone } from "@/shared/ui/upload-area";
+import { InternalFileType } from "@/shared/constants/file-type";
+import type { ELanguages } from "@/shared/constants/languages";
+import { PageViewTracker } from "@/shared/ui/page-view-tracker";
+
+import { EFunnels, EServiceType } from "@/entities/documents";
+
+import { HeroUploadSection } from "@/widgets/heroUploadSection";
+
+import { HeroServiceSection } from "./HeroServiceSection";
+import { mapCmsServicesToTabsAndCards } from "../lib/map-cms-services";
+import { resolveHeroTextContent } from "../lib/resolve-hero-content";
+import { fetchServicesBlock } from "../api/fetch-services-block";
+
+interface Props {
+  readonly lang: ELanguages;
+  readonly cmsTitle?: string;
+  readonly cmsSubtitle?: string;
+  readonly cmsDropZone?: ICmsDropZone;
+  readonly cmsServicesGroup?: components["schemas"]["ServiceServicesGroupComponent"];
+}
+
+const { lang, cmsTitle, cmsSubtitle, cmsDropZone, cmsServicesGroup } =
+  Astro.props;
+
+const t = createServerT(lang);
+
+const {
+  title,
+  subtitle,
+  uploadButtonLabel,
+  dropText,
+  supportedFormatsText,
+  maxSizeText,
+} = resolveHeroTextContent({ cmsTitle, cmsSubtitle, cmsDropZone, t });
+
+const servicesBlock = await fetchServicesBlock(cmsServicesGroup, lang);
+const { tabs, cards, featureHighlights, showMoreButtonText } =
+  mapCmsServicesToTabsAndCards(servicesBlock, lang);
+
+const ACCEPTED_FORMATS = [InternalFileType.PDF];
+---
+
+<PageViewTracker eventName="main_page_view" client:load />
+<HeroUploadSection
+  title={title}
+  subtitle={subtitle}
+  uploadButtonLabel={uploadButtonLabel}
+  dropText={dropText}
+  supportedFormatsText={supportedFormatsText}
+  maxSizeText={maxSizeText}
+  serviceType={EServiceType.CONVERTOR}
+  funnel={EFunnels.MAIN}
+  acceptedFormats={ACCEPTED_FORMATS}
+>
+  <div class="mx-auto mt-12 w-full max-w-[1140px]">
+    <HeroServiceSection
+      client:load
+      tabs={tabs}
+      cards={cards}
+      featureHighlights={featureHighlights}
+      showMoreButtonText={showMoreButtonText}
+    />
+  </div>
+</HeroUploadSection>

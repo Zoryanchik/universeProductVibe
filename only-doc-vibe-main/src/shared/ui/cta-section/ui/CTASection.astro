@@ -1,0 +1,129 @@
+---
+import type { InternalFileType } from "../../../constants/file-type";
+import { Title } from "../../title";
+import { UploadButton } from "../../upload-button";
+import { UNDERLINE_PATH } from "../model/constants";
+
+interface BadgeProps {
+  readonly icon: string;
+  readonly label: string;
+  readonly id: string;
+}
+
+interface Props {
+  readonly titlePrefix: string;
+  readonly titleHighlight: string;
+  readonly badges: readonly BadgeProps[];
+  readonly buttonLabel: string;
+  readonly illustrationSrc: string;
+  readonly acceptedFormats: InternalFileType[];
+}
+
+const {
+  titlePrefix,
+  titleHighlight,
+  badges,
+  buttonLabel,
+  illustrationSrc,
+  acceptedFormats,
+} = Astro.props;
+---
+
+<section class="cta-section mx-auto max-w-[1460px] py-6 md:py-40">
+  <div
+    class="cta-container mx-auto flex w-[calc(100%-24px)] flex-col items-center justify-center gap-6 rounded-[40px] bg-black px-6 py-10 lg:mx-auto lg:w-[calc(100%-24px)] lg:flex-row lg:justify-between lg:gap-10 lg:rounded-[60px] lg:px-16 lg:py-16"
+  >
+    <div
+      class="flex flex-col items-center justify-center sm:flex-row lg:gap-10"
+    >
+      <!-- Illustration with floating animation -->
+      <div class="cta-illustration flex shrink-0 items-center justify-center">
+        <img
+          src={illustrationSrc}
+          alt="OnlyDoc conversion illustration"
+          width="200"
+          height="200"
+          class="h-[160px] w-[160px] lg:h-[200px] lg:w-[200px]"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
+      <!-- Content -->
+      <div class="flex flex-col items-center gap-6 lg:items-start lg:gap-8">
+        <!-- Title -->
+        <Title variant="desktop-title-2" level="h2">
+          <span class="text-mobile-title-2 lg:text-desktop-title-2 text-white">
+            {titlePrefix}
+          </span>
+          <span class="cta-highlight-wrapper relative inline-block">
+            <span
+              class="text-mobile-title-2 lg:text-desktop-title-2 relative z-10 text-white"
+            >
+              {titleHighlight}
+            </span>
+            <svg
+              class="cta-underline absolute bottom-0 left-1/2 z-0 h-auto w-[calc(100%+8px)] -translate-x-1/2 translate-y-[15%]"
+              viewBox="0 0 272 60"
+              fill="none"
+              aria-hidden="true"
+              preserveAspectRatio="none"
+            >
+              <path d={UNDERLINE_PATH} fill="var(--color-secondary-light)"
+              ></path>
+            </svg>
+          </span>
+        </Title>
+
+        <!-- Badges -->
+        <div
+          class="flex flex-wrap items-center justify-center gap-5 lg:justify-start"
+          role="list"
+          aria-label="Features"
+        >
+          {
+            badges.map((badge) => (
+              <div class="flex items-center gap-1.5" role="listitem">
+                <span class="text-[16px] leading-none" aria-hidden="true">
+                  {badge.icon}
+                </span>
+                <span class="text-sm leading-[1.43] font-medium text-[#FFF3E2]">
+                  {badge.label}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <slot name="button">
+      <UploadButton
+        client:load
+        label={buttonLabel}
+        acceptedFormats={acceptedFormats}
+        showGlow={false}
+      />
+    </slot>
+  </div>
+
+  <style>
+    @keyframes floating {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .cta-illustration {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    .cta-highlight-wrapper {
+      white-space: nowrap;
+    }
+  </style>
+</section>

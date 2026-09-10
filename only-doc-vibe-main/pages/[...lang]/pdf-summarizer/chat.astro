@@ -1,0 +1,55 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import type { ELanguages } from "@/shared/constants/languages";
+import { prepareSeoData } from "@/shared/lib/seo/prepare-seo-data";
+import { EPageType } from "@/shared/constants/page-type";
+import { createServerT } from "@/shared/lib/translations/server-t";
+
+import { AiSummarizerApp } from "@/widgets/aiSummarizer";
+import { HeaderLogoOnly } from "@/widgets/headerLogoOnly";
+
+import {
+  fetchPdfSummarizerServicePage,
+  toAiSummarizerCmsConfig,
+  getChatStaticPaths,
+} from "@/pages-layer/aiSummarizer";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+export const getStaticPaths = getChatStaticPaths;
+
+const { locale: localeProp } = Astro.props as {
+  locale: string;
+};
+const locale = (localeProp ?? defaultLocale) as ELanguages;
+
+const page = await fetchPdfSummarizerServicePage(locale);
+
+if (!page) {
+  return Astro.redirect("/404");
+}
+
+const cmsConfig = toAiSummarizerCmsConfig(page!);
+
+const seoProps = prepareSeoData(
+  page!.seo,
+  Astro.url.pathname,
+  EPageType.SERVICE,
+  locale
+);
+
+const t = createServerT(locale);
+const pageTitle = t("aiSummarizer.page.title");
+---
+
+<SeoBaseLayout {...seoProps} lang={locale} isHidden>
+  <div class="flex h-screen flex-col">
+    <HeaderLogoOnly
+      lang={locale}
+      showLoginButton
+      pageTitle={pageTitle}
+      class="hidden md:flex"
+    />
+    <AiSummarizerApp client:only="react" cmsConfig={cmsConfig} />
+  </div>
+</SeoBaseLayout>

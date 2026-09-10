@@ -1,0 +1,37 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import { cn } from "@/shared/lib/utils/cn";
+
+import type { ITemplateCard } from "../../model/types";
+import TemplateCard from "./TemplateCard.astro";
+
+interface Props {
+  templates: ReadonlyArray<ITemplateCard>;
+  emptyLabel?: string;
+  className?: string;
+}
+
+const t = createServerT(defaultLocale);
+const { templates, emptyLabel, className } = Astro.props;
+const empty = emptyLabel ?? (t("seo.templates.no_templates") as string);
+---
+
+{
+  templates.length === 0 ? (
+    <p class="py-12 text-center text-[15px] text-[var(--color-text-secondary)]">
+      {empty}
+    </p>
+  ) : (
+    <div
+      class={cn(
+        "grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1",
+        className
+      )}
+    >
+      {templates.map((card, index) => (
+        <TemplateCard card={card} priority={index === 0} />
+      ))}
+    </div>
+  )
+}

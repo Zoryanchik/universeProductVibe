@@ -1,0 +1,154 @@
+---
+import { type ELanguages, getIsRTL } from "@/shared/constants/languages";
+import type { HreflangItem } from "@/shared/types/seo/meta";
+
+import { DEFAULT_COVER_IMAGE } from "../model/constants";
+
+interface Props {
+  title?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  description?: string;
+  imageUrl?: string;
+  hreflangs?: HreflangItem[];
+  canonicalUrl?: string;
+  lang?: ELanguages;
+  isHidden?: boolean;
+  locale?: ELanguages;
+}
+
+const { hreflangs, canonicalUrl, imageUrl, isHidden, locale, lang }: Props =
+  Astro.props;
+
+const needsArabicFont = Boolean(lang && getIsRTL(lang));
+
+let { title, description } = Astro.props;
+
+const { metaTitle, metaDescription } = Astro.props;
+
+if (metaTitle) {
+  title = metaTitle;
+}
+
+if (metaDescription) {
+  description = metaDescription;
+}
+
+const coverImage = imageUrl || DEFAULT_COVER_IMAGE;
+
+// Origin of the CMS media CDN (Strapi). Preconnecting shaves the TCP+TLS
+// handshake off the LCP image request, which is served cross-origin.
+let mediaOrigin: string | undefined;
+try {
+  mediaOrigin = new URL(coverImage).origin;
+} catch {
+  mediaOrigin = undefined;
+}
+
+const isHiddenFromRobots = process.env.ENVIRONMENT !== "production" || isHidden;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta
+  name="google-site-verification"
+  content="QhBLu1PUdlzYgEughgP4E0Z2jLHs4PwZYnRPFSkrQQ0"
+/>
+<link rel="sitemap" href="/sitemap.xml" />
+
+{isHiddenFromRobots && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Primary Meta Tags -->
+{title && <title>{title}</title>}
+{description && <meta name="description" content={description} />}
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalUrl || Astro.url.href} />
+
+<!-- Hreflang Tags -->
+{
+  hreflangs?.map((hreflang) => (
+    <link rel="alternate" hreflang={hreflang.lang} href={hreflang.url} />
+  ))
+}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+{title && <meta property="og:title" content={title} />}
+{description && <meta property="og:description" content={description} />}
+{coverImage && <meta property="og:image" content={coverImage} />}
+
+<meta name="application-name" content={title} />
+<meta name="msapplication-tooltip" content={title} />
+<!-- END OG Meta Tags (Facebook, Linkedin) -->
+
+<!-- Optional OG Tags -->
+{title && <meta property="og:site_name" content={title} />}
+{locale && <meta property="og:locale" content={locale} />}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+{canonicalUrl && <meta property="twitter:url" content={canonicalUrl} />}
+{title && <meta property="twitter:title" content={title} />}
+{description && <meta property="twitter:description" content={description} />}
+{coverImage && <meta property="twitter:image" content={coverImage} />}
+
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/favicons/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  href="/favicons/favicon-96x96.png"
+  sizes="96x96"
+/>
+<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />
+{
+  /* No crossorigin: <img> requests aren't CORS, so a crossorigin preconnect
+     would open a separate connection the image can't reuse. */
+}
+{mediaOrigin && <link rel="preconnect" href={mediaOrigin} />}
+{mediaOrigin && <link rel="dns-prefetch" href={mediaOrigin} />}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+{
+  /* Load fonts without blocking first render: fetch as print (non-blocking),
+     then flip to all once ready. <noscript> keeps them working without JS. */
+}
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,400,0,0"
+  rel="stylesheet"
+  media="print"
+  onload="this.media='all'"
+/>
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,400,0,0"
+    rel="stylesheet"
+  />
+</noscript>
+{
+  needsArabicFont && (
+    <>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@200..900&display=swap"
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'"
+      />
+      <noscript>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@200..900&display=swap"
+          rel="stylesheet"
+        />
+      </noscript>
+    </>
+  )
+}

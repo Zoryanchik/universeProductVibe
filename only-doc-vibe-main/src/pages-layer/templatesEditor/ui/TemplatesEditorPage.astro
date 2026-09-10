@@ -1,0 +1,53 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+import { defaultLocale } from "@/shared/config/locale";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import type { EditorTemplatesData } from "@/shared/api/fetchers";
+
+import { TemplatesEditorShell } from "./TemplatesEditorShell";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Props {
+  lang?: ELanguages;
+  /** CMS-backed gallery (categories + templates with polotno document URLs). */
+  editorTemplates?: EditorTemplatesData;
+}
+
+const { lang = defaultLocale, editorTemplates } = Astro.props;
+
+const t = createServerT(lang);
+---
+
+<SeoBaseLayout
+  lang={lang}
+  title={t("templatesEditor.ui.page_title") as string}
+  description={t("templatesEditor.ui.page_description") as string}
+  isHidden
+>
+  {
+    editorTemplates && (
+      <script
+        is:inline
+        type="application/json"
+        id="editor-templates"
+        set:html={JSON.stringify(editorTemplates)}
+      />
+    )
+  }
+  <TemplatesEditorShell client:only="react" />
+</SeoBaseLayout>
+
+<style is:global>
+  .polotno-download-button {
+    display: none;
+  }
+
+  .polotno-workspace-inner {
+    background-color: var(--color-material-grey-100);
+  }
+
+  .draw-mode .polotno-workspace-inner .konvajs-content {
+    cursor: cell !important;
+  }
+</style>

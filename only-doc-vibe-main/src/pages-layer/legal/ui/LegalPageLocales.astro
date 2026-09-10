@@ -1,0 +1,19 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+
+import { getLocalizedLegalPages } from "../api/get-legal-static-routes";
+import BaseLegalPage from "./BaseLegalPage.astro";
+
+interface Params {
+  lang: ELanguages;
+  legal: string;
+}
+
+export async function getLegalPageLocalesStaticPaths() {
+  return await getLocalizedLegalPages();
+}
+
+const { lang, legal } = Astro.params as unknown as Params;
+---
+
+<BaseLegalPage lang={lang} slug={legal} />

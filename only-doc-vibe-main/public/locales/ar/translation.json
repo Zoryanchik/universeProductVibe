@@ -1,0 +1,1360 @@
+{
+  "editor_page": {
+    "seo_title": "محرر PDF | OnlyDoc",
+    "seo_description": "عدّل ملف PDF مباشرة في المتصفح",
+    "header": {
+      "untitled_document": "مستند بلا عنوان",
+      "print": "طباعة",
+      "done": "تم",
+      "edit_file_name": "تعديل اسم الملف",
+      "back_to_site": "العودة إلى الموقع"
+    },
+    "toolbar": {
+      "home": "الرئيسية",
+      "undo": "تراجع",
+      "redo": "إعادة",
+      "hand": "أداة اليد",
+      "signature": "التوقيع",
+      "watermark": "علامة مائية",
+      "insert": "إدراج",
+      "delete": "حذف",
+      "zoom": "تكبير/تصغير",
+      "material": "المواد",
+      "text": "نص",
+      "image": "صورة",
+      "tool": "أداة",
+      "merge": "دمج",
+      "split": "تقسيم",
+      "export": "تصدير",
+      "load_pdf_hint": "حمّل ملف PDF لتمكين التحرير",
+      "text_title": "عنوان",
+      "text_subtitle": "عنوان فرعي",
+      "text_body": "نص أساسي",
+      "text_hollow": "مفرَّغ",
+      "insert_above": "صفحة فارغة أعلى",
+      "insert_below": "صفحة فارغة أسفل",
+      "zoom_in": "تكبير",
+      "zoom_out": "تصغير",
+      "fit_to_screen": "ملاءمة الشاشة",
+      "zoom_reset": "100%",
+      "tool_qr": "رمز QR",
+      "tool_barcode": "رمز شريطي"
+    },
+    "pages_sidebar": {
+      "title": "الصفحات",
+      "rendering_thumbnails": "جارٍ إنشاء الصور المصغّرة للصفحات...",
+      "select_page_hint": "حدّد صفحة لعرضها أو تعديلها.",
+      "page_label": "صفحة {{page}}",
+      "page_thumbnail_alt": "صورة مصغّرة للصفحة {{page}}",
+      "create_new_page": "إنشاء صفحة جديدة",
+      "delete_page": "حذف الصفحة",
+      "delete_shortcut": "حذف",
+      "enter_shortcut": "Enter",
+      "expand_panel": "توسيع لوحة الصفحات",
+      "collapse_panel": "تصغير لوحة الصفحات",
+      "thumbnails_aria": "الصور المصغّرة للصفحات"
+    },
+    "bottom_bar": {
+      "fit_to_screen": "ملاءمة الشاشة",
+      "rotate_page": "تدوير الصفحة",
+      "previous_page": "الصفحة السابقة",
+      "next_page": "الصفحة التالية",
+      "zoom_out": "تصغير",
+      "zoom_in": "تكبير",
+      "open_pages": "الصفحات",
+      "open_properties": "الخصائص",
+      "close_panel": "إغلاق"
+    },
+    "canvas": {
+      "loading_document": "جارٍ تحميل المستند…",
+      "load_failed": "تعذّر تحميل المستند. يُرجى المحاولة مرة أخرى.",
+      "no_document": "لم يتم تحميل أي مستند",
+      "open_pdf": "افتح ملف PDF للبدء"
+    },
+    "download_modal": {
+      "title": "تنزيل المستند",
+      "close": "إغلاق",
+      "file_name": "اسم الملف",
+      "file_name_placeholder": "document",
+      "format": "التنسيق",
+      "pages": "الصفحات",
+      "all_pages": "كل الصفحات",
+      "current_page": "الصفحة الحالية",
+      "image_quality": "جودة الصورة",
+      "image_resolution": "دقة الصورة",
+      "ignore_blank_edges": "تجاهل الحواف الفارغة",
+      "ignore_blank_edges_hint": "يخفي أدلة الهوامش ويقتطع هوامش مساحة العمل",
+      "cancel": "إلغاء",
+      "download": "تنزيل",
+      "preparing": "جارٍ التحضير…"
+    },
+    "merge_modal": {
+      "title": "دمج ملفات PDF",
+      "close": "إغلاق",
+      "current_document": "المستند الحالي",
+      "add_files": "إضافة ملفات",
+      "merge": "دمج",
+      "reorder_hint": "اسحب الملفات لتحديد ترتيب دمجها.",
+      "empty": "انقر لإضافة ملفات PDF",
+      "seeding": "جارٍ تحضير الملفات…",
+      "page_count": "{{count}} صفحة",
+      "page_count_one": "صفحة واحدة",
+      "remove_file": "إزالة",
+      "file_name": "اسم ملف الإخراج",
+      "file_name_placeholder": "merged",
+      "preparing": "جارٍ الدمج…",
+      "min_files_hint": "أضف ملفَّي PDF على الأقل للدمج.",
+      "max_files_hint": "يمكنك دمج ما يصل إلى {{count}} ملف.",
+      "invalid_file": "{{filename}} ليس ملف PDF صالحًا وقد تم تخطيه.",
+      "merge_failed": "تعذّر دمج الملفات. يُرجى المحاولة مرة أخرى.",
+      "seed_failed": "تعذّر تحضير الملفات. يُرجى المحاولة مرة أخرى."
+    },
+    "split_modal": {
+      "title": "تقسيم PDF",
+      "description": "نزّل نسخة من المستند تحتوي على نطاق الصفحات المحدد فقط.",
+      "close": "إغلاق",
+      "page_count": "يحتوي المستند على {{count}} صفحة.",
+      "page_count_one": "يحتوي المستند على صفحة واحدة.",
+      "from_page": "من صفحة",
+      "to_page": "إلى صفحة",
+      "file_name": "اسم ملف الإخراج",
+      "file_name_placeholder": "split",
+      "cancel": "إلغاء",
+      "split_and_download": "التقسيم والتنزيل",
+      "preparing": "جارٍ التحضير…",
+      "invalid_range": "يجب أن يكون نطاق الصفحات بين 1 و{{max}}."
+    },
+    "watermark_modal": {
+      "title": "إضافة علامة مائية",
+      "preview": "معاينة",
+      "watermark_content": "محتوى العلامة المائية",
+      "text_placeholder": "نص",
+      "font_family": "نوع الخط",
+      "size": "الحجم",
+      "color": "اللون",
+      "opacity": "الشفافية",
+      "rotation_angle": "زاوية التدوير",
+      "clear": "مسح",
+      "apply": "تطبيق"
+    },
+    "signature_modal": {
+      "title": "إضافة توقيع",
+      "type_signature": "كتابة التوقيع",
+      "draw_signature": "رسم التوقيع",
+      "signature_placeholder": "التوقيع",
+      "your_name_placeholder": "اسمك",
+      "style": "النمط",
+      "color": "اللون",
+      "width": "العرض",
+      "clear": "مسح",
+      "add_to_document": "إضافة إلى المستند"
+    },
+    "material_panel": {
+      "title": "المواد"
+    },
+    "right_rail": {
+      "document_settings": "إعدادات المستند",
+      "page_size_hint": "يتم تحديث حجم الصفحة عند مغادرة الحقل.",
+      "element_properties": "خصائص العنصر",
+      "select_element_hint": "حدّد كائنًا في الصفحة لتعديل خصائصه.",
+      "no_element_selected": "لم يتم تحديد أي عنصر"
+    },
+    "page_dimensions": {
+      "title": "أبعاد الصفحة",
+      "measurement_unit": "وحدة القياس",
+      "width": "العرض",
+      "height": "الارتفاع",
+      "lock_aspect_ratio": "تثبيت نسبة العرض إلى الارتفاع",
+      "unlock_aspect_ratio": "إلغاء تثبيت نسبة العرض إلى الارتفاع",
+      "page_background_title": "خلفية الصفحة",
+      "page_background_color": "لون خلفية الصفحة",
+      "background_hint": "يُطبَّق عند الانتهاء من تعديل القيمة",
+      "apply_to_all_pages": "تطبيق الأبعاد والخلفية على كل الصفحات"
+    },
+    "element_properties": {
+      "rotation": "التدوير",
+      "fill": "التعبئة",
+      "stroke": "الحدّ",
+      "stroke_width": "عرض الحدّ",
+      "shadow": "الظل",
+      "horizontal_shadow": "الظل الأفقي",
+      "vertical_shadow": "الظل الرأسي",
+      "fuzzy_distance": "مسافة التمويه",
+      "opacity": "الشفافية",
+      "stroke_join_miter": "حادّ",
+      "stroke_join_round": "مستدير",
+      "stroke_join_bevel": "مشطوف",
+      "arrange": "الترتيب",
+      "h_center": "توسيط أفقي",
+      "v_center": "توسيط رأسي",
+      "front": "الأمام",
+      "back": "رجوع",
+      "lock": "قفل",
+      "unlock": "فتح القفل",
+      "delete": "حذف"
+    },
+    "text_properties": {
+      "character": "الحرف",
+      "paragraph": "الفقرة",
+      "font_family": "نوع الخط",
+      "font_size": "قيمة حجم الخط",
+      "bold": "عريض",
+      "italic": "مائل",
+      "underline": "تسطير",
+      "strikethrough": "يتوسطه خط",
+      "decrease_font_size": "تصغير حجم الخط",
+      "increase_font_size": "تكبير حجم الخط",
+      "text_color": "لون النص",
+      "highlight": "تمييز",
+      "align_left": "محاذاة إلى اليسار",
+      "align_center": "محاذاة إلى الوسط",
+      "align_right": "محاذاة إلى اليمين",
+      "justify": "ضبط",
+      "line_height": "ارتفاع السطر",
+      "letter_spacing": "تباعد الأحرف",
+      "curve_intensity": "شدة الانحناء",
+      "curved_text_path": "مسار نص منحنٍ",
+      "remove_curved_path": "إزالة المسار المنحني"
+    },
+    "qr_properties": {
+      "rotation": "التدوير",
+      "qr_code_style": "نمط رمز QR",
+      "code_content": "محتوى الرمز",
+      "code_content_placeholder": "https://...",
+      "code_margin": "هامش الرمز",
+      "no_margin": "بلا هامش",
+      "standard_margin": "هامش قياسي",
+      "error_correction_rate": "معدل تصحيح الأخطاء",
+      "border": "الإطار",
+      "shadow": "الظل"
+    },
+    "barcode_properties": {
+      "rotation": "التدوير",
+      "code": "الرمز",
+      "code_value": "قيمة الرمز",
+      "code_value_placeholder": "123456789012",
+      "bar_width": "عرض الشريط",
+      "height": "الارتفاع",
+      "colors": "الألوان",
+      "background": "الخلفية",
+      "code_color": "لون الرمز"
+    },
+    "context_menu": {
+      "cut": "قص",
+      "copy": "نسخ",
+      "paste": "لصق",
+      "select_all": "تحديد الكل",
+      "horizontal_center": "توسيط أفقي",
+      "vertical_center": "توسيط رأسي",
+      "align_left": "محاذاة إلى اليسار",
+      "align_right": "محاذاة إلى اليمين",
+      "align_top": "محاذاة إلى الأعلى",
+      "align_bottom": "محاذاة إلى الأسفل",
+      "bring_to_front": "إحضار إلى الأمام",
+      "move_up_one_layer": "تحريك طبقة واحدة للأعلى",
+      "send_to_back": "إرسال إلى الخلف",
+      "move_down_one_layer": "تحريك طبقة واحدة للأسفل",
+      "lock": "قفل",
+      "unlock": "فتح القفل",
+      "delete": "حذف"
+    },
+    "errors": {
+      "editor_not_initialized": "لم تتم تهيئة المحرر",
+      "export_failed": "فشل التصدير",
+      "export_empty_file": "أعاد التصدير ملفًا فارغًا"
+    }
+  },
+  "notifications": {
+    "file_is_password_protected": "هذا الملف محمي بكلمة مرور ولا يمكن معالجته"
+  },
+  "api_errors": {
+    "error": {
+      "login": {
+        "wrong-credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة"
+      },
+      "password": {
+        "min-length": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+        "max-length": "يجب أن تكون كلمة المرور أقل من 50 حرفًا",
+        "dont-match": "كلمتا المرور غير متطابقتين",
+        "wrong-current": "كلمة المرور الحالية غير صحيحة"
+      },
+      "email": {
+        "already-used": "هذا البريد الإلكتروني مسجَّل بالفعل",
+        "invalid": "يُرجى إدخال عنوان بريد إلكتروني صالح",
+        "token-invalid": "الرابط غير صالح أو انتهت صلاحيته",
+        "token-expired": "انتهت صلاحية الرابط. يُرجى طلب رابط جديد."
+      },
+      "user": {
+        "already-registered": "هذا الحساب مسجَّل بالفعل",
+        "not-found": "المستخدم غير موجود"
+      },
+      "account": {
+        "blocked": "تم حظر هذا الحساب",
+        "deletion-in-progress": "جارٍ حذف هذا الحساب"
+      },
+      "file": {
+        "file-missing": "الملف مفقود أو تعذّر العثور عليه",
+        "max-size": "يتجاوز حجم الملف الحد الأقصى المسموح به",
+        "wrong_format": "تنسيق الملف غير مدعوم",
+        "max-files-count": "تم تجاوز الحد الأقصى لعدد الملفات (المسموح به {{count}} ملف)",
+        "deleted": "تم حذف هذا الملف"
+      },
+      "payment": {
+        "required": "يلزم إتمام الدفع للمتابعة"
+      },
+      "processing": {
+        "merge-pdfs-failed": "تعذّر دمج ملفات PDF. يُرجى المحاولة مرة أخرى.",
+        "merge-pdfs-min-files": "يُرجى تحديد ملفَّي PDF على الأقل للدمج."
+      }
+    },
+    "unknown": "حدث خطأ غير متوقع. يُرجى المحاولة مرة أخرى.",
+    "network_error": "خطأ في الشبكة. يُرجى التحقق من اتصالك والمحاولة مرة أخرى."
+  },
+  "global": {
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "create_password": "إنشاء كلمة مرور",
+    "back": "رجوع",
+    "cancel": "إلغاء",
+    "download": "تنزيل",
+    "loading": "جارٍ التحميل..."
+  },
+  "login_page": {
+    "login": "تسجيل الدخول",
+    "subtitle": "مرحبًا بعودتك! يسعدنا رؤيتك مرة أخرى.",
+    "do_not_have_account": "ليس لديك حساب؟",
+    "sign_up": "أنشئ حسابًا الآن",
+    "forgot_password": "نسيت كلمة المرور",
+    "forgot_password_title": "استعِد كلمة المرور",
+    "forgot_password_subtitle": {
+      "enter_email": "أدخل البريد الإلكتروني",
+      "suffix": "الذي استخدمته عند التسجيل لاستعادة كلمة المرور. ستستلم رابطًا لإعادة تعيين كلمة المرور."
+    },
+    "forgot_password_button": "استعادة كلمة المرور"
+  },
+  "sign_up_page": {
+    "sign_up": "إنشاء حساب",
+    "subtitle": {
+      "prefix": "أنشئ حسابًا للوصول إلى التحرير والتحويل السريع،",
+      "suffix": "وأدوات PDF القوية."
+    },
+    "have_account": "لديك حساب بالفعل؟",
+    "receive_email": "ستستلم رابطًا لتأكيد بريدك الإلكتروني.",
+    "password_hint": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+    "consent_sentence": {
+      "by_proceeding": "بالمتابعة، فإنك تؤكد أنك",
+      "have_read": "قد قرأت",
+      "agree": "ووافقت",
+      "to_our": "على",
+      "terms_link": "شروط وأحكام الاستخدام",
+      "and": "و",
+      "privacy_link": "سياسة الخصوصية"
+    },
+    "errors": {
+      "email_already_used": "هذا البريد الإلكتروني مسجَّل بالفعل. يُرجى تسجيل الدخول أو استخدام بريد آخر.",
+      "user_already_registered": "هذا الحساب مسجَّل بالفعل.",
+      "account_blocked": "تم حظر هذا الحساب. يُرجى التواصل مع الدعم."
+    }
+  },
+  "check_inbox": {
+    "open_with_gmail": "افتح Gmail",
+    "forgot_password_title": "تحقّق من بريدك الإلكتروني",
+    "forgot_password_subtitle": "أرسلنا تعليمات إعادة تعيين كلمة المرور إلى:",
+    "sign_up_title": "تحقّق من صندوق الوارد",
+    "sign_up_subtitle": {
+      "we_sent_email": "أرسلنا إليك رسالة للتحقق إلى {{useremail}}.",
+      "dont_forget": "لا تنسَ التحقق من مجلد البريد العشوائي."
+    }
+  },
+  "reset_password": {
+    "seo_title": "إعادة تعيين كلمة المرور | OnlyDoc",
+    "seo_description": "أعد تعيين كلمة مرور حسابك على OnlyDoc.",
+    "title": "أنشئ كلمة مرور جديدة",
+    "subtitle": "استخدم كلمة مرور قوية مكوّنة من 8 أحرف على الأقل.",
+    "password_placeholder": "كلمة المرور الجديدة",
+    "repeat_password_placeholder": "أعد إدخال كلمة المرور الجديدة",
+    "submit_button": "تحديث كلمة المرور",
+    "validating_title": "جارٍ التحقق من الرابط",
+    "validating_subtitle": "يُرجى الانتظار بينما نتحقق من رابط إعادة التعيين.",
+    "invalid_token_title": "رابط إعادة التعيين غير صالح",
+    "invalid_token_subtitle": "الرابط غير صالح أو انتهت صلاحيته. اطلب رسالة جديدة لإعادة تعيين كلمة المرور.",
+    "success_title": "تم تحديث كلمة المرور",
+    "success_subtitle": "تمت إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول بكلمة المرور الجديدة.",
+    "go_to_login": "الانتقال إلى تسجيل الدخول"
+  },
+  "footer": {
+    "copyright": "ⓒ {{date}}، OnlyDoc. جميع الحقوق محفوظة."
+  },
+  "legal": {
+    "email": "only-docaddress@gmail.com",
+    "address": "Archiepiskopou Makariou III, 95, Charitini Court, 1st floor, office 102, 1071 Nicosia, Cyprus",
+    "phone": "+1(855)233-3368"
+  },
+  "input_email": {
+    "latin_character_error": "يجب أن يحتوي البريد الإلكتروني على أحرف لاتينية فقط.",
+    "missing_symbol_error": "عنوان البريد الإلكتروني تنقصه علامة '@'. يُرجى التحقق من الإدخال.",
+    "invalid_character_error": "يحتوي عنوان بريدك الإلكتروني على أحرف غير صالحة. يُرجى إزالة المسافات وتجنّب استخدام: ()[]{}<>/\\|,;:\"",
+    "max_length_error": "يجب أن يحتوي البريد الإلكتروني على أقل من 50 حرفًا",
+    "validation_error": "يُرجى استخدام عنوان بريد إلكتروني صالح",
+    "email_empty": "لا يمكن أن يكون البريد الإلكتروني فارغًا"
+  },
+  "input_remember_me": {
+    "remember_me": "تذكّرني"
+  },
+  "input_password": {
+    "password_too_short_error": "يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل",
+    "password_too_long_error": "يجب أن تحتوي كلمة المرور على أقل من 50 حرفًا",
+    "password_empty": "لا يمكن أن تكون كلمة المرور فارغة"
+  },
+  "hero": {
+    "title": {
+      "prefix": "",
+      "highlight": "محوّل PDF",
+      "suffix": "المجاني لاحتياجاتك اليومية",
+      "referenceText": "محوّل PDF"
+    },
+    "subtitle": "أداة PDF عبر الإنترنت لتعمل بذكاء أكبر لا بجهد أكبر.",
+    "uploadButton": "حمّل ملفًا أو اسحبه وأفلته",
+    "disclaimer": "بتحميلك ملفًا، فإنك توافق على [شروط الاستخدام](/terms-and-conditions) وتقرّ بعلمك [بسياسة الخصوصية](/privacy-policy).",
+    "showMore": "عرض المزيد",
+    "filters": {
+      "all": "الكل",
+      "editPdf": "تعديل PDF",
+      "convertToPdf": "التحويل إلى PDF",
+      "convertFromPdf": "التحويل من PDF",
+      "other": "أخرى"
+    },
+    "tools": {
+      "translatePdf": "ترجمة PDF",
+      "compressPdf": "ضغط PDF",
+      "pdfOcr": "التعرّف الضوئي على نص PDF",
+      "removeWatermark": "إزالة العلامة المائية",
+      "pdfToWord": "من PDF إلى WORD",
+      "pdfToExcel": "من PDF إلى EXCEL",
+      "pdfToJpg": "من PDF إلى JPG",
+      "pdfToPng": "من PDF إلى PNG",
+      "pdfToPptx": "من PDF إلى PPTX",
+      "wordToPdf": "من WORD إلى PDF",
+      "excelToPdf": "من EXCEL إلى PDF",
+      "jpgToPdf": "من JPG إلى PDF",
+      "pngToPdf": "من PNG إلى PDF",
+      "pptxToPdf": "من PPTX إلى PDF"
+    }
+  },
+  "contact_us": {
+    "title": "اتصل بنا",
+    "subtitle": "فريقنا جاهز للمساعدة في الأسئلة أو المشكلات أو الملاحظات.",
+    "address": "العنوان",
+    "phone": "الهاتف",
+    "form_title": "كيف يمكننا مساعدتك؟",
+    "form_placeholders": {
+      "name": "اسمك",
+      "email": "بريدك الإلكتروني",
+      "message": "رسالتك",
+      "submit_button": "إرسال الرسالة"
+    },
+    "submit_popup": "تم إرسال الرسالة! سنعاود التواصل معك قريبًا.",
+    "required_field": "هذا الحقل مطلوب"
+  },
+  "achievements": {
+    "title": "نفتخر بمساعدة أكثر من 6 ملايين مستخدم حول العالم",
+    "uploads": "عمليات تحميل",
+    "edits": "عمليات تعديل",
+    "conversions": "عمليات تحويل"
+  },
+  "trustSection": {
+    "title": "أمان وامتثال بمعايير القطاع"
+  },
+  "benefitsSection": {
+    "title": "لماذا OnlyDoc هو أفضل محوّل PDF",
+    "gridLabel": "مزايا OnlyDoc وخصائصه",
+    "cards": {
+      "convert": {
+        "title": "حوّل إلى PDF في ثوانٍ",
+        "description": "أنشئ ملفات PDF عالية الجودة من ملفاتك في ثوانٍ بعملية سريعة وآمنة مصممة للمهام الرقمية اليومية."
+      },
+      "compress": {
+        "title": "اضغط الملفات بسهولة",
+        "description": "بسّط المشاركة، ووفّر مساحة التخزين، وقلّل حجم الملف دون الإضرار بجودة مستنداتك الرقمية."
+      },
+      "translate": {
+        "title": "ترجم ملفات PDF الخاصة بك",
+        "description": "ترجم المستند بالكامل بسرعة ودقة لتفهم وتشارك وتعمل بصورة أفضل بين اللغات المختلفة."
+      },
+      "formats": {
+        "title": "اعمل على تنسيقات متعددة",
+        "description": "استخدم محوّل ملفات مجاني واحد للتعامل مع Word وExcel والصور وغيرها – كل ذلك في تجربة واحدة سريعة وسلسة."
+      },
+      "ocr": {
+        "title": "حوّل الصور إلى نص",
+        "description": "استفد من ميزة التعرّف الضوئي على النصوص (OCR) المدمجة لتجعل النص في الصور الممسوحة ضوئيًا والصور الفوتوغرافية قابلًا للتحرير، فتتحول الملفات الثابتة إلى محتوى رقمي قابل للاستخدام."
+      },
+      "navigate": {
+        "title": "تنقّل بسهولة بديهية",
+        "description": "استمتع بواجهة أنيقة وبسيطة تساعدك على إنجاز مهامك بسرعة، دون منهج تعلّم أو خطوات إضافية."
+      }
+    }
+  },
+  "ctaSection": {
+    "title": {
+      "prefix": "التحويل إلى PDF",
+      "highlight": "مجانًا"
+    },
+    "badges": {
+      "secure": "آمن",
+      "easy": "سهل",
+      "fast": "سريع"
+    },
+    "button": "حمّل مستندك"
+  },
+  "faqSectionMainPage": {
+    "title": {
+      "prefix": "الأسئلة",
+      "highlight": "الشائعة"
+    },
+    "items": {
+      "1": {
+        "question": "ما هو OnlyDoc؟",
+        "answer": "OnlyDoc هو محوّل PDF مجاني عبر الإنترنت يتيح لك تحويل الملفات إلى تنسيق PDF ومنه. وهو يدعم التنسيقات الشائعة ومنها Word وExcel وPowerPoint وJPG وPNG وEPUB. وإلى جانب التحويل الأساسي، يضم OnlyDoc أدوات مدمجة لتقليل حجم الملف، والترجمة إلى لغات متعددة، وتحويل المستندات والصور الممسوحة ضوئيًا إلى نص يمكنك التعامل معه."
+      },
+      "2": {
+        "question": "هل OnlyDoc آمن للاستخدام؟",
+        "answer": "نعم، OnlyDoc آمن. تُحمى ملفاتك بتشفير SSL أثناء التحميل، بما يضمن نقل البيانات بأمان. والمنصة متوافقة مع اللائحة العامة لحماية البيانات (GDPR) وتلتزم بأنظمة صارمة لخصوصية البيانات. وجميع الملفات المخزَّنة على الخوادم مشفَّرة لمزيد من الأمان. ونحن نضع أمان مستنداتك وخصوصيتها في المقام الأول في كل خطوة من العملية."
+      },
+      "3": {
+        "question": "ما الميزات التي يوفرها OnlyDoc؟",
+        "answer": "يوفر OnlyDoc أدوات شاملة لتحويل PDF تدعم تنسيقات متعددة، فيعمل كمحوّل ملفات إلى PDF لملفات Word وExcel وPowerPoint وJPG وPNG وEPUB. ومن الميزات الرئيسية الأخرى ضغط الملفات المدمج لتقليل أحجام المستندات، والترجمة إلى لغات متعددة، وتقنية التعرّف الضوئي على النصوص (OCR) التي تحوّل المستندات والصور الممسوحة ضوئيًا إلى نص قابل للاستخدام."
+      },
+      "4": {
+        "question": "ما تنسيقات الملفات التي يدعمها OnlyDoc؟",
+        "answer": "يدعم OnlyDoc التحويل بين PDF والتنسيقات التالية: Word (DOC/DOCX) وExcel (XLS/XLSX) وPowerPoint (PPTX/PPT) وJPG وPNG وEPUB. ويمكنك التحويل من أي من هذه التنسيقات إلى PDF، أو من PDF إلى أي منها، بما يمنحك مرونة أكبر في سياق عملك."
+      },
+      "5": {
+        "question": "كيف أحوّل ملفًا إلى PDF؟",
+        "answer": "تحويل الملفات إلى PDF باستخدام OnlyDoc بسيط جدًا:\n\n1. حمّل ملفك (Word أو Excel أو PowerPoint أو JPG أو PNG أو EPUB)\n2. اختر PDF كتنسيق الهدف\n3. انقر على زر التحويل\n4. نزّل ملف PDF المحوَّل\n\nلا تستغرق العملية بالكامل سوى نقرات قليلة."
+      },
+      "6": {
+        "question": "كيف أحوّل ملف PDF إلى تنسيقات أخرى؟",
+        "answer": "1. حمّل ملف PDF الخاص بك\n2. اختر تنسيق الإخراج المطلوب من الخيارات المتاحة: Word أو Excel أو PowerPoint أو JPG أو PNG أو EPUB\n3. انقر على تحويل وانتظر انتهاء المعالجة\n4. نزّل ملفك المحوَّل بالتنسيق الجديد\n\nأثناء التحويل، نبذل قصارى جهدنا للحفاظ على التخطيط والتنسيق الأصلي بأكبر قدر ممكن."
+      },
+      "7": {
+        "question": "ما الحد الأقصى لحجم الملف الذي يمكنني تحميله؟",
+        "answer": "يدعم OnlyDoc تحميل ملفات بحجم يصل إلى 100 ميغابايت. ويستوعب هذا الحد السخي معظم المستندات والعروض التقديمية وجداول البيانات والصور. وإذا تجاوز ملفك هذا الحجم، ففكّر في استخدام أداة الضغط المدمجة في OnlyDoc لتقليل حجم الملف قبل التحويل، أو قسّم المستندات الكبيرة إلى أجزاء أصغر."
+      },
+      "8": {
+        "question": "كم يستغرق التحويل؟",
+        "answer": "يختلف وقت التحويل حسب حجم ملفك وتنسيقه ومدى تعقيده. وتستغرق عمليات التحويل البسيطة ثوانٍ عادةً، أما الملفات الأكبر أو المستندات المعقدة التي تحتوي على صور كثيرة فقد تستغرق بضع دقائق."
+      },
+      "9": {
+        "question": "هل يعمل OnlyDoc على الهواتف والأجهزة الأخرى؟",
+        "answer": "نعم، OnlyDoc أداة تعمل عبر الويب على جميع الأجهزة المتصلة باتصال إنترنت مستقر. ويشمل ذلك أجهزة الكمبيوتر المكتبية والمحمولة والأجهزة اللوحية والهواتف الذكية. وسواء كنت تستخدم Windows أو Mac أو iOS أو Android، يمكنك الوصول إلى جميع ميزات OnlyDoc دون تنزيل أو تثبيت أي برامج إضافية."
+      }
+    }
+  },
+  "serviceHeroSection": {
+    "title": "من PDF إلى Word",
+    "subtitle": "يدعم OnlyDoc التنسيقات الشائعة مثل Word وExcel وغيرها.",
+    "buttonLabel": "تحميل ملف",
+    "supportedFormats": "يدعم PDF وDOCX وEXCEL وJPG وPNG",
+    "maxSize": "حجم يصل إلى 100 ميغابايت",
+    "dropText": "أفلت ملفك هنا للبدء"
+  },
+  "bottomCtaSection": {
+    "title": "حوّل ملفات PDF مجانًا",
+    "subtitle": "يدعم OnlyDoc التنسيقات الشائعة مثل Word وExcel وغيرها.",
+    "button": "ابدأ الآن"
+  },
+  "allToolsSection": {
+    "title": "طرق أخرى للعمل على ملفات PDF"
+  },
+  "reviewsSection": {
+    "title": "ما يقوله مستخدمونا",
+    "reviews": {
+      "1": {
+        "title": "بلا أي توتر من البداية إلى النهاية!",
+        "text": "أعجبتني كفاءتها الكبيرة! ترجمت اليوم ملف PDF طويلًا لأحد العملاء دون أي مشكلات. شكرًا لكم!",
+        "author": "Sofia Romano",
+        "date": "28 فبراير 2025"
+      },
+      "2": {
+        "title": "هذا بالضبط ما كنت أحتاج إليه!",
+        "text": "أحب سهولة تحويل الملفات إلى PDF للعمل على Windows بهذه الخدمة!",
+        "author": "Marcus Hill",
+        "date": "21 يناير 2025"
+      },
+      "3": {
+        "title": "يساعدني على تنظيم عملي!",
+        "text": "OnlyDoc يوفّر وقتًا هائلًا! تعامل محوّل PDF هذا مع حجم عملي على أكمل وجه.",
+        "author": "Daniel Brooks",
+        "date": "8 مارس 2025"
+      },
+      "4": {
+        "title": "أدّى المطلوب في أهم اللحظات!",
+        "text": "أعجبتني كفاءتها الكبيرة! ترجمت اليوم ملف PDF طويلًا لأحد العملاء دون أي مشكلات. شكرًا لكم!",
+        "author": "Emily Chen",
+        "date": "26 فبراير 2025"
+      },
+      "5": {
+        "title": "سريع جدًا وموثوق!",
+        "text": "حوّلت عشرات المستندات في دقائق. الجودة ممتازة والخدمة مجانية تمامًا!",
+        "author": "James Wilson",
+        "date": "15 مارس 2025"
+      },
+      "6": {
+        "title": "أفضل أداة PDF استخدمتها!",
+        "text": "واجهة بسيطة ونتائج سريعة. مثالي لسير عملي اليومي. أنصح به بشدة!",
+        "author": "Anna Martinez",
+        "date": "10 مارس 2025"
+      }
+    }
+  },
+  "modals": {
+    "upload_modal_default": {
+      "processing": "جارٍ معالجة مستندك…",
+      "tip_title": "نصيحة لزيادة الإنتاجية",
+      "tip_message": "يساعد حفظ الملفات المحوّلة في مجلدات على العثور على مستنداتك بسهولة لاحقًا."
+    },
+    "export_modal_default": {
+      "file_name": "اسم الملف",
+      "title": "ملفك جاهز",
+      "subtitle": "اختر تنسيقًا للتنزيل."
+    },
+    "compress_modal": {
+      "title": "ضغط PDF",
+      "subtitle": "اختر نوع التحويل.",
+      "submit_button": "ضغط PDF",
+      "final_size": "الحجم النهائي",
+      "levels": {
+        "high": {
+          "title": "عالٍ",
+          "description": "أصغر حجم، جودة قياسية"
+        },
+        "medium": {
+          "title": "متوسط",
+          "description": "حجم متوسط، جودة أفضل"
+        },
+        "low": {
+          "title": "منخفض",
+          "description": "حجم أكبر، أعلى جودة"
+        }
+      }
+    },
+    "translate_modal": {
+      "title": "اختر لغات الترجمة",
+      "source_label": "لغة المصدر:",
+      "target_label": "اللغة المستهدفة:",
+      "auto_detected_hint": "تم اكتشافها تلقائيًا (غيّرها إذا لزم الأمر)",
+      "auto_suggested_hint": "تم اقتراحها تلقائيًا (غيّرها إذا لزم الأمر)",
+      "select_source_placeholder": "اختر لغة المصدر",
+      "select_target_placeholder": "اختر اللغة الهدف",
+      "submit_button": "ترجمة المستند"
+    },
+    "ocr_modal": {
+      "title": "بأي تنسيق ترغب في تنزيل الملف؟",
+      "file_name_label": "اسم الملف",
+      "cancel_button": "إلغاء",
+      "download_button": "تنزيل",
+      "formats": {
+        "word": {
+          "title": "مستند Word",
+          "description": "جاهز للتحرير والتنسيق."
+        },
+        "searchable_pdf": {
+          "title": "ملف PDF قابل للبحث",
+          "description": "ابحث في نص الملف وحدّده بسهولة."
+        },
+        "plain_text": {
+          "title": "نص عادي",
+          "description": "نص فقط، بلا تنسيق."
+        }
+      }
+    },
+    "unlock_pdf": {
+      "heading": "جارٍ معالجة مستندك…",
+      "estimated_time": "الوقت المقدَّر: أقل من دقيقة",
+      "password_placeholder": "أدخل كلمة المرور",
+      "show_password": "إظهار كلمة المرور",
+      "hide_password": "إخفاء كلمة المرور",
+      "back": "رجوع",
+      "unlock": "فتح القفل",
+      "unlocking": "جارٍ الفتح...",
+      "know_password": "انتظر، أعرف كلمة المرور",
+      "errors": {
+        "incorrect_password": "كلمة المرور غير صحيحة — حاول مرة أخرى.",
+        "decrypt_failed": "تعذّر فك تشفير ملف PDF هذا. أعد المحاولة أو اختر ملفًا آخر.",
+        "could_not_unlock": "تعذّر فتح هذا الملف. جرّب إدخال كلمة المرور.",
+        "save_failed": "تعذّر حفظ الملف بعد فتحه. أعد المحاولة.",
+        "unlock_failed": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+        "timed_out": "انتهت مدة عملية الفتح. أعد المحاولة."
+      }
+    },
+    "remove_image_watermark_preview": {
+      "heading": "اكتشف الذكاء الاصطناعي جميع العلامات المائية وأزالها",
+      "tab_split": "تقسيم الشاشة",
+      "tab_slider": "شريط التمرير",
+      "original": "الأصل",
+      "watermark_removed": "تمت إزالة العلامة المائية",
+      "upload_cta_action": "تحميل جديد",
+      "upload_cta_hint": "أو أفلته هنا",
+      "size_hint": "حجم يصل إلى 50 ميغابايت. يدعم ملفات {{formats}}.",
+      "download": "تنزيل",
+      "preview_mode_label": "وضع المعاينة",
+      "upload_new_label": "تحميل صورة جديدة",
+      "alt_original": "الأصل مع العلامة المائية",
+      "alt_result": "معاينة بعد إزالة العلامة المائية"
+    },
+    "enhance_image": {
+      "heading": "حسّن صورتك",
+      "select_quality_level": "اختر مستوى الجودة",
+      "upload_new": "تحميل ملف جديد",
+      "original_size": "الحجم الأصلي:",
+      "dimensions": "{{width}} × {{height}}",
+      "level_option": "تحسين {{level}}×",
+      "before": "قبل",
+      "after": "بعد",
+      "enhancing": "جارٍ التحسين...",
+      "no_watermark_badge": "بلا علامة مائية بعد التنزيل",
+      "zoom_to_preview": "كبّر الصورة لمعاينة الجودة",
+      "upgrade_and_download": "الترقية والتنزيل",
+      "alt_before": "الصورة الأصلية",
+      "alt_after": "الصورة المحسَّنة"
+    }
+  },
+  "reveal_modal": {
+    "title": "أدخل بريدك الإلكتروني",
+    "subtitle": "أدخل عنوان بريدك الإلكتروني لتنزيل الملف. سنرسل كلمة المرور إلى هذا البريد.",
+    "button": "تنزيل",
+    "terms_text": "بالمتابعة، فإنك توافق على شروط الاستخدام وسياسة الخصوصية.",
+    "errors": {
+      "email_empty": "يُرجى إدخال عنوان بريدك الإلكتروني",
+      "email_max_length": "يجب أن يكون البريد الإلكتروني أقل من 50 حرفًا",
+      "email_invalid": "يُرجى إدخال عنوان بريد إلكتروني صالح",
+      "email_already_used": "هذا البريد الإلكتروني مسجَّل بالفعل. يُرجى تسجيل الدخول أو استخدام بريد آخر."
+    }
+  },
+  "aboutUs": {
+    "mainSection": {
+      "title": "نبذة عن OnlyDoc",
+      "subtitle": "شريكك الموثوق لإدارة المستندات بلا جهد.",
+      "paragraphs": {
+        "1": "أُنشئ OnlyDoc بهدف واحد — جعل التعامل مع المستندات الرقمية أبسط ما يمكن. وسواء كنت بحاجة إلى تحويل الملفات أو ضغط ملفات PDF أو تحويل الصور إلى مستندات احترافية، فإن منصتنا تتولى ذلك كله دون عناء التنزيل أو التسجيل أو التكاليف الخفية.",
+        "2": "نؤمن بأن أدوات المستندات القوية يجب أن تكون في متناول الجميع. لذلك فإن OnlyDoc مجاني تمامًا، دون أي قيود على عدد الملفات التي يمكنك معالجتها. ومن الطلاب والمستقلين إلى محترفي الأعمال، تخدم منصتنا ملايين المستخدمين الذين يحتاجون إلى نتائج موثوقة بلا تعقيد."
+      }
+    },
+    "tools_section_title": {
+      "highlight": "اختر",
+      "suffix": "أداة للعمل على المستندات"
+    },
+    "benefitsSection": {
+      "title": "مصمَّم لإبقاء عملك في تقدّم مستمر",
+      "text": "لا ينبغي أن تكون إدارة المستندات عائقًا يبطئ عملك. يتكامل OnlyDoc بسلاسة مع سياق عملك، سواء كنت تُعدّ العقود أو تنظّم الأبحاث أو تشارك الملفات مع زملائك. تتولى منصتنا التفاصيل التقنية — من التحويل والضغط والتنسيق — لتبقى مركّزًا على أولوياتك. وبفضل دعم جميع أنواع الملفات الرئيسية والمعالجة الفورية على أي جهاز، يتكيّف OnlyDoc مع احتياجاتك بدلًا من أن يفرض عليك التكيّف معه. لا منهج تعلّم طويل ولا إحباط — مجرد أدوات موثوقة تمنحك النتائج في أكثر الأوقات التي تحتاج إليها."
+    }
+  },
+  "dashboard": {
+    "sidebar": {
+      "myFiles": "ملفاتي",
+      "tools": "الأدوات",
+      "forms": "النماذج",
+      "userMenu": "قائمة المستخدم",
+      "account": "الحساب",
+      "myAccount": "حسابي",
+      "blog": "المدونة",
+      "help": "المساعدة",
+      "terms": "الشروط والأحكام",
+      "logout": "تسجيل الخروج",
+      "login": "تسجيل الدخول",
+      "guest": "زائر",
+      "homeAria": "الانتقال إلى صفحة OnlyDoc الرئيسية"
+    },
+    "myAccount": {
+      "title": "حسابي",
+      "accountInformation": "معلومات الحساب",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "changePassword": "تغيير كلمة المرور",
+      "changePasswordDescription": "سنرسل إليك رابطًا آمنًا بالبريد الإلكتروني لإعادة تعيين كلمة المرور.",
+      "sending": "جارٍ الإرسال…",
+      "passwordEmailSent": "تم إرسال رابط إعادة التعيين — تحقّق من صندوق الوارد.",
+      "passwordEmailError": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+      "googleManaged": "يُدار حسابك عبر تسجيل الدخول بحساب Google.",
+      "language": "اللغة",
+      "languageDescription": "اختر لغة الواجهة."
+    },
+    "header": {
+      "myFiles": "ملفاتي",
+      "tools": "الأدوات",
+      "searchPlaceholder": "البحث في الملفات",
+      "upload": "تحميل الملفات",
+      "uploading": "جارٍ التحميل..."
+    },
+    "table": {
+      "name": "الاسم",
+      "type": "النوع",
+      "size": "الحجم",
+      "created": "تاريخ الإنشاء",
+      "updated": "تاريخ التحديث"
+    },
+    "view": {
+      "list": "قائمة",
+      "grid": "شبكة"
+    },
+    "sort": {
+      "dateDesc": "الأحدث أولًا",
+      "dateAsc": "الأقدم أولًا",
+      "nameAsc": "الاسم (أ-ي)",
+      "nameDesc": "الاسم (ي-أ)",
+      "sizeDesc": "الأكبر أولًا",
+      "sizeAsc": "الأصغر أولًا"
+    },
+    "bulk": {
+      "selected": "{{count}} محدد",
+      "selectAll": "تحديد كل الملفات",
+      "toggleRow": "تحديد {{filename}}",
+      "clear": "إلغاء التحديد"
+    },
+    "actions": {
+      "preview": "معاينة",
+      "download": "تنزيل",
+      "duplicate": "تكرار",
+      "print": "طباعة",
+      "rename": "إعادة تسمية",
+      "shareLink": "مشاركة الرابط",
+      "sendEmail": "إرسال إلى البريد الإلكتروني",
+      "delete": "حذف",
+      "more": "إجراءات أخرى",
+      "close": "إغلاق",
+      "cancel": "إلغاء"
+    },
+    "empty": {
+      "title": "مرحبًا!",
+      "subtitle": "ستظهر ملفاتك هنا",
+      "cta": "تحميل ملف"
+    },
+    "drop": {
+      "title": "أفلت ملفاتك هنا للبدء",
+      "subtitle": "سنحمّلها إلى لوحة التحكم الخاصة بك",
+      "sizeLimit": "حجم يصل إلى 100 ميغابايت",
+      "formats": "التنسيقات المدعومة:",
+      "addFiles": "إضافة ملفات",
+      "dropHere": "أفلت ملفاتك هنا للبدء"
+    },
+    "rename": {
+      "title": "إعادة تسمية",
+      "newNameLabel": "الاسم الجديد",
+      "placeholder": "اسم الملف",
+      "confirm": "إعادة تسمية"
+    },
+    "delete": {
+      "title": "حذف الملف",
+      "titleMany": "حذف {{count}} ملف؟",
+      "subtitle": "سيُحذف \"{{filename}}\" نهائيًا من لوحة التحكم.",
+      "subtitleMany": "ستُحذف الملفات المحددة نهائيًا من لوحة التحكم.",
+      "bodyPrefix": "هل أنت متأكد أنك تريد حذف الملف",
+      "bodySuffix": "؟",
+      "confirm": "حذف"
+    },
+    "share": {
+      "title": "مشاركة الرابط",
+      "subtitle": "يمكن لأي شخص لديه الرابط تنزيل هذا الملف خلال الأيام السبعة القادمة.",
+      "linkLabel": "الرابط",
+      "loading": "جارٍ إنشاء الرابط...",
+      "copyLink": "نسخ الرابط",
+      "copied": "تم النسخ!"
+    },
+    "email": {
+      "title": "إرسال إلى البريد الإلكتروني",
+      "recipientLabel": "بريد المستلم الإلكتروني",
+      "recipientPlaceholder": "name@example.com",
+      "messageLabel": "الرسالة",
+      "messagePlaceholder": "أضف رسالة",
+      "send": "إرسال بريد إلكتروني",
+      "sent": "تم الإرسال",
+      "sentMessage": "تم إرسال ملفك \"{{filename}}\" إلى {{email}}",
+      "errorSubtitle": "تعذّر إرسال \"{{filename}}\" إلى {{email}}. يُرجى المحاولة لاحقًا."
+    },
+    "preview": {
+      "loading": "جارٍ تحميل المعاينة...",
+      "unsupported": "المعاينة غير متوفرة لهذا النوع من الملفات",
+      "convert": "تحويل",
+      "translate": "ترجمة",
+      "ocr": "OCR",
+      "createCopy": "إنشاء نسخة",
+      "panelAria": "لوحة معاينة الملف"
+    },
+    "tools": {
+      "all": "الكل",
+      "pdf": "أدوات PDF",
+      "image": "أدوات الصور",
+      "ai": "أدوات الذكاء الاصطناعي",
+      "convertTo": "التحويل إلى...",
+      "compress": "ضغط",
+      "translate": "ترجمة PDF",
+      "filterAria": "تصفية فئات الأدوات"
+    },
+    "pagination": {
+      "previous": "الصفحة السابقة",
+      "next": "الصفحة التالية"
+    },
+    "errors": {
+      "loadFiles": "تعذّر تحميل الملفات"
+    },
+    "toast": {
+      "linkCopied": "تم نسخ الرابط إلى الحافظة",
+      "fileDeleted": "تم حذف الملف",
+      "filesDeleted": "تم حذف الملفات",
+      "emailSent": "تم إرسال الملف بنجاح",
+      "emailFailed": "تعذّر إرسال الملف. يُرجى المحاولة مرة أخرى.",
+      "undo": "تراجع",
+      "fileAdded": "تمت إضافة ملف جديد إلى لوحة التحكم",
+      "open": "فتح",
+      "uploadError": "تعذّر تحميل بعض الملفات"
+    },
+    "upgrade": {
+      "title": "جرّب ميزاتنا الجديدة!",
+      "subtitle": "اكتشف الأدوات الرائعة المتوفرة في OnlyDoc!",
+      "dismiss": "تجاهل"
+    },
+    "formatTabs": {
+      "all": "الكل",
+      "pdf": "PDF",
+      "image": "صورة",
+      "word": "Word",
+      "spreadsheet": "جدول بيانات",
+      "presentation": "عرض تقديمي",
+      "ebook": "كتاب إلكتروني",
+      "audio": "صوت",
+      "video": "فيديو",
+      "text": "نص",
+      "other": "أخرى"
+    },
+    "toolDescriptions": {
+      "translatePdf": "ترجم مستندات PDF إلى لغات أخرى",
+      "compressPdf": "قلّل حجم الملف مع الحفاظ على الجودة",
+      "pdfOcr": "تعرّف على النص في ملفات PDF والصور الممسوحة ضوئيًا",
+      "pdfToWord": "حوّل ملفات PDF إلى مستندات Word قابلة للتحرير",
+      "pdfToExcel": "استخرج الجداول من ملفات PDF إلى أوراق Excel",
+      "pdfToAzw3": "حوّل مستندات PDF إلى تنسيق Kindle AZW3",
+      "wordToPdf": "حوّل مستندات Word إلى ملفات PDF",
+      "excelToPdf": "حوّل جداول Excel إلى ملفات PDF",
+      "azw3ToPdf": "حوّل كتب AZW3 الإلكترونية إلى ملفات PDF",
+      "removeWatermark": "أزل العلامات المائية من ملفات PDF الخاصة بك",
+      "pdfToJpg": "صدّر كل صفحة PDF كصورة JPG",
+      "pdfToPng": "صدّر كل صفحة PDF كصورة PNG",
+      "pdfToTiff": "صدّر كل صفحة PDF كصورة TIFF",
+      "jpgToPdf": "حوّل صور JPG إلى ملف PDF",
+      "pngToPdf": "حوّل صور PNG إلى ملف PDF",
+      "tiffToPdf": "حوّل صور TIFF إلى ملف PDF",
+      "svgToPdf": "حوّل ملفات SVG المتجهة إلى ملف PDF",
+      "enhanceImage": "حسّن جودة الصورة بالتحسين بالذكاء الاصطناعي",
+      "pdfSummarizer": "احصل على ملخص لأي ملف PDF بالذكاء الاصطناعي"
+    }
+  },
+  "seo": {
+    "blog": {
+      "breadcrumbs_home": "الرئيسية",
+      "breadcrumbs_blog": "المدونة",
+      "all_articles": "كل المقالات",
+      "categories_label": "الفئات",
+      "toc_label": "جدول المحتويات",
+      "no_articles": "لم يتم العثور على مقالات.",
+      "by_author": "بواسطة",
+      "read_time": "قراءة {{minutes}} دقيقة",
+      "views": "{{count}} مشاهدة",
+      "published_on": "تاريخ النشر",
+      "last_updated": "آخر تحديث",
+      "key_takeaways": "أهم النقاط",
+      "related_articles": "مقالات ذات صلة",
+      "author_articles": "مقالات هذا الكاتب",
+      "page_title_default": "المدونة | OnlyDoc",
+      "page_description_default": "اكتشف النصائح والإرشادات للعمل على ملفات PDF في مدونة OnlyDoc",
+      "category_title_template": "{{category}} — مدونة OnlyDoc",
+      "page_n_suffix": "صفحة {{page}}"
+    },
+    "templates": {
+      "nav_link": "قوالب PDF",
+      "breadcrumbs_home": "الرئيسية",
+      "breadcrumbs_catalog": "قوالب PDF",
+      "use_template": "استخدام القالب",
+      "about_title": "نبذة عن {{name}}",
+      "related_title": "قوالب ذات صلة",
+      "no_templates": "لم يتم العثور على قوالب.",
+      "search_prompt_title": "ابدأ الكتابة للبحث عن قالب",
+      "search_prompt_subtitle": "اعثر على القالب المثالي لاحتياجاتك",
+      "search_results_count": "{{count}} نتيجة",
+      "search_no_results": "عذرًا، لم نجد أي نتائج. يُرجى المحاولة بكلمات مفتاحية مختلفة.",
+      "search_placeholder": "البحث في القوالب",
+      "all_templates": "كل القوالب",
+      "sidebar_aria": "فئات القوالب",
+      "expand": "توسيع",
+      "collapse": "تصغير",
+      "catalog_fallback_title": "قوالب PDF",
+      "catalog_fallback_description": "استعرض مجموعة واسعة من قوالب PDF القابلة للتعبئة، ومنها نماذج الطلبات والمستندات القانونية والنماذج الضريبية وغيرها.",
+      "catalog_meta_title": "قوالب PDF عبر الإنترنت | تعديل النماذج وتعبئتها وتنزيلها | OnlyDoc",
+      "catalog_meta_description": "استعرض أكثر من 1000 قالب PDF قابل للتحرير للاستخدام التجاري والقانوني والشخصي. عبّئ النماذج عبر الإنترنت، وخصّص المستندات، وأضف التوقيعات الإلكترونية، ونزّلها فورًا",
+      "hero_fallback_title_part1": "أكثر من 1000 قالب",
+      "hero_fallback_title_highlight": "PDF",
+      "hero_fallback_title_part2": "مجاني"
+    }
+  },
+  "aiSummarizer": {
+    "poweredByChip": "مدعوم بأحدث نماذج الذكاء الاصطناعي",
+    "page": {
+      "title": "أداة التلخيص بالذكاء الاصطناعي",
+      "loginCta": "تسجيل الدخول"
+    },
+    "empty": {
+      "headline": "يرجى بدء محادثة جديدة عن طريق تحميل مستند PDF.",
+      "uploadButton": "تحميل ملف"
+    },
+    "sidebar": {
+      "newFile": "ملف جديد",
+      "history": "السجل",
+      "deleteFailed": "تعذّر حذف المحادثة. يُرجى المحاولة مرة أخرى."
+    },
+    "loader": {
+      "analyzing": "جارٍ تحليل ملفك… انتظر قليلًا، لن يستغرق الأمر وقتًا طويلًا!",
+      "loadingDocument": "جارٍ تحميل المستند…"
+    },
+    "chat": {
+      "inputPlaceholder": "اكتب رسالتك هنا...",
+      "sendButton": "إرسال",
+      "suggestedQuestionsHeader": "أسئلة مقترحة",
+      "summaryTitle": "نظرة عامة من OnlyDoc:",
+      "keyInsightsTitle": "أهم الأفكار",
+      "copy": "نسخ",
+      "copied": "تم النسخ",
+      "like": "أعجبني",
+      "dislike": "لم يعجبني"
+    },
+    "errors": {
+      "fileTooLarge": "حجم الملف كبير جدًا. الحد الأقصى هو {{maxMb}} ميغابايت.",
+      "tooManyPages": "الملف يحتوي على عدد كبير جدًا من الصفحات. الحد الأقصى هو {{maxPages}} صفحة.",
+      "formatNotSupported": "تنسيق هذا الملف غير مدعوم.",
+      "processingFailed": "تعذّرت معالجة الملف. جرّب ملفًا آخر أو أعد المحاولة.",
+      "sendFailed": "تعذّر إرسال الرسالة. يُرجى المحاولة مرة أخرى.",
+      "loadFailed": "تعذّر تحميل المحادثة.",
+      "messageTooLong": "الرسالة طويلة جدًا. الحد الأقصى هو {{maxChars}} حرف."
+    }
+  },
+  "templatesEditor": {
+    "common": {
+      "delete": "حذف",
+      "cancel": "إلغاء",
+      "unlock": "فتح القفل",
+      "try_again": "حاول مرة أخرى",
+      "replace": "استبدال",
+      "clear_all": "مسح الكل"
+    },
+    "toasts": {
+      "delete_confirmation_header": "تأكيد الحذف",
+      "delete_elements_content": "هل أنت متأكد أنك تريد حذف الملفات المحددة؟ يمكنك استعادتها باستخدام زر التراجع",
+      "delete_page_content": "هل أنت متأكد أنك تريد حذف الصفحة؟ يمكنك استعادتها باستخدام زر التراجع",
+      "delete_files_content": "هل أنت متأكد أنك تريد حذف الملفات المحددة؟",
+      "page_locked_header": "الصفحة مقفلة",
+      "page_locked_content": "هذه الصفحة مقفلة حاليًا لمنع التغييرات غير المقصودة. ألغِ قفل الصفحة لبدء التحرير أو الرسم.",
+      "copy_style_applied_header": "تم تطبيق النمط بنجاح",
+      "copy_style_applied_content": "تم تطبيق النمط المنسوخ على الكائن المحدد.",
+      "copy_style_header": "تم نسخ النمط بنجاح",
+      "copy_style_content": "انقر على أي كائن من النوع نفسه لتطبيق النمط المنسوخ، أو اضغط على إلغاء للخروج.",
+      "page_resized_header_one": "تم تغيير حجم الصفحة بنجاح",
+      "page_resized_header_other": "تم تغيير حجم الصفحات بنجاح",
+      "page_resized_content_one": "تم تغيير أبعاد الصفحة. يُرجى ملاحظة أن العناصر داخل الإطارات لم يتغير حجمها وقد تحتاج إلى ضبط يدوي.",
+      "page_resized_content_other": "تم تغيير أبعاد الصفحات. يُرجى ملاحظة أن العناصر داخل الإطارات لم يتغير حجمها وقد تحتاج إلى ضبط يدوي.",
+      "file_too_large_header": "الملف كبير جدًا",
+      "file_too_large_content": "الحد الأقصى لحجم الملف هو {{maxSize}} ميغابايت. يُرجى تحميل ملف أصغر",
+      "change_template_header": "تغيير القالب؟",
+      "change_template_content": "سيؤدي تغيير القالب إلى حذف كل تقدّمك وعناصرك الحالية نهائيًا. ولا يمكن التراجع عن هذا الإجراء."
+    },
+    "upload": {
+      "cta_highlight": "تحميل جديد",
+      "cta_rest": "أو أفلته هنا",
+      "size_support": "حجم يصل إلى {{maxSize}} ميغابايت. يدعم {{formats}}."
+    },
+    "templates_section": {
+      "heading": "اختر قالبًا:",
+      "results": "النتائج",
+      "all_templates": "كل القوالب"
+    },
+    "mobile": {
+      "options": "الخيارات",
+      "color": "اللون",
+      "stroke_width": "عرض الحدّ",
+      "pencil": "قلم رصاص",
+      "highlighter": "قلم التمييز",
+      "file_name": "اسم الملف",
+      "close_panel": "إغلاق اللوحة"
+    },
+    "ui": {
+      "undo": "تراجع",
+      "redo": "إعادة",
+      "print": "طباعة",
+      "share": "مشاركة",
+      "done": "تم",
+      "file_name": "اسم الملف",
+      "reset": "إعادة تعيين",
+      "stroke_type": "نوع الحدّ",
+      "linear": "خطي",
+      "angle": "الزاوية",
+      "eyedropper": "قطّارة الألوان",
+      "pages": "الصفحات",
+      "pick_a_color": "اختر لونًا",
+      "group": "تجميع",
+      "ungroup": "إلغاء التجميع",
+      "close": "إغلاق",
+      "remove_item": "إزالة {{label}}",
+      "close_sidebar": "إغلاق الشريط الجانبي",
+      "collapse_side_panel": "تصغير اللوحة الجانبية",
+      "expand_side_panel": "توسيع اللوحة الجانبية",
+      "page_title": "محرر القوالب",
+      "page_description": "أنشئ قوالب المستندات وخصّصها.",
+      "page": {
+        "duplicate_page": "تكرار الصفحة",
+        "add_page": "إضافة صفحة",
+        "remove_page": "إزالة الصفحة",
+        "page_alt": "صفحة {{number}}",
+        "unlock_page": "إلغاء قفل الصفحة",
+        "lock_page": "قفل الصفحة",
+        "page_menu": "قائمة الصفحة",
+        "previous_page": "الصفحة السابقة",
+        "next_page": "الصفحة التالية",
+        "add_new_page": "إضافة صفحة جديدة",
+        "delete_page": "حذف الصفحة"
+      }
+    },
+    "toolbar": {
+      "position": "الموضع",
+      "copy": "نسخ",
+      "copy_style": "نسخ النمط",
+      "effects": "التأثيرات",
+      "opacity": "الشفافية",
+      "border": "الإطار",
+      "fit_to_page": "ملاءمة الصفحة",
+      "text_style": "نمط النص",
+      "text_color": "لون النص",
+      "text_align": "محاذاة النص",
+      "vertical_align": "المحاذاة الرأسية",
+      "background_color": "لون الخلفية",
+      "table_border": "إطار الجدول",
+      "structure": "البنية",
+      "fill_color": "لون التعبئة",
+      "color": "اللون",
+      "flip": "انعكاس",
+      "mask": "قناع",
+      "crop": "اقتصاص",
+      "line_style": "نمط الخط",
+      "line_start": "بداية الخط",
+      "line_end": "نهاية الخط",
+      "more_tools": "أدوات أخرى",
+      "forward": "إلى الأمام",
+      "to_front": "إلى الأمام",
+      "backward": "إلى الخلف",
+      "to_back": "إلى الخلف",
+      "align_top": "محاذاة إلى الأعلى",
+      "align_left": "محاذاة إلى اليسار",
+      "align_middle": "محاذاة إلى المنتصف",
+      "align_down": "محاذاة إلى الأسفل",
+      "align_right": "محاذاة إلى اليمين",
+      "align_centre": "محاذاة إلى الوسط",
+      "top": "أعلى",
+      "middle": "المنتصف",
+      "bottom": "أسفل",
+      "none": "بلا",
+      "left": "يسار",
+      "right": "يمين",
+      "center": "الوسط",
+      "all_sides": "كل الجهات",
+      "solid": "متصل",
+      "dashed": "متقطع",
+      "dotted": "منقط",
+      "border_width": "عرض الإطار",
+      "line_size": "سماكة الخط",
+      "insert_above": "إدراج أعلى",
+      "insert_below": "إدراج أسفل",
+      "delete_row": "حذف الصف",
+      "insert_left": "إدراج يسارًا",
+      "insert_right": "إدراج يمينًا",
+      "delete_column": "حذف العمود",
+      "rows_evenly": "توزيع الصفوف بالتساوي",
+      "columns_evenly": "توزيع الأعمدة بالتساوي",
+      "distribute_rows_only": "توزيع الصفوف فقط",
+      "distribute_columns_only": "توزيع الأعمدة فقط",
+      "style": "النمط",
+      "horizontal": "أفقي",
+      "vertical": "رأسي",
+      "bold": "عريض",
+      "italic": "مائل",
+      "underline": "تسطير",
+      "strikethrough": "يتوسطه خط",
+      "font_family": "نوع الخط",
+      "font_size": "حجم الخط",
+      "mixed": "مختلط",
+      "intensity": "الشدة",
+      "border_sides": "جهات الإطار",
+      "border_style": "نمط الإطار",
+      "table_structure": "بنية الجدول",
+      "rows": "الصفوف",
+      "columns": "الأعمدة",
+      "distribute": "توزيع",
+      "layering": "ترتيب الطبقات",
+      "apply_crop": "تطبيق الاقتصاص",
+      "cancel_crop": "إلغاء الاقتصاص",
+      "lock": "قفل"
+    },
+    "side_panel": {
+      "tabs": {
+        "text": "نص",
+        "photo": "صورة",
+        "elements": "العناصر",
+        "draw": "رسم",
+        "signature": "التوقيع",
+        "template": "قالب",
+        "upload": "تحميل",
+        "background": "الخلفية",
+        "resize": "تغيير الحجم",
+        "layers": "الطبقات"
+      },
+      "headers": {
+        "add_text": "إضافة نص:",
+        "add_photo": "إضافة صورة:",
+        "add_elements": "إضافة عناصر:",
+        "mask_image": "قناع الصورة:",
+        "add_sketch": "إضافة رسم:",
+        "tools": "الأدوات:",
+        "add_signature": "إضافة توقيع:",
+        "add_background": "إضافة خلفية:",
+        "adjust_canvas": "ضبط مساحة العمل:",
+        "upload_file": "تحميل ملف:",
+        "elements_on_page": "العناصر في صفحتك النشطة:",
+        "effects_for_text": "تأثيرات النص",
+        "effects_for_shapes": "تأثيرات الأشكال",
+        "effects_for_icons": "تأثيرات الأيقونات",
+        "effects_for_photos": "تأثيرات الصور",
+        "basic_text": "نص أساسي",
+        "text_presets": "أنماط نص جاهزة",
+        "lines": "الخطوط",
+        "shapes": "الأشكال",
+        "tables": "الجداول",
+        "icons": "الأيقونات",
+        "icons_count": "500k+"
+      },
+      "text_tabs": {
+        "basic": "أساسي",
+        "upload_font": "تحميل خط"
+      },
+      "photo_tabs": {
+        "search": "بحث",
+        "upload": "تحميل"
+      },
+      "upload_tabs": {
+        "photo": "صورة",
+        "font": "الخط"
+      },
+      "size_tabs": {
+        "custom": "مخصص",
+        "presets": "إعدادات جاهزة"
+      },
+      "draw_tools": {
+        "pencil": "قلم رصاص",
+        "highlighter": "قلم التمييز",
+        "selection": "التحديد"
+      },
+      "controls": {
+        "stroke_width": "عرض الحدّ",
+        "blur": "تمويه",
+        "radius": "نصف القطر",
+        "curved_text": "نص منحنٍ",
+        "power": "القوة",
+        "text_stroke": "حدّ النص",
+        "background": "الخلفية",
+        "corner_radius": "استدارة الزوايا",
+        "corner_radius_title": "استدارة الزوايا",
+        "padding": "التباعد الداخلي",
+        "shadow": "الظل",
+        "offset_x": "الإزاحة X",
+        "offset_y": "الإزاحة Y",
+        "brightness": "السطوع",
+        "temperature": "درجة الحرارة",
+        "contrast": "التباين",
+        "shadows": "الظلال",
+        "white": "أبيض",
+        "black": "أسود",
+        "vibrance": "الحيوية",
+        "saturation": "التشبّع"
+      },
+      "text_presets": {
+        "heading": "عنوان رئيسي",
+        "subheading": "عنوان فرعي",
+        "paragraph": "فقرة",
+        "preview_alt": "نمط نص جاهز"
+      },
+      "signature": {
+        "clear": "مسح",
+        "add_to_page": "إضافة إلى الصفحة"
+      },
+      "custom_size": {
+        "resize": "تغيير الحجم"
+      },
+      "upload": {
+        "choose_local_file": "اختر ملفًا من جهازك",
+        "my_uploads": "ملفاتي المحمّلة",
+        "photos_from_unsplash": "صور من Unsplash",
+        "results_count": "{{count}} نتيجة",
+        "search_placeholder": "جرّب \"زهرة\" أو \"خط\" أو \"مصافحة\""
+      },
+      "background": {
+        "search_placeholder": "مثال: ملمس محبَّب، تشويش، خلفية ورقية..."
+      },
+      "layers": {
+        "no_elements": "لا توجد عناصر في هذه الصفحة",
+        "hide_element": "إخفاء العنصر",
+        "show_element": "إظهار العنصر",
+        "unlock_element": "إلغاء قفل العنصر",
+        "lock_element": "قفل العنصر",
+        "delete_element": "حذف العنصر",
+        "types": {
+          "text": "نص",
+          "image": "صورة",
+          "figure": "شكل",
+          "table": "جدول",
+          "group": "تجميع",
+          "element": "عنصر"
+        }
+      },
+      "size_presets": {
+        "categories": {
+          "instagram": "Instagram",
+          "facebook": "Facebook",
+          "youtube": "Youtube",
+          "linkedin": "LinkedIn",
+          "twitter": "Twitter",
+          "video": "فيديو",
+          "print": "طباعة"
+        },
+        "sizes": {
+          "post": "منشور",
+          "story": "قصة",
+          "ad": "إعلان",
+          "cover": "غلاف",
+          "thumbnail": "صورة مصغّرة",
+          "channel": "قناة",
+          "short": "فيديو قصير",
+          "banner": "لافتة",
+          "square": "مربع",
+          "header": "ترويسة",
+          "full_hd": "Full HD",
+          "uhd_4k": "4K UHD",
+          "vertical_hd": "رأسي HD",
+          "square_hd": "مربع HD",
+          "invitation": "دعوة",
+          "a4_portrait": "A4 رأسي",
+          "a4_landscape": "A4 أفقي",
+          "a3": "A3",
+          "letter_portrait": "Letter رأسي",
+          "letter": "Letter",
+          "business_card": "بطاقة عمل",
+          "poster": "ملصق"
+        }
+      }
+    }
+  }
+}

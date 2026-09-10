@@ -1,0 +1,63 @@
+---
+import dividerSvg from "@public/assets/about-us/divider.svg?url";
+
+import type { ITrustSectionProps } from "../model/types";
+import { TrustLogosRow } from "./TrustLogosRow";
+
+type Props = ITrustSectionProps;
+
+const { title, badges, variant = "default" } = Astro.props;
+const isAboutUs = variant === "about-us";
+---
+
+<section class="bg-[var(--color-bg-light-grey)]">
+  <div
+    class:list={[
+      "mx-auto w-full max-w-[1440px]",
+      isAboutUs
+        ? "px-4 pt-6 pb-6 min-[1024px]:px-[114px] min-[1024px]:pb-[104px] min-[1440px]:px-[150px]"
+        : "px-4 pt-10 pb-[104px] md:px-[114px]",
+    ]}
+  >
+    <div
+      class:list={[
+        "flex w-full flex-col items-center",
+        isAboutUs ? "gap-4 min-[1024px]:gap-6" : "gap-6",
+      ]}
+    >
+      <div class="flex w-full items-center gap-4">
+        {
+          isAboutUs ? (
+            <img
+              src={dividerSvg}
+              alt=""
+              aria-hidden="true"
+              class="h-px w-0 flex-1"
+            />
+          ) : (
+            <div class="h-0 flex-1 border-t border-dashed border-black/48" />
+          )
+        }
+        <span
+          class="text-body-2 shrink-0 rounded-2xl bg-[var(--color-common-black)] px-2.5 py-1.5 text-white"
+        >
+          {title}
+        </span>
+        {
+          isAboutUs ? (
+            <img
+              src={dividerSvg}
+              alt=""
+              aria-hidden="true"
+              class="h-px w-0 flex-1"
+            />
+          ) : (
+            <div class="h-0 flex-1 border-t border-dashed border-black/48" />
+          )
+        }
+      </div>
+
+      <TrustLogosRow badges={badges} variant={variant} />
+    </div>
+  </div>
+</section>

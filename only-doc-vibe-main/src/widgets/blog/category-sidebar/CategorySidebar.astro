@@ -1,0 +1,76 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import type { ELanguages } from "@/shared/constants/languages";
+import {
+  getBlogCategoryUrl,
+  getBlogHomeUrl,
+} from "@/shared/lib/navigation/get-blog-url";
+import type { IBlogCategory } from "@/shared/types/blog";
+
+interface Props {
+  categories: ReadonlyArray<IBlogCategory>;
+  activeCategorySlug?: string;
+  locale: ELanguages;
+  allArticlesLabel: string;
+  categoriesLabel: string;
+  className?: string;
+}
+
+const {
+  categories,
+  activeCategorySlug,
+  locale,
+  allArticlesLabel,
+  categoriesLabel,
+  className,
+} = Astro.props;
+
+const items = [
+  {
+    slug: undefined as string | undefined,
+    label: allArticlesLabel,
+    href: getBlogHomeUrl(locale),
+    isActive: !activeCategorySlug,
+  },
+  ...categories.map((category) => {
+    const slug = category.slug.replace(/^\//, "");
+
+    return {
+      slug,
+      label: category.name,
+      href: getBlogCategoryUrl(locale, slug),
+      isActive: activeCategorySlug === slug,
+    };
+  }),
+];
+---
+
+<aside class={cn("w-[177px] flex-col gap-6", className)}>
+  <p
+    class="text-[13px] font-medium tracking-[0.26px] text-[var(--color-text-secondary)] uppercase"
+  >
+    {categoriesLabel}
+  </p>
+  <nav>
+    <ul class="flex flex-col gap-2">
+      {
+        items.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={item.isActive ? "page" : undefined}
+              class={cn(
+                "block truncate py-[3px] text-[14px] leading-[18px] transition-colors",
+                item.isActive
+                  ? "font-normal text-[var(--color-blog-category-active)]"
+                  : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+              )}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>

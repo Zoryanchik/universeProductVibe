@@ -1,0 +1,10 @@
+---
+import {
+  CategoryChildPage,
+  getCategoryChildStaticPaths,
+} from "@/pages-layer/pdfTemplates";
+
+export const getStaticPaths = getCategoryChildStaticPaths;
+---
+
+<CategoryChildPage {...Astro.props} />

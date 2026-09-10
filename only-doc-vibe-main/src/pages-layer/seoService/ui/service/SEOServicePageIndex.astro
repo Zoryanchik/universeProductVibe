@@ -1,0 +1,9 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+
+import ServicePage from "./ServicePage.astro";
+
+const lang = Astro.props.lang || defaultLocale;
+---
+
+<ServicePage lang={lang} />

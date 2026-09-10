@@ -1,0 +1,117 @@
+---
+import type { components } from "@/shared/api/cms/cms-schema";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import type { ELanguages } from "@/shared/constants/languages";
+import { InternalFileType } from "@/shared/constants/file-type";
+import { Title } from "@/shared/ui/title";
+
+import { EFunnels, EServiceType } from "@/entities/documents";
+
+import { CTAUploadButtonWithFunnel } from "./CTAUploadButtonWithFunnel";
+
+interface Props {
+  readonly lang: ELanguages;
+  readonly cmsTitle?: string;
+  readonly cmsBadges?: components["schemas"]["CommonEmojieDescriptionComponent"][];
+  readonly cmsButtonCta?: string;
+  readonly variant?: "default" | "about-us";
+}
+
+const {
+  lang,
+  cmsTitle,
+  cmsBadges,
+  cmsButtonCta,
+  variant = "default",
+} = Astro.props;
+const t = createServerT(lang);
+
+const title = cmsTitle ?? t("ctaSection.title.prefix");
+const buttonLabel = cmsButtonCta ?? t("ctaSection.button");
+
+const badges: readonly { readonly id: string; readonly label: string }[] =
+  cmsBadges
+    ? cmsBadges.map((badge, index) => ({
+        id: String(index),
+        label: badge.description,
+      }))
+    : [
+        { id: "quick", label: t("ctaSection.badges.fast") },
+        { id: "reliable", label: t("ctaSection.badges.easy") },
+        { id: "free", label: t("ctaSection.badges.secure") },
+      ];
+
+const ACCEPTED_FORMATS = [InternalFileType.PDF];
+const isAboutUs = variant === "about-us";
+---
+
+<section class="bg-white">
+  <div
+    class:list={[
+      "mx-auto w-full max-w-[1440px]",
+      isAboutUs
+        ? "px-4 pt-6 pb-10 min-[1024px]:px-[114px] min-[1024px]:pt-10 min-[1024px]:pb-[104px] min-[1440px]:px-[150px]"
+        : "px-4 pt-10 pb-[104px] md:px-[150px]",
+    ]}
+  >
+    <div
+      class:list={[
+        "relative flex min-h-[388px] flex-col items-center justify-center overflow-hidden rounded-[20px] bg-black [--color-primary-dark:#E8CA3A]",
+        isAboutUs
+          ? "gap-6 px-4 py-10 min-[1024px]:gap-12 min-[1024px]:px-16 min-[1024px]:py-16"
+          : "gap-12 px-6 py-12 md:px-16 md:py-16",
+      ]}
+    >
+      <div
+        class="pointer-events-none absolute inset-x-5 inset-y-6 rounded-2xl border-2 border-dashed border-[var(--color-material-grey-500)]"
+      >
+      </div>
+
+      <div
+        class:list={[
+          "relative z-10 flex flex-col items-center",
+          isAboutUs ? "gap-4 min-[1024px]:gap-6" : "gap-6",
+        ]}
+      >
+        <Title
+          variant={isAboutUs ? "desktop-title-1" : "desktop-title-2"}
+          className="text-white"
+        >
+          {title}
+        </Title>
+
+        <div class="flex flex-wrap justify-center gap-2">
+          {
+            badges.map((badge) => (
+              <span class="text-body-2 flex items-center gap-1 rounded-2xl bg-white/20 px-2.5 py-1.5 text-white">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="shrink-0"
+                >
+                  <path
+                    d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                    fill="currentColor"
+                  />
+                </svg>
+                {badge.label}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <CTAUploadButtonWithFunnel
+        client:load
+        label={buttonLabel}
+        acceptedFormats={ACCEPTED_FORMATS}
+        serviceType={EServiceType.CONVERTOR}
+        funnel={EFunnels.MAIN}
+        showGlow={false}
+        className="relative z-10"
+      />
+    </div>
+  </div>
+</section>

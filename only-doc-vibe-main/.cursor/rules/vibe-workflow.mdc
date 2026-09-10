@@ -1,0 +1,9 @@
+---
+description: Plan with the strongest model, implement with a faster one. Use before starting any feature.
+globs: []
+alwaysApply: true
+---
+
+Follow `docs/vibe/workflow.md` as your workflow. Plan with deep reasoning,
+implement with speed. Use the strongest model to architect, then switch to
+a faster one for implementation.

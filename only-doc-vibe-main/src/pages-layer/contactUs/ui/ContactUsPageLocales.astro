@@ -1,0 +1,19 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+
+import { getLocalizedContactUsPages } from "../api/get-contact-us-static-routes";
+import BaseContactUsPage from "./BaseContactUsPage.astro";
+
+interface Params {
+  lang: ELanguages;
+}
+
+export async function getContactUsLocalesStaticPaths() {
+  return await getLocalizedContactUsPages();
+}
+
+const { lang } = Astro.params as unknown as Params;
+const { localeSlugMap } = Astro.props;
+---
+
+<BaseContactUsPage lang={lang} localeSlugMap={localeSlugMap} />

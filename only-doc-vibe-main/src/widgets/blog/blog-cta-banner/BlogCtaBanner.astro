@@ -1,0 +1,61 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import type { IBlogCtaBlock } from "@/shared/types/blog";
+
+interface Props {
+  cta: IBlogCtaBlock;
+  variant?: "inline" | "card";
+  className?: string;
+}
+
+const { cta, variant = "inline", className } = Astro.props;
+
+const isInline = variant === "inline";
+---
+
+<aside
+  class={cn(
+    "flex w-full rounded-[12px] bg-[var(--color-blog-cta-bg)]",
+    isInline
+      ? "items-center gap-5 p-4 max-md:flex-col max-md:items-stretch max-md:gap-3"
+      : "flex-col items-center gap-4 p-5",
+    className
+  )}
+>
+  <div
+    class={cn(
+      "flex flex-col gap-1 text-[var(--color-text-primary)]",
+      isInline ? "min-w-0 flex-1" : "w-full text-center"
+    )}
+  >
+    <h3
+      class="text-[24px] leading-[30px] font-semibold break-words max-md:text-[20px] max-md:leading-[26px]"
+    >
+      {cta.title}
+    </h3>
+    {
+      cta.description && (
+        <p class="text-[18px] leading-[26px] font-medium break-words text-[var(--color-text-primary)] opacity-[0.88] max-md:text-[16px] max-md:leading-[22px]">
+          {cta.description}
+        </p>
+      )
+    }
+  </div>
+
+  <div
+    class={cn(
+      "flex shrink-0 self-center",
+      isInline ? "max-md:w-full max-md:justify-center" : "w-full justify-center"
+    )}
+  >
+    <a
+      href={cta.button_href}
+      class={cn(
+        "inline-flex items-center justify-center rounded-[8px] bg-[var(--color-action-main)] px-6 py-3 text-[16px] leading-6 font-bold whitespace-nowrap text-[var(--color-action-contrast-text)] transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-[var(--color-action-main)] focus-visible:ring-offset-2 focus-visible:outline-none",
+        isInline ? "max-md:w-full" : "w-full"
+      )}
+    >
+      {cta.button_label}
+    </a>
+  </div>
+</aside>

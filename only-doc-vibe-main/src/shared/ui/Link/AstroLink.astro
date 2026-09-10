@@ -1,0 +1,18 @@
+---
+import { defaultLocale } from "../../config/locale";
+import type { ELanguages } from "../../constants/languages";
+import { getLocalizedPath } from "../../lib/navigation/getLocalizedPath";
+
+interface Props {
+  href: string;
+  rel?: string;
+  className?: string;
+}
+
+const { href, rel, className }: Props = Astro.props;
+const { lang } = Astro.params;
+
+const path = getLocalizedPath(href, (lang || defaultLocale) as ELanguages);
+---
+
+<a href={path} class={className} rel={rel}><slot /></a>

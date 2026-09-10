@@ -1,0 +1,54 @@
+---
+import type { components } from "@/shared/api/cms/cms-schema";
+import type { ELanguages } from "@/shared/constants/languages";
+import { createServerT } from "@/shared/lib/translations/server-t";
+
+import { Footer, type IFooterData } from "@/widgets/footer";
+import { Navbar } from "@/widgets/navbar";
+
+interface Props {
+  lang: ELanguages;
+  navbarData?: components["schemas"]["NavbarResponse"]["data"] | undefined;
+  footerData?: components["schemas"]["FooterResponse"]["data"] | undefined;
+  pageLocalizations?: ELanguages[];
+}
+
+const {
+  lang: currentLocale,
+  navbarData,
+  footerData,
+  pageLocalizations,
+} = Astro.props;
+
+const t = createServerT(currentLocale);
+const pdfTemplatesLabel = t("seo.templates.nav_link") as string;
+---
+
+<div class="bg-[var(--color-bg-light-grey)]">
+  {
+    navbarData && (
+      <Navbar
+        navbarData={navbarData}
+        locale={currentLocale}
+        pathname={Astro.url.pathname}
+        pageLocalizations={pageLocalizations}
+        pdfTemplatesLabel={pdfTemplatesLabel}
+        client:idle
+      />
+    )
+  }
+
+  <main class="flex-1">
+    <slot />
+  </main>
+
+  {
+    footerData && (
+      <Footer
+        lang={currentLocale}
+        footerData={footerData as IFooterData}
+        pageLocalizations={pageLocalizations}
+      />
+    )
+  }
+</div>

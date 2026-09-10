@@ -1,0 +1,41 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import type { ELanguages } from "@/shared/constants/languages";
+import type { IBlogArticle } from "@/shared/types/blog";
+
+import { ArticleCard } from "../article-card";
+
+interface Props {
+  articles: ReadonlyArray<IBlogArticle>;
+  locale: ELanguages;
+  title: string;
+  viewsLabel: string;
+  className?: string;
+}
+
+const { articles, locale, title, viewsLabel, className } = Astro.props;
+---
+
+{
+  articles.length > 0 && (
+    <section
+      class={cn(
+        "flex w-full flex-col gap-6 rounded-[28px] border border-[rgba(0,0,0,0.08)] bg-white p-8 max-md:rounded-none max-md:border-0 max-md:bg-transparent max-md:px-4 max-md:py-0",
+        className
+      )}
+    >
+      <h2 class="text-[28px] leading-[34px] font-semibold text-[var(--color-text-primary)] max-md:text-[22px] max-md:leading-[28px]">
+        {title}
+      </h2>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {articles.map((article) => (
+          <ArticleCard
+            article={article}
+            locale={locale}
+            viewsLabel={viewsLabel}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}

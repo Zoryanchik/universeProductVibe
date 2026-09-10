@@ -1,0 +1,46 @@
+---
+import aboutUsImage from "@public/assets/cta/cta-illustration.svg?url";
+
+import type { ELanguages } from "@/shared/constants/languages";
+import { EPageType } from "@/shared/constants/page-type";
+import { prepareSeoData } from "@/shared/lib/seo/prepare-seo-data";
+
+import { BasePage } from "../../base";
+import { fetchAboutUsPageData } from "../api/fetch-about-us-page-data";
+import AboutUsSectionRouter from "./sections/router/AboutUsSectionRouter.astro";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+const locale = Astro.props.lang as ELanguages;
+
+const { pageData, navbarData, footerData } = await fetchAboutUsPageData(locale);
+
+if (!pageData) {
+  return;
+}
+
+const sections = pageData.sections ?? [];
+
+const seoProps = prepareSeoData(
+  {
+    ...pageData.seo,
+    publishedAt: pageData.publishedAt,
+    updatedAt: pageData.updatedAt,
+  },
+  Astro.url.pathname,
+  EPageType.ABOUT_US,
+  locale
+);
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  <BasePage lang={locale} navbarData={navbarData} footerData={footerData}>
+    <div class="bg-material-grey-100 w-full">
+      <AboutUsSectionRouter
+        sections={sections}
+        lang={locale}
+        fallbackImageUrl={aboutUsImage}
+      />
+    </div>
+  </BasePage>
+</SeoBaseLayout>

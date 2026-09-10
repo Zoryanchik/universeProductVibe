@@ -1,0 +1,387 @@
+---
+import type { components } from "@/shared/api/cms/cms-schema";
+import type { SectionRouterProps } from "@/shared/types/seo/sections";
+import type { InternalFileType } from "@/shared/constants/file-type";
+import { InternalFileType as FileType } from "@/shared/constants/file-type";
+import { FaqSection } from "@/shared/ui/faq-section";
+import type { ICmsDropZone } from "@/shared/ui/upload-area";
+import { cmsHttpClient } from "@/shared/api/cms/cms-http-client";
+import { STRAPI_ROUTES } from "@/shared/api/strapi-routes";
+import { CmsModalDataHydrator } from "@/shared/lib/cms-modal-content";
+
+import { EFunnels, EServiceType } from "@/entities/documents";
+
+import { CTABannerSection } from "@/widgets/ctaBannerSection";
+
+import { hydrateGlobalElement } from "../../../api/hydrate-global-element";
+import { ECMSSectionComponent } from "../../../constants";
+import {
+  extractCmsModalData,
+  isModalSection,
+} from "../../../model/extract-cms-modal-data";
+import { resolveServiceConfig } from "../../../model/service-config";
+import HomeHeroSection from "../homeHeroSection";
+import { AchievementsSection } from "../achievementsSection";
+import { TrustSection } from "../trustSection";
+import { BenefitsSection } from "../benefitsSection";
+import { ReviewsSection } from "../reviewsSection";
+import { ServiceHeroSection } from "../serviceHeroSection";
+import { HowItWorksSection } from "../howItWorksSection";
+import { AllToolsSection } from "../allToolsSection";
+import { mapCmsServicesToTabsAndCards } from "../homeHeroSection";
+
+type GlobalBlock = components["schemas"]["GlobalBlock"];
+type GlobalBlockResponse = components["schemas"]["GlobalBlockResponse"];
+type ConvertModalComponent =
+  components["schemas"]["ModalsConvertModalComponent"];
+type ToolsGridComponent = components["schemas"]["SectionsToolsGridComponent"];
+type HowToComponent = components["schemas"]["SectionsHowToComponent"] & {
+  steps?: {
+    title: string;
+    value: string;
+    icon?: { url?: string; alternativeText?: string };
+  }[];
+};
+
+const props = Astro.props as SectionRouterProps;
+const slug =
+  props.slug
+    ?.replace(/^\/|\/$/g, "")
+    .split("/")
+    .pop() ?? "";
+const serviceConfig = resolveServiceConfig(slug, props.service);
+
+/**
+ * Pre-fetch the services GlobalBlock for the SERVICES_LIST section.
+ * The `services_group[].services` relation is only a reference at this populate depth,
+ * so we fetch the GlobalBlock directly by documentId with pLevel=5 — same pattern
+ * as homeHeroSection.astro.
+ */
+const toolsGridSection = props.sections?.find(
+  (s): s is ToolsGridComponent =>
+    s.__component === ECMSSectionComponent.TOOLS_GRID
+);
+
+let serviceTabsData = mapCmsServicesToTabsAndCards(undefined, props.lang);
+
+if (toolsGridSection) {
+  const servicesRef = toolsGridSection.services_group?.services as
+    | GlobalBlock
+    | undefined;
+  const documentId = servicesRef?.documentId;
+
+  if (documentId) {
+    try {
+      const response = await cmsHttpClient.getPage<GlobalBlockResponse>(
+        `${STRAPI_ROUTES.GLOBAL_BLOCKS}/${documentId}?pLevel=5&locale=${props.lang}`
+      );
+      serviceTabsData = mapCmsServicesToTabsAndCards(
+        response?.data,
+        props.lang
+      );
+    } catch {
+      // serviceTabsData stays empty; sections will render with fallback data
+    }
+  }
+}
+
+const convertModalSection = props.sections?.find(
+  (s): s is ConvertModalComponent =>
+    s.__component === ECMSSectionComponent.MODAL_CONVERT
+);
+
+if (convertModalSection) {
+  await hydrateGlobalElement(convertModalSection as Record<string, unknown>);
+}
+
+const heroSection = props.sections?.find(
+  (s) => s.__component === ECMSSectionComponent.HERO_SECTION
+) as components["schemas"]["SectionsHeroSectionComponent"] | undefined;
+
+if (heroSection?.convert_modal) {
+  await hydrateGlobalElement(
+    heroSection.convert_modal as Record<string, unknown>
+  );
+}
+
+const cmsModalData = extractCmsModalData(props.sections ?? []);
+---
+
+{
+  Object.keys(cmsModalData).length > 0 && (
+    <CmsModalDataHydrator client:load data={cmsModalData} />
+  )
+}
+
+{
+  props.sections?.map((section) => {
+    const { __component } = section;
+
+    if (isModalSection(__component)) {
+      return null;
+    }
+
+    switch (__component) {
+      case ECMSSectionComponent.HERO_SECTION: {
+        const heroData = section as unknown as {
+          title?: string;
+          subtitle?: string;
+          drop_zone?: ICmsDropZone;
+          services_group?: components["schemas"]["ServiceServicesGroupComponent"];
+        };
+
+        return (
+          <HomeHeroSection
+            lang={props.lang}
+            cmsTitle={heroData.title}
+            cmsSubtitle={heroData.subtitle}
+            cmsDropZone={heroData.drop_zone}
+            cmsServicesGroup={heroData.services_group}
+          />
+        );
+      }
+
+      case ECMSSectionComponent.SERVICE_HERO: {
+        const data =
+          section as components["schemas"]["SectionsServiceHeroComponent"];
+
+        return (
+          <ServiceHeroSection
+            lang={props.lang}
+            title={data.title}
+            subtitle={data.description}
+            buttonLabel={data.drop_zone?.cta_button_title}
+            supportedFormatsText={data.drop_zone?.supported_formats_description}
+            maxSizeText={data.drop_zone?.supported_sizes_description}
+            serviceType={serviceConfig?.serviceType}
+            funnel={serviceConfig?.funnel}
+            formatTo={serviceConfig?.formatTo}
+            acceptedFormats={
+              serviceConfig?.acceptedFormats as InternalFileType[] | undefined
+            }
+          />
+        );
+      }
+
+      case ECMSSectionComponent.HOW_TO: {
+        const data = section as HowToComponent;
+        const steps = (data.steps ?? []).map((s) => ({
+          title: s.title,
+          description: s.value,
+          imageSrc: s.icon?.url ?? "",
+          imageAlt: s.icon?.alternativeText ?? s.title,
+        }));
+
+        return (
+          <HowItWorksSection client:load title={data.title} steps={steps} />
+        );
+      }
+
+      case ECMSSectionComponent.TOOLS_GRID: {
+        const data = section as ToolsGridComponent;
+
+        return (
+          <AllToolsSection
+            client:load
+            title={data.title}
+            tabs={serviceTabsData.tabs}
+            cards={serviceTabsData.cards}
+            featureHighlights={serviceTabsData.featureHighlights}
+            showMoreButtonText={serviceTabsData.showMoreButtonText}
+          />
+        );
+      }
+
+      case ECMSSectionComponent.ACHIVEMENTS: {
+        const data =
+          section as components["schemas"]["SectionsAchivementsComponent"];
+
+        return (
+          <AchievementsSection
+            lang={props.lang}
+            cmsTitle={data.title}
+            cmsItems={data.achievement_item}
+          />
+        );
+      }
+
+      case ECMSSectionComponent.TRUST: {
+        const data = section as components["schemas"]["SectionsTrustComponent"];
+        const badges = (data.image_item ?? []).map((item) => ({
+          id: item.image_id ?? String(item.id),
+          name: item.image_id ?? "",
+          iconPath: item.image?.url ?? "",
+          alt: item.image?.alternativeText ?? item.image_id ?? "",
+        }));
+
+        return <TrustSection title={data.title} badges={badges} />;
+      }
+
+      case ECMSSectionComponent.WHY_CHOOSE: {
+        const data =
+          section as components["schemas"]["SectionsWhyChooseComponent"] & {
+            blocks?: {
+              id: string | number;
+              title: string;
+              value: string;
+              icon?: { url: string };
+            }[];
+            text_block?: {
+              id: string | number;
+              title: string;
+              description: string;
+            }[];
+          };
+        const blocks = data.blocks ?? [];
+        const legacyBlocks = data.text_block ?? [];
+
+        const items =
+          blocks.length > 0
+            ? blocks.map((block) => ({
+                id: String(block.id),
+                title: block.title,
+                description: block.value,
+                iconUrl: block.icon?.url ?? "",
+              }))
+            : legacyBlocks.map((block) => ({
+                id: String(block.id),
+                title: block.title,
+                description: block.description,
+                iconUrl: "",
+              }));
+
+        const content = {
+          title: data.title,
+          gridLabel: "",
+          items,
+        };
+
+        return <BenefitsSection lang={props.lang} content={content} />;
+      }
+
+      case ECMSSectionComponent.EMOJIE_BANNER: {
+        const data =
+          section as components["schemas"]["GlobalEmojieBannerComponent"];
+
+        const ctaTitle = data.title ?? "";
+        const ctaButtonLabel = data.button_cta ?? "";
+        const ctaBadges = (data.emojie_description ?? []).map((b, i) => ({
+          id: String(i),
+          label: b.description ?? "",
+        }));
+
+        return (
+          <CTABannerSection
+            title={ctaTitle}
+            badges={ctaBadges}
+            buttonLabel={ctaButtonLabel}
+            serviceType={serviceConfig?.serviceType ?? EServiceType.CONVERTOR}
+            funnel={serviceConfig?.funnel ?? EFunnels.MAIN}
+            formatTo={serviceConfig?.formatTo}
+            acceptedFormats={
+              (serviceConfig?.acceptedFormats as InternalFileType[]) ?? [
+                FileType.PDF,
+              ]
+            }
+          />
+        );
+      }
+
+      case ECMSSectionComponent.TRUSTPILOT_REVIEWS: {
+        const data =
+          section as components["schemas"]["GlobalTrustpilotReviewsComponent"];
+        const reviews = (data.review_item ?? []).map((item, index) => ({
+          id: String(index + 1),
+          title: item.title,
+          text: item.description,
+          author: item.author,
+          date: item.date,
+        }));
+
+        return (
+          <ReviewsSection
+            lang={props.lang}
+            cmsTitle={data.title}
+            cmsReviews={reviews}
+          />
+        );
+      }
+
+      case ECMSSectionComponent.FAQ: {
+        const data = section as components["schemas"]["SectionsFaqComponent"];
+        const items = (data.q_and_a ?? []).map((item, index) => ({
+          id: String(index + 1),
+          question: item.question,
+          answer: item.answer,
+        }));
+
+        const faqTitle = [data.prefix, data.middle_title, data.suffix]
+          .filter(Boolean)
+          .join(" ");
+
+        return <FaqSection client:load title={faqTitle} items={items} />;
+      }
+
+      case ECMSSectionComponent.GLOBAL_SECTION: {
+        const globalData =
+          section as components["schemas"]["SectionsGlobalSectionComponent"];
+
+        const globalBlock =
+          globalData.global_section as unknown as components["schemas"]["GlobalBlock"];
+
+        switch (globalData.section_id) {
+          case "achievement": {
+            const achievementsWidget = globalBlock?.widgets?.find(
+              (w): w is components["schemas"]["SectionsAchivementsComponent"] =>
+                "__component" in w && w.__component === "sections.achivements"
+            );
+
+            if (achievementsWidget) {
+              return (
+                <AchievementsSection
+                  lang={props.lang}
+                  cmsTitle={achievementsWidget.title}
+                  cmsItems={achievementsWidget.achievement_item}
+                />
+              );
+            }
+
+            return null;
+          }
+
+          case "trust": {
+            const trustWidget = globalBlock?.widgets?.find(
+              (w): w is components["schemas"]["SectionsTrustComponent"] =>
+                "__component" in w && w.__component === "sections.trust"
+            );
+
+            if (trustWidget) {
+              const badges = (trustWidget.image_item ?? []).map((item) => ({
+                id: item.image_id ?? String(item.id),
+                name: item.image_id ?? "",
+                iconPath: item.image?.url ?? "",
+                alt: item.image?.alternativeText ?? item.image_id ?? "",
+              }));
+
+              return <TrustSection title={trustWidget.title} badges={badges} />;
+            }
+
+            return null;
+          }
+
+          default:
+            console.warn(
+              `Unsupported global section: ${globalData.section_id}`
+            );
+
+            return null;
+        }
+      }
+
+      default:
+        console.warn(`Unsupported section type: ${__component}`);
+
+        return null;
+    }
+  })
+}

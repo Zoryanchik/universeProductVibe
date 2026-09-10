@@ -1,0 +1,85 @@
+---
+import type { components } from "@/shared/api/cms/cms-schema";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import type { ELanguages } from "@/shared/constants/languages";
+import { Title } from "@/shared/ui/title";
+
+import { ACHIEVEMENT_CARDS } from "../model/constants";
+import { AchievementCard } from "./AchievementCard";
+import { getAchievementsData } from "./lib";
+
+interface Props {
+  readonly lang: ELanguages;
+  readonly cmsTitle?: string;
+  readonly cmsItems?: components["schemas"]["CommonAchievementItemComponent"][];
+  readonly variant?: "default" | "about-us";
+}
+
+const { lang, cmsTitle, cmsItems, variant = "default" } = Astro.props;
+
+const t = createServerT(lang);
+
+// Build CMS data by merging CMS text content with local visual constants
+const cmsData = {
+  title: cmsTitle,
+  cards: cmsItems?.map((item, index) => {
+    const fallback = ACHIEVEMENT_CARDS[index] ?? ACHIEVEMENT_CARDS[0];
+
+    return {
+      ...fallback,
+      id: String(item.id),
+      label: item.title,
+      value: item.figures,
+      iconUrl: item.image?.[0]?.url, // Use image from CMS
+    };
+  }),
+};
+
+const { title, cards } = getAchievementsData(t, cmsData);
+---
+
+{
+  variant === "about-us" ? (
+    <section class="w-full bg-white">
+      <div class="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-4 px-4 pt-10 pb-6 min-[1024px]:gap-10 min-[1024px]:px-[114px] min-[1024px]:pt-[104px] min-[1024px]:pb-10 min-[1440px]:px-[150px]">
+        <Title level="h2" variant="desktop-title-2">
+          {title}
+        </Title>
+
+        <div class="grid w-full grid-cols-2 gap-2 min-[1024px]:grid-cols-3 min-[1024px]:gap-4">
+          {cards.slice(0, 3).map((card, index) => (
+            <div
+              class:list={[
+                "flex flex-col items-center gap-2 rounded-2xl bg-[var(--color-bg-light-grey)] p-4 text-center min-[1024px]:gap-3 min-[1024px]:p-8",
+                index === 2 && "col-span-2 min-[1024px]:col-span-1",
+              ]}
+            >
+              <p class="text-mobile-title-2 md:text-desktop-title-2 font-semibold text-black/87">
+                {card.value}
+              </p>
+              <p class="text-subtitle text-black/60">{card.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="flex w-full flex-col items-center self-stretch pt-12 pb-6 md:pt-30 md:pb-15">
+      <div class="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-12 px-4 md:px-10">
+        <div class="flex w-full items-center justify-center">
+          <Title level="h2" variant="desktop-title-2">
+            {title}
+          </Title>
+        </div>
+
+        <div class="flex w-full flex-col flex-wrap items-center justify-center gap-6 md:gap-8 lg:flex-row">
+          {cards.map((card) => (
+            <div class="relative">
+              <AchievementCard client:load card={card} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

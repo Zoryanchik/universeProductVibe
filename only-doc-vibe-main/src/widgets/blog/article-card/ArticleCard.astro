@@ -1,0 +1,105 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import type { ELanguages } from "@/shared/constants/languages";
+import { getBlogArticleUrl } from "@/shared/lib/navigation/get-blog-url";
+import { formatBlogDate } from "@/shared/lib/blog/format-date";
+import type { IBlogArticle } from "@/shared/types/blog";
+
+interface Props {
+  article: IBlogArticle;
+  locale: ELanguages;
+  viewsLabel: string;
+  className?: string;
+  /** LCP candidate (first card): loads eagerly with high fetch priority. */
+  priority?: boolean;
+  /** Above-the-fold card: loads eagerly (normal priority). */
+  eager?: boolean;
+}
+
+const {
+  article,
+  locale,
+  viewsLabel,
+  className,
+  priority = false,
+  eager = false,
+} = Astro.props;
+const href = getBlogArticleUrl(locale, article.slug);
+const formattedDate = formatBlogDate(article.publication_date, locale);
+const tagLabel = article.category?.name;
+const views = article.views_number ?? 0;
+const imageUrl = article.bg_image?.url;
+const imageAlt = article.bg_image?.alternativeText ?? article.title;
+const imageWidth = article.bg_image?.width;
+const imageHeight = article.bg_image?.height;
+// Eager-load above-the-fold cards so the LCP image isn't deferred; the first
+// card additionally gets fetchpriority=high so the browser fetches it first.
+const imageLoading = priority || eager ? "eager" : "lazy";
+const imageFetchPriority = priority ? "high" : undefined;
+---
+
+<a
+  href={href}
+  class={cn(
+    "group flex flex-col overflow-hidden rounded-[20px] bg-white",
+    "border border-[var(--color-os-outline-border)] transition-colors hover:border-[var(--color-action-16)]",
+    className
+  )}
+>
+  <div
+    class="h-[180px] w-full shrink-0 overflow-hidden bg-[var(--color-blog-thumbnail-bg)]"
+  >
+    {
+      imageUrl && (
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          width={imageWidth}
+          height={imageHeight}
+          loading={imageLoading}
+          fetchpriority={imageFetchPriority}
+          decoding="async"
+          class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+        />
+      )
+    }
+  </div>
+
+  <div class="flex flex-col gap-3 p-4">
+    <div class="flex flex-col gap-2">
+      {
+        tagLabel && (
+          <span class="inline-flex w-fit items-center rounded-[6px] border border-white bg-[var(--color-blog-badge-bg)] px-2 py-1 text-[10px] leading-[14px] font-bold tracking-[0.2px] text-[var(--color-primary-dark)] uppercase">
+            {tagLabel}
+          </span>
+        )
+      }
+
+      <h3
+        class="line-clamp-2 text-[16px] leading-[20px] font-semibold text-[var(--color-text-primary)]"
+      >
+        {article.title}
+      </h3>
+    </div>
+
+    <div
+      class="flex items-center gap-2 overflow-hidden text-[13px] leading-4 tracking-[0.26px] text-[var(--color-text-secondary)]"
+    >
+      {formattedDate && <span class="shrink-0">{formattedDate}</span>}
+      {
+        formattedDate && views > 0 && (
+          <span aria-hidden="true" class="shrink-0">
+            ·
+          </span>
+        )
+      }
+      {
+        views > 0 && (
+          <span class="shrink-0">
+            {viewsLabel.replace("{{count}}", views.toLocaleString(locale))}
+          </span>
+        )
+      }
+    </div>
+  </div>
+</a>

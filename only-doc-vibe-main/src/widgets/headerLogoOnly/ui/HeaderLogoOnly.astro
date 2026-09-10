@@ -1,0 +1,66 @@
+---
+import { createServerT } from "@/shared/lib/translations/server-t";
+import type { ELanguages } from "@/shared/constants/languages";
+import { getLocalizedPath } from "@/shared/lib/navigation/getLocalizedPath";
+
+import { Logo } from "./Logo";
+
+interface Props {
+  lang?: ELanguages;
+  showLoginButton?: boolean;
+  pageTitle?: string;
+  class?: string;
+}
+
+const {
+  lang,
+  showLoginButton = false,
+  pageTitle,
+  class: className,
+} = Astro.props;
+const t = lang ? createServerT(lang) : null;
+const loginLabel = t ? t("aiSummarizer.page.loginCta") : "Log in";
+const loginHref = lang ? getLocalizedPath("/login", lang) : "/login";
+---
+
+<header
+  class:list={[
+    "z-1 flex min-h-14 w-full items-center justify-between gap-10 self-stretch bg-white px-8 py-2 shadow-[0_2px_8px_rgba(0,0,0,0.12)]",
+    className,
+  ]}
+>
+  {
+    pageTitle ? (
+      <nav class="grid w-full grid-cols-3 items-center">
+        <div class="flex items-center">
+          <Logo client:load />
+        </div>
+        <div class="flex items-center justify-center">
+          <h1 class="text-xl font-bold text-gray-900">{pageTitle}</h1>
+        </div>
+        <div class="flex items-center justify-end">
+          {showLoginButton && (
+            <a
+              href={loginHref}
+              class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]"
+            >
+              {loginLabel}
+            </a>
+          )}
+        </div>
+      </nav>
+    ) : (
+      <nav class="flex w-full items-center justify-between">
+        <Logo client:load />
+        {showLoginButton && (
+          <a
+            href={loginHref}
+            class="rounded-lg border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]"
+          >
+            {loginLabel}
+          </a>
+        )}
+      </nav>
+    )
+  }
+</header>

@@ -1,0 +1,9 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+
+import { getLocalizedMainPages } from "../../api/get-home-static-routes";
+
+export async function getHomePageLocalesStaticPaths() {
+  return getLocalizedMainPages([defaultLocale]);
+}
+---

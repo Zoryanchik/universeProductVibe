@@ -1,0 +1,18 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+
+import { getLocalizedAboutUsPages } from "../api/get-about-us-static-routes";
+import BaseAboutUsPage from "./BaseAboutUsPage.astro";
+
+interface Params {
+  lang: ELanguages;
+}
+
+export async function getAboutUsLocalesStaticPaths() {
+  return await getLocalizedAboutUsPages();
+}
+
+const { lang } = Astro.params as unknown as Params;
+---
+
+<BaseAboutUsPage lang={lang} />

@@ -1,0 +1,37 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import type { IBlogCtaBlock } from "@/shared/types/blog";
+
+interface Props {
+  cta: IBlogCtaBlock;
+  className?: string;
+}
+
+const { cta, className } = Astro.props;
+---
+
+<aside
+  class={cn(
+    "flex flex-col gap-4 rounded-[12px] bg-[var(--color-blog-cta-bg)] p-4",
+    className
+  )}
+>
+  <div class="flex flex-col gap-1 text-[var(--color-text-primary)]">
+    <h3 class="text-[18px] leading-[26px] font-semibold">
+      {cta.title}
+    </h3>
+    {
+      cta.description && (
+        <p class="text-[16px] leading-[22px] opacity-[0.88]">
+          {cta.description}
+        </p>
+      )
+    }
+  </div>
+  <a
+    href={cta.button_href}
+    class="inline-flex w-full items-center justify-center rounded-[8px] bg-[var(--color-action-main)] px-2 py-[6px] text-[14px] leading-5 font-bold text-[var(--color-action-contrast-text)] transition-opacity hover:opacity-90"
+  >
+    {cta.button_label}
+  </a>
+</aside>

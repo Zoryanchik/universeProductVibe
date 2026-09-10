@@ -1,0 +1,16 @@
+---
+import {
+  CatalogPage,
+  getCatalogPagedStaticPaths,
+} from "@/pages-layer/pdfTemplates";
+
+export const getStaticPaths = getCatalogPagedStaticPaths;
+
+interface Props {
+  page: number;
+}
+
+const { page } = Astro.props;
+---
+
+<CatalogPage page={page} />

@@ -1,0 +1,103 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import type { IBlogAuthor } from "@/shared/types/blog";
+import { AuthorAvatar } from "@/shared/ui/author-avatar";
+
+interface Props {
+  author: IBlogAuthor;
+  className?: string;
+}
+
+const { author, className } = Astro.props;
+
+const socialIcons = {
+  twitter: "/assets/icons/author-profile/x-icon.svg",
+  linkedin: "/assets/icons/author-profile/linkedin-icon.svg",
+  email: "/assets/icons/author-profile/email-icon.svg",
+} as const;
+---
+
+<aside
+  class={cn(
+    "flex w-full flex-col items-center gap-5 rounded-[16px] bg-[#f5f5f5] px-5 py-6 text-center",
+    className
+  )}
+>
+  <AuthorAvatar author={author} size={80} />
+
+  <!-- Name + role -->
+  <div class="flex w-full flex-col gap-2 text-center">
+    <h3
+      class="text-[20px] leading-[24px] font-semibold text-[var(--color-text-primary)]"
+    >
+      {author.name}
+    </h3>
+    {
+      author.role && (
+        <p class="text-[14px] leading-[18px] text-[var(--color-text-secondary)]">
+          {author.role}
+        </p>
+      )
+    }
+  </div>
+
+  <!-- Social links -->
+  {
+    (author.twitter_url || author.linkedin_url || author.email) && (
+      <div class="flex items-center justify-center gap-2">
+        {author.twitter_url && (
+          <a
+            href={author.twitter_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${author.name} on X (Twitter)`}
+            class="inline-flex h-8 w-8 items-center justify-center rounded-[8px] bg-[var(--color-action-main)] transition-opacity hover:opacity-90"
+          >
+            <img
+              src={socialIcons.twitter}
+              alt=""
+              aria-hidden="true"
+              width="32"
+              height="32"
+              class="h-8 w-8"
+            />
+          </a>
+        )}
+        {author.linkedin_url && (
+          <a
+            href={author.linkedin_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${author.name} on LinkedIn`}
+            class="inline-flex h-8 w-8 items-center justify-center rounded-[8px] bg-[var(--color-action-main)] transition-opacity hover:opacity-90"
+          >
+            <img
+              src={socialIcons.linkedin}
+              alt=""
+              aria-hidden="true"
+              width="32"
+              height="32"
+              class="h-8 w-8"
+            />
+          </a>
+        )}
+        {author.email && (
+          <a
+            href={`mailto:${author.email}`}
+            aria-label={`Email ${author.name}`}
+            class="inline-flex h-8 w-8 items-center justify-center rounded-[8px] bg-[var(--color-action-main)] transition-opacity hover:opacity-90"
+          >
+            <img
+              src={socialIcons.email}
+              alt=""
+              aria-hidden="true"
+              width="30"
+              height="30"
+              class="h-8 w-8"
+            />
+          </a>
+        )}
+      </div>
+    )
+  }
+</aside>

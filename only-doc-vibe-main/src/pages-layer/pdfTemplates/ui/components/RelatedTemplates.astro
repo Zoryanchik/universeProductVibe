@@ -1,0 +1,31 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import { createServerT } from "@/shared/lib/translations/server-t";
+
+import type { ITemplateCard } from "../../model/types";
+import TemplateCard from "./TemplateCard.astro";
+
+interface Props {
+  title?: string;
+  templates: ReadonlyArray<ITemplateCard>;
+}
+
+const t = createServerT(defaultLocale);
+const { title, templates } = Astro.props;
+const heading = title ?? (t("seo.templates.related_title") as string);
+---
+
+{
+  templates.length > 0 && (
+    <section class="mx-auto flex w-full max-w-[1140px] flex-col items-center gap-8 px-4 py-12">
+      <h2 class="text-desktop-title-2 max-md:text-mobile-title-2 text-center font-bold text-[var(--color-text-primary)]">
+        {heading}
+      </h2>
+      <div class="grid w-full grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
+        {templates.slice(0, 3).map((card) => (
+          <TemplateCard card={card} />
+        ))}
+      </div>
+    </section>
+  )
+}

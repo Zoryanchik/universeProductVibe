@@ -1,0 +1,17 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+
+import { BlogListPage } from "@/pages-layer/blog";
+import { getBlogListPagedStaticPaths } from "@/pages-layer/blog";
+
+export const getStaticPaths = getBlogListPagedStaticPaths;
+
+interface Props {
+  locale: ELanguages;
+  page: number;
+}
+
+const { locale, page } = Astro.props;
+---
+
+<BlogListPage locale={locale} page={page} />

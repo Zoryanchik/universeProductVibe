@@ -1,0 +1,50 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+
+import type { BreadcrumbItem } from "./types";
+
+interface Props {
+  items: BreadcrumbItem[];
+  className?: string;
+}
+
+const { items, className } = Astro.props;
+---
+
+<nav
+  aria-label="Breadcrumbs"
+  class={cn("flex flex-wrap items-center overflow-hidden", className)}
+>
+  <ol class="flex flex-wrap items-center">
+    {
+      items.map((item, index) => {
+        const isLast = index === items.length - 1;
+
+        return (
+          <li class="flex items-center">
+            {item.href && !isLast ? (
+              <a
+                href={item.href}
+                class="text-[13px] leading-[16px] tracking-[0.26px] text-[var(--color-blog-category-active)] hover:underline"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <span
+                aria-current={isLast ? "page" : undefined}
+                class="text-[13px] leading-[16px] tracking-[0.26px] text-[var(--color-text-secondary)]"
+              >
+                {item.label}
+              </span>
+            )}
+            {!isLast && (
+              <span class="mx-1 px-[6px] text-[14px] text-[rgba(0,0,0,0.48)] opacity-80">
+                /
+              </span>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

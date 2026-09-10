@@ -1,0 +1,204 @@
+---
+import { WEB_HOST } from "astro:env/client";
+
+import { defaultLocale } from "@/shared/config/locale";
+import { EPageType } from "@/shared/constants/page-type";
+import { blocksToMarkdown } from "@/shared/lib/blog/blocks-to-markdown";
+import { buildPaginatedSeo } from "@/shared/lib/seo/build-paginated-seo";
+import { createServerT } from "@/shared/lib/translations/server-t";
+import {
+  FaqSectionAstro,
+  getCmsFaqTitle,
+  mapCmsFaqItems,
+} from "@/shared/ui/faq-section";
+
+import { Breadcrumbs } from "@/widgets/blog";
+import { BlogPagination } from "@/widgets/blog";
+
+import BasePage from "../../base/ui/BasePage.astro";
+import {
+  fetchTemplateCategory,
+  fetchTemplateSubcategory,
+} from "../api/fetch-template-category";
+import { fetchTemplatesListContext } from "../api/fetch-templates-list-context";
+import { listTemplates } from "../lib/derive-listings";
+import {
+  buildCategorySchema,
+  buildSubcategorySchema,
+} from "../lib/schema/build-templates-schema";
+import {
+  getCatalogUrl,
+  getCategoryUrl,
+  getSubcategoryUrl,
+  withPage,
+} from "../lib/urls";
+import { CategorySidebar } from "./components/CategorySidebar";
+import TemplatesGrid from "./components/TemplatesGrid.astro";
+import AboutSection from "./components/AboutSection.astro";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Props {
+  categorySlug: string;
+  subcategorySlug?: string;
+  page?: number;
+}
+
+const locale = defaultLocale;
+const t = createServerT(locale);
+const { categorySlug } = Astro.props;
+const subcategorySlug = Astro.props.subcategorySlug;
+const page = Astro.props.page ?? Number(Astro.params.n ?? 1);
+const isSubcategory = Boolean(subcategorySlug);
+
+const [context, category, subcategory] = await Promise.all([
+  fetchTemplatesListContext(locale),
+  fetchTemplateCategory(categorySlug, locale),
+  subcategorySlug
+    ? fetchTemplateSubcategory(subcategorySlug, locale)
+    : Promise.resolve(undefined),
+]);
+
+if (!category || (isSubcategory && !subcategory)) {
+  return Astro.redirect("/404");
+}
+
+const entity = isSubcategory ? subcategory! : category;
+const heroTitle = entity.title ?? categorySlug;
+
+const listing = listTemplates(context.index, page, {
+  categorySlug,
+  subcategorySlug,
+});
+
+const abs = (path: string): string => `https://${WEB_HOST}${path}`;
+const categoryUrl = getCategoryUrl(categorySlug);
+const basePath = isSubcategory
+  ? getSubcategoryUrl(categorySlug, subcategorySlug!)
+  : categoryUrl;
+
+const faqComponent = entity.faq?.[0];
+const faqItems = mapCmsFaqItems(faqComponent);
+const faqTitle = getCmsFaqTitle(faqComponent);
+const aboutMarkdown = blocksToMarkdown(entity.about_paragraphs);
+
+// SEO + FAQ blocks only on the first pagination page (avoid content dup).
+const isFirstPage = page <= 1;
+
+const seoProps = buildPaginatedSeo({
+  baseSeo: entity.seo,
+  paginatedOverrides: entity.paginated_seo,
+  page,
+  pathname: withPage(basePath, page),
+  locale,
+  pageType: isSubcategory
+    ? EPageType.TEMPLATE_SUBCATEGORY
+    : EPageType.TEMPLATE_CATEGORY,
+  availableLocales: [defaultLocale],
+});
+
+const schemaFaqItems = faqItems.map((item) => ({
+  question: item.question,
+  answer: item.answer,
+}));
+
+seoProps.schema = isSubcategory
+  ? buildSubcategorySchema({
+      name: entity.title ?? subcategorySlug!,
+      description: entity.seo?.metaDescription ?? "",
+      url: abs(basePath),
+      categoryName: category.title ?? categorySlug,
+      categoryUrl: abs(categoryUrl),
+      faqItems: schemaFaqItems,
+    })
+  : buildCategorySchema({
+      name: entity.title ?? categorySlug,
+      description: entity.seo?.metaDescription ?? "",
+      url: abs(categoryUrl),
+      faqItems: schemaFaqItems,
+    });
+
+const breadcrumbItems = [
+  { label: t("seo.templates.breadcrumbs_home") as string, href: "/" },
+  {
+    label: t("seo.templates.breadcrumbs_catalog") as string,
+    href: getCatalogUrl(),
+  },
+  ...(isSubcategory
+    ? [
+        { label: category.title ?? categorySlug, href: categoryUrl },
+        { label: entity.title ?? subcategorySlug! },
+      ]
+    : [{ label: entity.title ?? categorySlug }]),
+];
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  <BasePage
+    lang={locale}
+    navbarData={context.navbarData}
+    footerData={context.footerData}
+    pageLocalizations={[defaultLocale]}
+  >
+    <div class="w-full bg-[var(--color-bg-light-grey)]">
+      <section class="mx-auto w-full max-w-[1440px] px-8 py-12 max-md:px-4">
+        <div class="mb-8 flex flex-col gap-4">
+          <Breadcrumbs items={breadcrumbItems} />
+          <h1
+            class="text-desktop-title-1 max-md:text-mobile-title-1 font-extrabold text-[var(--color-text-primary)]"
+          >
+            {heroTitle}
+          </h1>
+        </div>
+
+        <div
+          class="flex w-full gap-8 rounded-[28px] bg-white p-8 max-md:flex-col max-md:p-4"
+        >
+          <CategorySidebar
+            client:load
+            className="flex max-md:hidden"
+            categories={context.categoryNav}
+            activeCategorySlug={categorySlug}
+            activeSubcategorySlug={subcategorySlug}
+            allTemplatesLabel={t("seo.templates.all_templates") as string}
+            navLabel={t("seo.templates.sidebar_aria") as string}
+            expandLabel={t("seo.templates.expand") as string}
+            collapseLabel={t("seo.templates.collapse") as string}
+          />
+
+          <div class="flex min-w-0 flex-1 flex-col gap-10">
+            <TemplatesGrid templates={listing.templates} />
+            <BlogPagination
+              page={listing.page}
+              pageCount={listing.pageCount}
+              basePath={basePath}
+            />
+          </div>
+        </div>
+      </section>
+
+      {
+        isFirstPage && (
+          <AboutSection
+            title={
+              t("seo.templates.about_title", { name: heroTitle }) as string
+            }
+            content={aboutMarkdown}
+          />
+        )
+      }
+
+      {
+        isFirstPage && faqItems.length > 0 && (
+          <div class="mx-auto w-full max-w-[1140px] px-4 pb-16">
+            <FaqSectionAstro
+              title={faqTitle}
+              items={faqItems}
+              className="[&_h3]:text-[18px] lg:[&_h3]:text-[20px]"
+            />
+          </div>
+        )
+      }
+    </div>
+  </BasePage>
+</SeoBaseLayout>

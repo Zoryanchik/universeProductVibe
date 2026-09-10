@@ -1,0 +1,88 @@
+---
+import { cn } from "../../lib/utils/cn";
+import type { IBlogAuthor } from "../../types/blog";
+
+interface Props {
+  /** Author whose avatar should be displayed. Only `name` and `avatar` are used. */
+  author: Pick<IBlogAuthor, "name" | "avatar">;
+  /** Diameter in px. Supported: 32 (default), 40, 48, 64, 80. */
+  size?: 32 | 40 | 48 | 64 | 80;
+  className?: string;
+}
+
+const { author, size = 32, className } = Astro.props;
+
+const url = author.avatar?.url;
+const alt = author.avatar?.alternativeText ?? author.name;
+
+/**
+ * Static palette — class strings are kept as plain literals so Tailwind's JIT
+ * picks them up at build time (dynamic class strings are NOT scanned).
+ */
+const COLOR_CLASSES = [
+  "bg-[#1f5de2]",
+  "bg-[#b29a1f]",
+  "bg-[#7c3aed]",
+  "bg-[#ea580c]",
+  "bg-[#db2777]",
+  "bg-[#0891b2]",
+  "bg-[#059669]",
+  "bg-[#dc2626]",
+  "bg-[#9333ea]",
+] as const;
+
+/** Deterministic hash — same name always yields the same color. */
+const hash = Array.from(author.name).reduce(
+  (acc, ch) => (acc * 31 + ch.charCodeAt(0)) >>> 0,
+  0
+);
+const colorClass = COLOR_CLASSES[hash % COLOR_CLASSES.length];
+
+/** Up to two initials, taken from the first two words of the name. */
+const initials = author.name
+  .trim()
+  .split(/\s+/)
+  .slice(0, 2)
+  .map((word) => word.charAt(0).toUpperCase())
+  .join("");
+
+const SIZE_CLASS: Record<NonNullable<Props["size"]>, string> = {
+  32: "h-8 w-8 text-[14px] leading-[18px]",
+  40: "h-10 w-10 text-[16px] leading-[20px]",
+  48: "h-12 w-12 text-[20px] leading-[24px]",
+  64: "h-16 w-16 text-[26px] leading-[32px]",
+  80: "h-20 w-20 text-[32px] leading-[40px]",
+};
+
+const sizeClass = SIZE_CLASS[size];
+---
+
+{
+  url ? (
+    <img
+      src={url}
+      alt={alt}
+      width={size}
+      height={size}
+      loading="lazy"
+      class={cn(
+        "shrink-0 rounded-full border border-[rgba(0,0,0,0.15)] object-cover",
+        sizeClass,
+        className
+      )}
+    />
+  ) : (
+    <div
+      aria-label={alt}
+      role="img"
+      class={cn(
+        "flex shrink-0 items-center justify-center rounded-full font-medium text-white",
+        sizeClass,
+        colorClass,
+        className
+      )}
+    >
+      {initials}
+    </div>
+  )
+}

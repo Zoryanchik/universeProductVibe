@@ -1,0 +1,294 @@
+---
+import type { components } from "@/shared/api/cms/cms-schema";
+import type { ELanguages } from "@/shared/constants/languages";
+import { InternalFileType } from "@/shared/constants/file-type";
+import { FaqSection } from "@/shared/ui/faq-section";
+
+import { EFunnels, EServiceType } from "@/entities/documents";
+
+import { CTABannerSection } from "@/widgets/ctaBannerSection";
+
+import { AchievementsSection } from "../../../../seoService/ui/sections/achievementsSection";
+import { ReviewsSection } from "../../../../seoService/ui/sections/reviewsSection";
+import { TrustSection } from "../../../../seoService/ui/sections/trustSection";
+import { AboutUsSection } from "../aboutUsSection";
+import { EAboutUsSectionComponent } from "../../../constants";
+
+type AboutUsData = components["schemas"]["AboutUs"];
+
+interface Props {
+  readonly sections: AboutUsData["sections"];
+  readonly lang: ELanguages;
+  readonly fallbackImageUrl: string;
+}
+
+const { sections, lang, fallbackImageUrl } = Astro.props;
+---
+
+{
+  sections?.map((section) => {
+    const { __component } = section;
+
+    switch (__component as string) {
+      case EAboutUsSectionComponent.ABOUT_INFO: {
+        const data =
+          section as components["schemas"]["SectionsAboutInfoComponent"];
+
+        return (
+          <AboutUsSection
+            title={data.title}
+            subtitle={data.subtitle}
+            content={data.content}
+            imageUrl={data.image?.url || fallbackImageUrl}
+            imageAlt={data.image?.alternativeText || "About us"}
+          />
+        );
+      }
+
+      case EAboutUsSectionComponent.TRUSTPILOT_REVIEWS: {
+        const data =
+          section as components["schemas"]["GlobalTrustpilotReviewsComponent"];
+        const reviews = (data.review_item ?? []).map((item, index) => ({
+          id: String(index + 1),
+          title: item.title,
+          text: item.description,
+          author: item.author,
+          date: item.date,
+        }));
+
+        return (
+          <ReviewsSection
+            disableBackground
+            lang={lang}
+            variant="about-us"
+            cmsTitle={data.title}
+            cmsReviews={reviews}
+          />
+        );
+      }
+
+      case EAboutUsSectionComponent.EMOJIE_BANNER: {
+        const data =
+          section as components["schemas"]["GlobalEmojieBannerComponent"];
+
+        const ctaBadges = (data.emojie_description ?? []).map((b, i) => ({
+          id: String(i),
+          label: b.description ?? "",
+        }));
+
+        return (
+          <CTABannerSection
+            title={data.title ?? ""}
+            badges={ctaBadges}
+            buttonLabel={data.button_cta ?? ""}
+            serviceType={EServiceType.CONVERTOR}
+            funnel={EFunnels.MAIN}
+            acceptedFormats={[InternalFileType.PDF]}
+          />
+        );
+      }
+
+      case EAboutUsSectionComponent.TOOLS_GRID:
+      case EAboutUsSectionComponent.TEXT_CONTENT:
+      case EAboutUsSectionComponent.CTA_BANNER: {
+        return null;
+      }
+
+      case EAboutUsSectionComponent.FAQ: {
+        const data = section as components["schemas"]["SectionsFaqComponent"];
+        const items = (data.q_and_a ?? []).map((item, index) => ({
+          id: String(index + 1),
+          question: item.question,
+          answer: item.answer,
+        }));
+
+        const faqTitle = [data.prefix, data.middle_title, data.suffix]
+          .filter(Boolean)
+          .join(" ");
+
+        return (
+          <FaqSection
+            client:load
+            title={faqTitle}
+            items={items}
+            variant="about-us"
+          />
+        );
+      }
+
+      case EAboutUsSectionComponent.GLOBAL_SECTION: {
+        const globalData =
+          section as components["schemas"]["SectionsGlobalSectionComponent"];
+
+        const globalBlock =
+          globalData.global_section as unknown as components["schemas"]["GlobalBlock"];
+
+        const rawWidgets = globalBlock?.widgets as unknown as {
+          __component?: string;
+        }[];
+        const faqRaw = rawWidgets?.find(
+          (w) => w?.__component === "sections.faq"
+        );
+        const faqWidget = faqRaw as unknown as
+          | components["schemas"]["SectionsFaqComponent"]
+          | undefined;
+
+        if (faqWidget) {
+          const faqItems = (faqWidget.q_and_a ?? []).map((item, index) => ({
+            id: String(index + 1),
+            question: item.question,
+            answer: item.answer,
+          }));
+          const title = [
+            faqWidget.prefix,
+            faqWidget.middle_title,
+            faqWidget.suffix,
+          ]
+            .filter(Boolean)
+            .join(" ");
+
+          return (
+            <FaqSection
+              client:load
+              title={title}
+              items={faqItems}
+              variant="about-us"
+            />
+          );
+        }
+
+        const widgets = globalBlock?.widgets ?? [];
+        const hasWidget = (component: string): boolean =>
+          widgets.some(
+            (w) => "__component" in w && w.__component === component
+          );
+
+        let canonicalSectionId = globalData.section_id;
+        if (hasWidget("sections.achivements")) {
+          canonicalSectionId = "achievements";
+        } else if (hasWidget("global.trustpilot-reviews")) {
+          canonicalSectionId = "reviews";
+        } else if (hasWidget("sections.trust")) {
+          canonicalSectionId = "trust";
+        }
+
+        switch (canonicalSectionId) {
+          case "achievement":
+          case "achievements": {
+            const widget = globalBlock?.widgets?.find(
+              (w): w is components["schemas"]["SectionsAchivementsComponent"] =>
+                "__component" in w && w.__component === "sections.achivements"
+            );
+
+            if (widget) {
+              return (
+                <AchievementsSection
+                  lang={lang}
+                  variant="about-us"
+                  cmsTitle={widget.title}
+                  cmsItems={widget.achievement_item}
+                />
+              );
+            }
+
+            return <AchievementsSection lang={lang} variant="about-us" />;
+          }
+
+          case "reviews": {
+            const widget = globalBlock?.widgets?.find(
+              (
+                w
+              ): w is components["schemas"]["GlobalTrustpilotReviewsComponent"] =>
+                "__component" in w &&
+                w.__component === "global.trustpilot-reviews"
+            );
+
+            if (widget) {
+              const reviews = (widget.review_item ?? []).map((item, index) => ({
+                id: String(index + 1),
+                title: item.title,
+                text: item.description,
+                author: item.author,
+                date: item.date,
+              }));
+
+              return (
+                <ReviewsSection
+                  disableBackground
+                  lang={lang}
+                  variant="about-us"
+                  cmsTitle={widget.title}
+                  cmsReviews={reviews}
+                />
+              );
+            }
+
+            return (
+              <ReviewsSection
+                disableBackground
+                lang={lang}
+                variant="about-us"
+              />
+            );
+          }
+
+          case "cta": {
+            return (
+              <CTABannerSection
+                title=""
+                badges={[]}
+                buttonLabel=""
+                serviceType={EServiceType.CONVERTOR}
+                funnel={EFunnels.MAIN}
+                acceptedFormats={[InternalFileType.PDF]}
+              />
+            );
+          }
+
+          case "trust": {
+            const widget = globalBlock?.widgets?.find(
+              (w): w is components["schemas"]["SectionsTrustComponent"] =>
+                "__component" in w && w.__component === "sections.trust"
+            );
+
+            if (widget) {
+              const badges = (widget.image_item ?? []).map((item) => ({
+                id: item.image_id ?? String(item.id),
+                name: item.image_id ?? "",
+                iconPath: item.image?.url ?? "",
+                alt: item.image?.alternativeText ?? item.image_id ?? "",
+              }));
+
+              return (
+                <TrustSection
+                  disableBackground
+                  title={widget.title}
+                  badges={badges}
+                  variant="about-us"
+                />
+              );
+            }
+
+            return null;
+          }
+
+          case "faq": {
+            return null;
+          }
+
+          default:
+            console.warn(
+              `Unsupported global section: ${globalData.section_id}`
+            );
+
+            return null;
+        }
+      }
+
+      default:
+        console.warn(`Unsupported about-us section type: ${__component}`);
+
+        return null;
+    }
+  })
+}

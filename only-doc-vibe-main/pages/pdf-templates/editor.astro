@@ -1,0 +1,10 @@
+---
+import { defaultLocale } from "@/shared/config/locale";
+import { fetchEditorTemplates } from "@/shared/api/fetchers";
+
+import { TemplatesEditorPage } from "@/pages-layer/templatesEditor";
+
+const editorTemplates = await fetchEditorTemplates(defaultLocale);
+---
+
+<TemplatesEditorPage lang={defaultLocale} editorTemplates={editorTemplates} />

@@ -1,0 +1,204 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import type { ELanguages } from "@/shared/constants/languages";
+import { formatBlogDate } from "@/shared/lib/blog/format-date";
+import { getBlogAuthorUrl } from "@/shared/lib/navigation/get-blog-url";
+import type { IBlogArticle } from "@/shared/types/blog";
+import { AuthorAvatar } from "@/shared/ui/author-avatar";
+
+interface Props {
+  article: IBlogArticle;
+  locale: ELanguages;
+  readingTime: number;
+  byAuthorLabel: string;
+  readMinutesLabel: string;
+  publishedOnLabel: string;
+  lastUpdatedLabel: string;
+  viewsLabel: string;
+  className?: string;
+}
+
+const {
+  article,
+  locale,
+  readingTime,
+  byAuthorLabel,
+  readMinutesLabel,
+  publishedOnLabel,
+  lastUpdatedLabel,
+  viewsLabel,
+  className,
+} = Astro.props;
+
+const author = article.author;
+const authorHref = author ? getBlogAuthorUrl(locale, author.slug) : undefined;
+const publishedDate = formatBlogDate(article.publication_date, locale);
+const updatedDate = article.updatedAt
+  ? formatBlogDate(article.updatedAt, locale)
+  : undefined;
+const showLastUpdated = Boolean(updatedDate && updatedDate !== publishedDate);
+const views = article.views_number ?? 0;
+const formattedViews =
+  views > 0
+    ? viewsLabel.replace("{{count}}", views.toLocaleString(locale))
+    : "";
+const articleIcons = {
+  calendar: "/assets/icons/article-page/calendar-icon.svg",
+  clock: "/assets/icons/article-page/clock-icon.svg",
+  eye: "/assets/icons/article-page/eye-icon.svg",
+} as const;
+---
+
+<div
+  class={cn(
+    "flex flex-wrap items-center gap-x-5 gap-y-3 text-[14px] leading-[18px] text-[var(--color-text-secondary)]",
+    "max-md:flex-col max-md:flex-nowrap max-md:items-start max-md:gap-3",
+    className
+  )}
+>
+  {
+    author && (
+      <div class="flex min-w-0 items-center gap-2 max-md:order-2">
+        <AuthorAvatar author={author} size={32} />
+        {authorHref ? (
+          <a
+            href={authorHref}
+            class="text-[14px] leading-[18px] font-semibold break-words text-[var(--color-text-primary)] hover:underline"
+          >
+            {byAuthorLabel} {author.name}
+            {author.role && (
+              <>
+                <span class="max-md:hidden"> | </span>
+                <span class="md:hidden"> · </span>
+                {author.role}
+              </>
+            )}
+          </a>
+        ) : (
+          <span class="text-[14px] leading-[18px] font-semibold text-[var(--color-text-primary)]">
+            {byAuthorLabel} {author.name}
+            {author.role && (
+              <>
+                <span class="max-md:hidden"> | </span>
+                <span class="md:hidden"> · </span>
+                {author.role}
+              </>
+            )}
+          </span>
+        )}
+      </div>
+    )
+  }
+
+  <div
+    class="flex shrink-0 flex-wrap items-center gap-x-5 gap-y-2 max-md:hidden"
+  >
+    {
+      publishedDate && (
+        <span class="flex items-center gap-1 whitespace-nowrap">
+          <img
+            src={articleIcons.calendar}
+            alt=""
+            aria-hidden="true"
+            width="18"
+            height="18"
+            class="shrink-0 opacity-48"
+          />
+          {publishedOnLabel} {publishedDate}
+        </span>
+      )
+    }
+
+    {
+      showLastUpdated && updatedDate && (
+        <span class="flex items-center gap-1 whitespace-nowrap">
+          <img
+            src={articleIcons.calendar}
+            alt=""
+            aria-hidden="true"
+            width="18"
+            height="18"
+            class="shrink-0 opacity-48"
+          />
+          {lastUpdatedLabel} {updatedDate}
+        </span>
+      )
+    }
+
+    {
+      readingTime > 0 && (
+        <span class="flex items-center gap-1 whitespace-nowrap">
+          <img
+            src={articleIcons.clock}
+            alt=""
+            aria-hidden="true"
+            width="18"
+            height="18"
+            class="shrink-0 opacity-48"
+          />
+          {readMinutesLabel.replace("{{minutes}}", String(readingTime))}
+        </span>
+      )
+    }
+
+    {
+      formattedViews && (
+        <span class="flex items-center gap-1 whitespace-nowrap">
+          <img
+            src={articleIcons.eye}
+            alt=""
+            aria-hidden="true"
+            width="18"
+            height="18"
+            class="shrink-0 opacity-48"
+          />
+          {formattedViews}
+        </span>
+      )
+    }
+  </div>
+
+  <div
+    class="hidden flex-wrap items-center gap-x-2 gap-y-1 max-md:order-1 max-md:flex"
+  >
+    {
+      publishedDate && (
+        <span class="whitespace-nowrap">
+          {publishedOnLabel} {publishedDate}
+        </span>
+      )
+    }
+    {
+      showLastUpdated && updatedDate && (
+        <>
+          {publishedDate && <span aria-hidden="true">·</span>}
+          <span class="whitespace-nowrap">
+            {lastUpdatedLabel} {updatedDate}
+          </span>
+        </>
+      )
+    }
+    {
+      readingTime > 0 && (
+        <>
+          {(publishedDate || showLastUpdated) && (
+            <span aria-hidden="true">·</span>
+          )}
+          <span class="whitespace-nowrap">
+            {readMinutesLabel.replace("{{minutes}}", String(readingTime))}
+          </span>
+        </>
+      )
+    }
+    {
+      formattedViews && (
+        <>
+          {(publishedDate || showLastUpdated || readingTime > 0) && (
+            <span aria-hidden="true">·</span>
+          )}
+          <span class="whitespace-nowrap">{formattedViews}</span>
+        </>
+      )
+    }
+  </div>
+</div>

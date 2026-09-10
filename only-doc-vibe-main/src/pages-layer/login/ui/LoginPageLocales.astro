@@ -1,0 +1,18 @@
+---
+import type { ELanguages } from "@/shared/constants/languages";
+
+import { getLocalizedLoginPages } from "../api/get-login-static-routes";
+import BaseLoginPage from "./BaseLoginPage.astro";
+
+interface IParams {
+  lang: ELanguages;
+}
+
+export async function getLoginLocalesStaticPaths() {
+  return await getLocalizedLoginPages();
+}
+
+const { lang } = Astro.params as unknown as IParams;
+---
+
+<BaseLoginPage lang={lang} />

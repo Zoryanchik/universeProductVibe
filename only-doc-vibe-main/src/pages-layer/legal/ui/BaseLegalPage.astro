@@ -1,0 +1,54 @@
+---
+import { cn } from "@/shared/lib/utils/cn";
+import { MarkdownRenderer } from "@/shared/ui/markdown-renderer";
+import type { ELanguages } from "@/shared/constants/languages";
+import { EPageType } from "@/shared/constants/page-type";
+import { prepareSeoData } from "@/shared/lib/seo/prepare-seo-data";
+
+import { BasePage } from "../../base";
+import { fetchLegalPageData } from "../api/fetch-legal-page-data";
+
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Props {
+  lang: ELanguages;
+  slug: string;
+}
+
+const { lang, slug } = Astro.props;
+
+const { pageData, navbarData, footerData } = await fetchLegalPageData(
+  slug,
+  lang
+);
+
+if (!pageData) {
+  return;
+}
+
+const seoProps = prepareSeoData(
+  {
+    ...pageData.seo,
+    publishedAt: pageData.publishedAt,
+    updatedAt: pageData.updatedAt,
+  },
+  Astro.url.pathname,
+  EPageType.LEGAL,
+  lang
+);
+---
+
+<SeoBaseLayout {...seoProps} lang={lang}>
+  <BasePage lang={lang} navbarData={navbarData} footerData={footerData}>
+    <section
+      class={cn(
+        "relative flex w-full flex-col items-center overflow-hidden bg-white px-8 py-20",
+        "max-md:px-4 max-md:py-12"
+      )}
+    >
+      <div class="mx-auto flex w-full max-w-[900px] flex-col">
+        <MarkdownRenderer client:load content={pageData.content} />
+      </div>
+    </section>
+  </BasePage>
+</SeoBaseLayout>

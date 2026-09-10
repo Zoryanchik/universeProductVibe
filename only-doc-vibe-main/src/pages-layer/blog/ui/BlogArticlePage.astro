@@ -1,0 +1,304 @@
+---
+import { WEB_HOST } from "astro:env/client";
+
+import { createServerT } from "@/shared/lib/translations/server-t";
+import { calculateReadingTime } from "@/shared/lib/blog/calculate-reading-time";
+import {
+  annotateMarkdownWithTocIds,
+  extractToc,
+  normalizeBlogArticleContent,
+} from "@/shared/lib/blog/extract-toc";
+import {
+  splitContentForCta,
+  type InlineCtaPosition,
+} from "@/shared/lib/blog/split-content-for-cta";
+import { blocksToMarkdown } from "@/shared/lib/blog/blocks-to-markdown";
+import { generateSchema } from "@/shared/lib/seo/generate-schema";
+import { getHreflangsFromSlugMap } from "@/shared/lib/seo/get-hreflangs";
+import { EPageType } from "@/shared/constants/page-type";
+import type { ELanguages } from "@/shared/constants/languages";
+import { defaultLocale } from "@/shared/config/locale";
+import { cn } from "@/shared/lib/utils/cn";
+import {
+  getBlogAuthorUrl,
+  getBlogHomeUrl,
+  getLocaleHomeUrl,
+} from "@/shared/lib/navigation/get-blog-url";
+
+import { ArticleBody } from "@/widgets/blog";
+import { ArticleMeta } from "@/widgets/blog";
+import { BlogCtaBanner } from "@/widgets/blog";
+import { Breadcrumbs } from "@/widgets/blog";
+import { KeyTakeaways } from "@/widgets/blog";
+import { RelatedArticles } from "@/widgets/blog";
+import { StickyCtaCard } from "@/widgets/blog";
+import { TableOfContents } from "@/widgets/blog";
+
+import { resolveBlogLocale, resolveBlogSlug } from "../lib/resolve-blog-route";
+import BasePage from "../../base/ui/BasePage.astro";
+import { fetchBlogArticlePageData } from "../api/fetch-blog-article-data";
+
+import { DEFAULT_COVER_IMAGE } from "@/app/layout/seoLayout";
+import { SeoBaseLayout } from "@/app/layout/seoLayout";
+
+interface Props {
+  locale?: ELanguages;
+  slug?: string;
+  localeSlugMap?: Record<string, string>;
+}
+
+const { locale: propsLocale, slug: propsSlug, localeSlugMap } = Astro.props;
+
+const locale = resolveBlogLocale(propsLocale, Astro.params.lang);
+const slug = resolveBlogSlug(propsSlug, Astro.params.slug);
+
+if (!slug) {
+  return Astro.redirect("/404");
+}
+
+const data = await fetchBlogArticlePageData(slug, locale);
+
+if (!data.article) {
+  return Astro.redirect("/404");
+}
+
+const article = data.article;
+const t = createServerT(locale);
+const viewsLabel = t("seo.blog.views") as string;
+
+const mainContent = normalizeBlogArticleContent(
+  blocksToMarkdown(article.main_content)
+);
+
+const readingTime = article.reading_time ?? calculateReadingTime(mainContent);
+
+const toc = extractToc(mainContent);
+const annotatedContent = annotateMarkdownWithTocIds(mainContent, toc);
+
+const blogHomeUrl = getBlogHomeUrl(locale);
+const authorUrl = article.author
+  ? getBlogAuthorUrl(locale, article.author.slug)
+  : null;
+
+const breadcrumbItems = [
+  {
+    label: t("seo.blog.breadcrumbs_home") as string,
+    href: getLocaleHomeUrl(locale),
+  },
+  { label: t("seo.blog.breadcrumbs_blog") as string, href: blogHomeUrl },
+  { label: article.title },
+];
+
+const metaTitle = article.seo?.metaTitle ?? article.title;
+const metaDescription = article.seo?.metaDescription ?? article.subtitle ?? "";
+const coverImageUrl = article.bg_image?.url;
+const metaImage =
+  (article.seo?.metaImage as { url?: string } | undefined)?.url ??
+  coverImageUrl ??
+  DEFAULT_COVER_IMAGE;
+
+const canonicalUrl = `https://${WEB_HOST}${Astro.url.pathname}`;
+const { hreflangs } = localeSlugMap
+  ? getHreflangsFromSlugMap(
+      Object.fromEntries(
+        Object.entries(localeSlugMap).map(([loc, locSlug]) => [
+          loc,
+          `blog/${locSlug.replace(/^\//, "")}`,
+        ])
+      )
+    )
+  : { hreflangs: [] };
+
+const schema = generateSchema(
+  Astro.url.pathname,
+  metaDescription,
+  metaTitle,
+  EPageType.BLOG_ARTICLE,
+  undefined,
+  {
+    datePublished: article.publication_date,
+    dateModified: article.updatedAt,
+  },
+  {
+    article: {
+      imageUrl: metaImage,
+      authorName: article.author?.name,
+      authorUrl: authorUrl ?? undefined,
+    },
+  }
+);
+
+const seoProps = {
+  title: metaTitle,
+  description: metaDescription,
+  imageUrl: metaImage,
+  hreflangs,
+  canonicalUrl,
+  schema,
+};
+
+const ctaInline = article.cta_block_inline;
+const ctaSticky = article.cta_block_right ?? article.cta_block_inline;
+
+const ctaAfterSection =
+  article.cta_after_section != null ? Number(article.cta_after_section) : null;
+const ctaPosition: InlineCtaPosition | number =
+  ctaAfterSection != null && !Number.isNaN(ctaAfterSection)
+    ? ctaAfterSection
+    : "middle";
+
+const { before: contentBeforeCta, after: contentAfterCta } = splitContentForCta(
+  annotatedContent,
+  ctaPosition
+);
+---
+
+<SeoBaseLayout {...seoProps} lang={locale}>
+  {
+    coverImageUrl && (
+      <link
+        slot="head"
+        rel="preload"
+        as="image"
+        href={coverImageUrl}
+        fetchpriority="high"
+      />
+    )
+  }
+  <BasePage
+    lang={locale}
+    navbarData={data.navbarData}
+    footerData={data.footerData}
+    pageLocalizations={[defaultLocale]}
+  >
+    <!-- Full-bleed grey background -->
+    <div class="w-full bg-[#f2f2f7]">
+      <div
+        class={cn(
+          "mx-auto flex w-full max-w-[1440px] flex-col gap-6 overflow-x-clip px-8 py-12",
+          "max-md:gap-4 max-md:px-4 max-md:py-8"
+        )}
+      >
+        <!-- Hero: article header card with H1, meta, image -->
+        <header
+          class="flex w-full max-w-full min-w-0 items-stretch justify-between gap-8 overflow-hidden rounded-[28px] bg-white p-8 max-md:flex-col max-md:gap-4 max-md:p-4"
+        >
+          <!-- Left: breadcrumbs + H1 title + subtitle + meta -->
+          <div
+            class="flex w-full max-w-[668px] min-w-0 flex-col justify-between gap-10 max-md:order-1 max-md:max-w-full max-md:flex-1 max-md:gap-4"
+          >
+            <div class="flex flex-col gap-6 max-md:gap-3">
+              <Breadcrumbs items={breadcrumbItems} className="max-md:hidden" />
+
+              <div class="flex flex-col gap-2">
+                <h1
+                  class="text-[28px] leading-[34px] font-semibold tracking-normal text-[var(--color-text-primary)] max-md:text-[18px] max-md:leading-[22px]"
+                >
+                  {article.title}
+                </h1>
+                {
+                  article.subtitle && (
+                    <p class="text-body text-[var(--color-text-secondary)] max-md:text-[14px] max-md:leading-[18px]">
+                      {article.subtitle}
+                    </p>
+                  )
+                }
+              </div>
+            </div>
+
+            <!-- Author + meta row -->
+            <ArticleMeta
+              article={article}
+              locale={locale}
+              readingTime={readingTime}
+              byAuthorLabel={t("seo.blog.by_author") as string}
+              readMinutesLabel={t("seo.blog.read_time") as string}
+              publishedOnLabel={t("seo.blog.published_on") as string}
+              lastUpdatedLabel={t("seo.blog.last_updated") as string}
+              viewsLabel={viewsLabel}
+              className="justify-between"
+            />
+          </div>
+
+          <!-- Right: cover image (top on mobile via -order-1) -->
+          {
+            coverImageUrl ? (
+              <div class="relative w-full max-w-[526px] min-w-[280px] self-stretch overflow-hidden rounded-[16px] max-md:-order-1 max-md:h-[168px] max-md:max-w-full max-md:min-w-0 max-md:self-auto">
+                <img
+                  src={coverImageUrl}
+                  alt={article.bg_image?.alternativeText ?? article.title}
+                  width={article.bg_image?.width}
+                  height={article.bg_image?.height}
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            ) : (
+              <div class="w-full max-w-[526px] min-w-[280px] self-stretch rounded-[16px] bg-[var(--color-blog-hero-cover-bg)] max-md:-order-1 max-md:h-[168px] max-md:max-w-full max-md:min-w-0 max-md:self-auto" />
+            )
+          }
+        </header>
+
+        <!-- Content white card: TOC sidebar + article body + sticky CTA -->
+        <div
+          class="flex w-full max-w-full min-w-0 items-start gap-6 overflow-x-clip rounded-[28px] bg-white px-8 pt-8 pb-12 max-md:flex-col max-md:items-stretch max-md:px-4 max-md:py-6"
+        >
+          {
+            toc.length > 0 && (
+              <aside class="hidden w-[177px] shrink-0 md:block">
+                <div class="sticky top-24 flex flex-col gap-6">
+                  <TableOfContents
+                    client:load
+                    items={toc}
+                    title={t("seo.blog.toc_label") as string}
+                  />
+                </div>
+              </aside>
+            )
+          }
+
+          <!-- Center: article body -->
+          <article
+            class="flex w-full max-w-full min-w-0 flex-1 flex-col gap-12 overflow-x-clip max-md:gap-8"
+          >
+            {
+              article.key_takeaways && article.key_takeaways.length > 0 && (
+                <KeyTakeaways
+                  items={article.key_takeaways}
+                  title={t("seo.blog.key_takeaways") as string}
+                />
+              )
+            }
+
+            {contentBeforeCta && <ArticleBody content={contentBeforeCta} />}
+
+            {ctaInline && <BlogCtaBanner cta={ctaInline} variant="inline" />}
+
+            {contentAfterCta && <ArticleBody content={contentAfterCta} />}
+          </article>
+
+          <!-- Right: sticky CTA banner (desktop) -->
+          <aside class="hidden w-[280px] shrink-0 lg:block">
+            <div class="sticky top-24 flex flex-col gap-6">
+              {ctaSticky && <StickyCtaCard cta={ctaSticky} />}
+            </div>
+          </aside>
+        </div>
+
+        <!-- Related articles -->
+        {
+          data.relatedArticles.length > 0 && (
+            <RelatedArticles
+              articles={data.relatedArticles}
+              locale={locale}
+              title={t("seo.blog.related_articles") as string}
+              viewsLabel={viewsLabel}
+            />
+          )
+        }
+      </div>
+    </div>
+  </BasePage>
+</SeoBaseLayout>
